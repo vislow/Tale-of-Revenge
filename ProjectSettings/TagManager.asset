@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Player
+  - Damageable
+  - Projectile
+  - Spear
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Post Processing
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2985582345
+    locked: 0
+  - name: Enemy
+    uniqueID: 1761597427
+    locked: 0
+  - name: BackgroundEffects
+    uniqueID: 830402683
+    locked: 0
+  - name: Player
+    uniqueID: 1221305119
+    locked: 0
+  - name: Platforms
+    uniqueID: 195059689
+    locked: 0
+  - name: Foreground
+    uniqueID: 2821146057
+    locked: 0
+  - name: Foreground Effects
+    uniqueID: 1800026775
+    locked: 0
+  - name: UI
+    uniqueID: 3838701797
+    locked: 0

@@ -1,0 +1,783 @@
+fileFormatVersion: 2
+guid: 276055263378b9d4c918cd71d04d7ebb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6868210853677131319
+    second: ImpactSmoke_0
+  - first:
+      213: -562353846102138772
+    second: ImpactSmoke_1
+  - first:
+      213: -6807879646211613890
+    second: ImpactSmoke_2
+  - first:
+      213: 4395920141812912370
+    second: ImpactSmoke_3
+  - first:
+      213: 8199224267512287765
+    second: ImpactSmoke_4
+  - first:
+      213: -8960352883200819332
+    second: ImpactSmoke_5
+  - first:
+      213: 5226825408601954848
+    second: ImpactSmoke_6
+  - first:
+      213: -96664895444380273
+    second: ImpactSmoke_7
+  - first:
+      213: -2474068542357857178
+    second: ImpactSmoke_8
+  - first:
+      213: -3305480496912984
+    second: ImpactSmoke_9
+  - first:
+      213: -4719100801028437993
+    second: ImpactSmoke_10
+  - first:
+      213: -8954533413113521698
+    second: ImpactSmoke_11
+  - first:
+      213: -8324764058869258336
+    second: ImpactSmoke_12
+  - first:
+      213: 5579313141765577166
+    second: ImpactSmoke_13
+  - first:
+      213: 7838561278336794760
+    second: ImpactSmoke_14
+  - first:
+      213: -3350416769202004430
+    second: ImpactSmoke_15
+  - first:
+      213: 2360644058440206634
+    second: ImpactSmoke_16
+  - first:
+      213: 5247019118858870418
+    second: ImpactSmoke_17
+  - first:
+      213: -4205099033384668661
+    second: ImpactSmoke_18
+  - first:
+      213: -8090304815751634357
+    second: ImpactSmoke_19
+  - first:
+      213: 931265640031567871
+    second: ImpactSmoke_20
+  - first:
+      213: -6210965085311232239
+    second: ImpactSmoke_21
+  - first:
+      213: 8858844034468551754
+    second: ImpactSmoke_0
+  - first:
+      213: 3450006064466828132
+    second: ImpactSmoke_1
+  - first:
+      213: -247802366360566575
+    second: ImpactSmoke_2
+  - first:
+      213: 1881534847255800622
+    second: ImpactSmoke_3
+  - first:
+      213: -7955267253116657720
+    second: ImpactSmoke_4
+  - first:
+      213: -7836712024736112949
+    second: ImpactSmoke_5
+  - first:
+      213: 1339739378463677791
+    second: ImpactSmoke_6
+  - first:
+      213: 7460919546316943853
+    second: ImpactSmoke_7
+  - first:
+      213: 3651305282031439357
+    second: ImpactSmoke_8
+  - first:
+      213: -7072234044190426188
+    second: ImpactSmoke_9
+  - first:
+      213: -6218163492975350002
+    second: ImpactSmoke_10
+  - first:
+      213: -6415007480853749457
+    second: ImpactSmoke_11
+  - first:
+      213: -6071889734923523455
+    second: ImpactSmoke_12
+  - first:
+      213: 184444378774171817
+    second: ImpactSmoke_13
+  - first:
+      213: 978979050153445550
+    second: ImpactSmoke_14
+  - first:
+      213: 4683965273880808110
+    second: ImpactSmoke_15
+  - first:
+      213: -4185801503193335646
+    second: ImpactSmoke_16
+  - first:
+      213: 7880598193383312337
+    second: ImpactSmoke_17
+  - first:
+      213: -1292707275357711568
+    second: ImpactSmoke_18
+  - first:
+      213: 4945387100026298738
+    second: ImpactSmoke_19
+  - first:
+      213: -8769982616717228776
+    second: ImpactSmoke_20
+  - first:
+      213: -3083557351313664147
+    second: ImpactSmoke_21
+  - first:
+      213: 5081801640034769140
+    second: ImpactSmoke_22
+  - first:
+      213: 2163705905722065962
+    second: ImpactSmoke_23
+  - first:
+      213: -9160812118489997736
+    second: ImpactSmoke_24
+  - first:
+      213: -82972878155202330
+    second: ImpactSmoke_25
+  - first:
+      213: 3514106284444919619
+    second: ImpactSmoke_26
+  - first:
+      213: 4118168135288773243
+    second: ImpactSmoke_27
+  - first:
+      213: 6962151723289332289
+    second: ImpactSmoke_28
+  - first:
+      213: 7839055145783755125
+    second: ImpactSmoke_29
+  - first:
+      213: 3315412220621807968
+    second: ImpactSmoke_30
+  - first:
+      213: -7229943907019875098
+    second: PlayerLandingSmoke_0
+  - first:
+      213: -1458571353818666523
+    second: PlayerLandingSmoke_1
+  - first:
+      213: 6852620400868449888
+    second: PlayerLandingSmoke_2
+  - first:
+      213: 6492742549375408826
+    second: PlayerLandingSmoke_3
+  - first:
+      213: -5978789465477954790
+    second: PlayerLandingSmoke_4
+  - first:
+      213: 3744786742563642864
+    second: PlayerLandingSmoke_5
+  - first:
+      213: -3729640443410364663
+    second: PlayerLandingSmoke_6
+  - first:
+      213: 1539367212681091885
+    second: PlayerLandingSmoke_7
+  - first:
+      213: -7409981611229631564
+    second: PlayerLandingSmoke_8
+  - first:
+      213: -880072736076283067
+    second: PlayerLandingSmoke_9
+  - first:
+      213: 1845380741678491707
+    second: PlayerLandingSmoke_10
+  - first:
+      213: 1198835728357623656
+    second: PlayerLandingSmoke_11
+  - first:
+      213: 7111170692857485417
+    second: PlayerLandingSmoke_12
+  - first:
+      213: 3510340885617734264
+    second: PlayerLandingSmoke_13
+  - first:
+      213: 8578751600168641332
+    second: PlayerLandingSmoke_14
+  - first:
+      213: 6459041524548060075
+    second: PlayerLandingSmoke_15
+  - first:
+      213: 1689662693334847064
+    second: PlayerLandingSmoke_16
+  - first:
+      213: -5234018871590056676
+    second: PlayerLandingSmoke_17
+  - first:
+      213: -8362685771058533872
+    second: PlayerLandingSmoke_18
+  - first:
+      213: 1480740845021050513
+    second: PlayerLandingSmoke_19
+  - first:
+      213: 2145606438080633636
+    second: PlayerLandingSmoke_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec941c82541aab90800000000000000
+      internalID: -7229943907019875098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9e310e41d12cbe0800000000000000
+      internalID: -1458571353818666523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06edb56a2f5691f50800000000000000
+      internalID: 6852620400868449888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abad599d2fada1a50800000000000000
+      internalID: 6492742549375408826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13c65b78a2170da0800000000000000
+      internalID: -5978789465477954790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd191e93b728f330800000000000000
+      internalID: 3744786742563642864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9074896f6c7ad3cc0800000000000000
+      internalID: -3729640443410364663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b5db2f25eec5510800000000000000
+      internalID: 1539367212681091885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb2b7efbf47a2990800000000000000
+      internalID: -7409981611229631564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543caa5628a59c3f0800000000000000
+      internalID: -880072736076283067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38e71fd10c1c9910800000000000000
+      internalID: 1845380741678491707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8678dc44ebe13a010800000000000000
+      internalID: 1198835728357623656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96850fc8114ffa260800000000000000
+      internalID: 7111170692857485417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87276c7df6c37b030800000000000000
+      internalID: 3510340885617734264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433ad50d029dd0770800000000000000
+      internalID: 8578751600168641332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_15
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba34f2c8b0023a950800000000000000
+      internalID: 6459041524548060075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e04727443e27710800000000000000
+      internalID: 1689662693334847064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_17
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d0f2b31970d57b0800000000000000
+      internalID: -5234018871590056676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_18
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01aa7df3995c1fb80800000000000000
+      internalID: -8362685771058533872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_19
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19634e704f5ac8410800000000000000
+      internalID: 1480740845021050513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerLandingSmoke_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 32
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b569100b9b6cd10800000000000000
+      internalID: 2145606438080633636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

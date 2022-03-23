@@ -1,0 +1,687 @@
+fileFormatVersion: 2
+guid: 726b81b055dd60c429fc225cfa346268
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3871616998558865544
+    second: PlayerJumpSmoke_0
+  - first:
+      213: -5727785526988131379
+    second: PlayerJumpSmoke_1
+  - first:
+      213: -4438314935545653388
+    second: PlayerJumpSmoke_2
+  - first:
+      213: -6973514769785747039
+    second: PlayerJumpSmoke_3
+  - first:
+      213: 6864691952419600009
+    second: PlayerJumpSmoke_4
+  - first:
+      213: -47028095335570222
+    second: PlayerJumpSmoke_5
+  - first:
+      213: 387436849034636633
+    second: PlayerJumpSmoke_6
+  - first:
+      213: 8569491137377623901
+    second: PlayerJumpSmoke_7
+  - first:
+      213: -98224427468986122
+    second: PlayerJumpSmoke_8
+  - first:
+      213: -6808323800543040
+    second: PlayerJumpSmoke_9
+  - first:
+      213: 7390591688858137087
+    second: PlayerJumpSmoke_10
+  - first:
+      213: 5950579122449632239
+    second: PlayerJumpSmoke_11
+  - first:
+      213: 6550746647026845695
+    second: PlayerJumpSmoke_12
+  - first:
+      213: -6311672146076774362
+    second: PlayerJumpSmoke_13
+  - first:
+      213: -8680698432292743638
+    second: PlayerJumpSmoke_14
+  - first:
+      213: 7130303296526168790
+    second: PlayerJumpSmoke_15
+  - first:
+      213: 8181421633559719819
+    second: PlayerJumpSmoke_16
+  - first:
+      213: 9165663110474472712
+    second: PlayerJumpSmoke_17
+  - first:
+      213: 7292423513961348690
+    second: PlayerJumpSmoke_18
+  - first:
+      213: 4405287624779654050
+    second: PlayerJumpSmoke_19
+  - first:
+      213: 4474748103196335836
+    second: PlayerJumpSmoke_20
+  - first:
+      213: 8329033293312098951
+    second: PlayerJumpSmoke_0
+  - first:
+      213: -6783582441760624969
+    second: PlayerJumpSmoke_1
+  - first:
+      213: -359431877328798833
+    second: PlayerJumpSmoke_2
+  - first:
+      213: 543641488326075603
+    second: PlayerJumpSmoke_3
+  - first:
+      213: -2289452348004448876
+    second: PlayerJumpSmoke_4
+  - first:
+      213: -5408494970696943842
+    second: PlayerJumpSmoke_5
+  - first:
+      213: 6980351851282661391
+    second: PlayerJumpSmoke_6
+  - first:
+      213: 7897141086794240723
+    second: PlayerJumpSmoke_7
+  - first:
+      213: -3376749415321827464
+    second: PlayerJumpSmoke_8
+  - first:
+      213: 3729868102091887927
+    second: PlayerJumpSmoke_9
+  - first:
+      213: 4216807719790120310
+    second: PlayerJumpSmoke_10
+  - first:
+      213: -1958001010180306642
+    second: PlayerJumpSmoke_11
+  - first:
+      213: -4293768664231342877
+    second: PlayerJumpSmoke_12
+  - first:
+      213: 1845815813154248876
+    second: PlayerJumpSmoke_13
+  - first:
+      213: 6674045012594556992
+    second: PlayerJumpSmoke_14
+  - first:
+      213: -7378116823652980562
+    second: PlayerJumpSmoke_15
+  - first:
+      213: 2567881352271336081
+    second: PlayerJumpSmoke_16
+  - first:
+      213: 6804396474764071183
+    second: PlayerJumpSmoke_17
+  - first:
+      213: 760863871945029555
+    second: PlayerJumpSmoke_18
+  - first:
+      213: 5572350255682308557
+    second: PlayerJumpSmoke_19
+  - first:
+      213: -2992710726467147596
+    second: PlayerJumpSmoke_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7820542b6aba69370800000000000000
+      internalID: 8329033293312098951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bee74ec5bfdbd1a0800000000000000
+      internalID: -6783582441760624969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_2
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b7dd6ac9a030bf0800000000000000
+      internalID: -359431877328798833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_3
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d427d4ad076b8700800000000000000
+      internalID: 543641488326075603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_4
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495c203383b3a30e0800000000000000
+      internalID: -2289452348004448876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_5
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e173f16ca7a21f4b0800000000000000
+      internalID: -5408494970696943842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_6
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0081f676013fd060800000000000000
+      internalID: 6980351851282661391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_7
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d253834af7489d60800000000000000
+      internalID: 7897141086794240723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_8
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8770c3c2c406321d0800000000000000
+      internalID: -3376749415321827464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_9
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7355f34f64723c330800000000000000
+      internalID: 3729868102091887927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_10
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d0730974c158a30800000000000000
+      internalID: 4216807719790120310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_11
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29c8568478c3d4e0800000000000000
+      internalID: -1958001010180306642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_12
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec89c436287964c0800000000000000
+      internalID: -4293768664231342877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_13
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca89bd7d3b7ad9910800000000000000
+      internalID: 1845815813154248876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_14
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0408aae0498fe9c50800000000000000
+      internalID: 6674045012594556992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_15
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8a4def6d9ab9990800000000000000
+      internalID: -7378116823652980562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_16
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1929b731c72f2a320800000000000000
+      internalID: 2567881352271336081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_17
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f019b35ea821e6e50800000000000000
+      internalID: 6804396474764071183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_18
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b736b909a12f8a00800000000000000
+      internalID: 760863871945029555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_19
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc94002b807f45d40800000000000000
+      internalID: 5572350255682308557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerJumpSmoke_20
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 0
+        width: 59
+        height: 42
+      alignment: 9
+      pivot: {x: 0.3728814, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8ac694371c776d0800000000000000
+      internalID: -2992710726467147596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,747 @@
+fileFormatVersion: 2
+guid: f6df3c5de37569a46a9a0bca8a256ecb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6914077731944085201
+    second: InteractPopup_0
+  - first:
+      213: -510276032008501112
+    second: InteractPopup_1
+  - first:
+      213: 3674658180541252647
+    second: InteractPopup_2
+  - first:
+      213: 1982445729019245037
+    second: InteractPopup_3
+  - first:
+      213: 1936627147662184499
+    second: InteractPopup_4
+  - first:
+      213: -2227665326007403118
+    second: InteractPopup_5
+  - first:
+      213: -2254284087585322885
+    second: InteractPopup_6
+  - first:
+      213: 2350832201922627382
+    second: InteractPopup_7
+  - first:
+      213: 6417229334790271936
+    second: InteractPopup_8
+  - first:
+      213: 2041547280001854653
+    second: InteractPopup_9
+  - first:
+      213: 6978557702353969040
+    second: InteractPopup_10
+  - first:
+      213: -3897809926086033272
+    second: InteractPopup_11
+  - first:
+      213: -8105818216415385334
+    second: InteractPopup_12
+  - first:
+      213: -798611612478334773
+    second: InteractPopup_13
+  - first:
+      213: 8764471152594243245
+    second: InteractPopup_14
+  - first:
+      213: -8379250149108739323
+    second: InteractPopup_15
+  - first:
+      213: 6840318805287756669
+    second: InteractPopup_16
+  - first:
+      213: -1078205185151934190
+    second: InteractPopup_17
+  - first:
+      213: 7817283792520938301
+    second: InteractPopup_18
+  - first:
+      213: 1242299078814948370
+    second: InteractPopup_19
+  - first:
+      213: 5593085766713530179
+    second: InteractPopup_20
+  - first:
+      213: -2049915287307587691
+    second: InteractPopup_21
+  - first:
+      213: 1712300628805859697
+    second: InteractPopup_22
+  - first:
+      213: -7866711083783226993
+    second: InteractPopup_23
+  - first:
+      213: -5187456419831323814
+    second: InteractPopup_24
+  - first:
+      213: 7593116850323468442
+    second: InteractPopup_25
+  - first:
+      213: 7712557019696511016
+    second: InteractPopup_26
+  - first:
+      213: 7066426847730950145
+    second: InteractPopup_27
+  - first:
+      213: -1979485084511703816
+    second: InteractPopup_28
+  - first:
+      213: -3372783778932019761
+    second: InteractPopup_29
+  - first:
+      213: -2911580160734652749
+    second: InteractPopup_30
+  - first:
+      213: 4535391806622738902
+    second: InteractPopup_31
+  - first:
+      213: 7765512931297186700
+    second: InteractPopup_32
+  - first:
+      213: 8074028278861871451
+    second: InteractPopup_33
+  - first:
+      213: -4957130661209612351
+    second: InteractPopup_34
+  - first:
+      213: -5414668612775500472
+    second: InteractPopup_35
+  - first:
+      213: -3214130159284006123
+    second: InteractPopup_36
+  - first:
+      213: 9002115573904077639
+    second: InteractPopup_37
+  - first:
+      213: 5882652925378666714
+    second: InteractPopup_38
+  - first:
+      213: -7945045149216805977
+    second: InteractPopup_39
+  - first:
+      213: -3845348853357623179
+    second: InteractPopup_40
+  - first:
+      213: 5104779759789096182
+    second: InteractPopup_41
+  - first:
+      213: 7633572643068943955
+    second: InteractPopup_42
+  - first:
+      213: -7832422404693341438
+    second: InteractPopup_43
+  - first:
+      213: 1895084507959933669
+    second: InteractPopup_44
+  - first:
+      213: -3939724489836921669
+    second: InteractPopup_45
+  - first:
+      213: 5735488966506000279
+    second: InteractPopup_46
+  - first:
+      213: 1078299532993096502
+    second: InteractPopup_47
+  - first:
+      213: 6953052748254504070
+    second: InteractPopup_48
+  - first:
+      213: 2982223613595426556
+    second: InteractPopup_49
+  - first:
+      213: 344765085387298037
+    second: InteractPopup_50
+  - first:
+      213: 7851463427551051572
+    second: InteractPopup_51
+  - first:
+      213: 5472553490405658927
+    second: InteractPopup_52
+  - first:
+      213: -7798209496703734956
+    second: InteractPopup_53
+  - first:
+      213: -4369156287360402000
+    second: InteractPopup_54
+  - first:
+      213: 6225511652552972465
+    second: InteractPopup_55
+  - first:
+      213: -1971190270581949489
+    second: InteractPopup_56
+  - first:
+      213: 7862840623035034200
+    second: InteractPopup_57
+  - first:
+      213: 3675862474814883203
+    second: InteractPopup_58
+  - first:
+      213: 660838505389186428
+    second: InteractPopup_59
+  - first:
+      213: 2459344511582603385
+    second: InteractPopup_60
+  - first:
+      213: 2259667074418331481
+    second: InteractPopup_61
+  - first:
+      213: -6979630579960446764
+    second: InteractPopup_62
+  - first:
+      213: -8678327993049065529
+    second: InteractPopup_63
+  - first:
+      213: 6452413336098097042
+    second: InteractPopup_64
+  - first:
+      213: -1192891626549205757
+    second: InteractPopup_65
+  - first:
+      213: -4597667749468612574
+    second: InteractPopup_66
+  - first:
+      213: -6367640814468463239
+    second: InteractPopup_67
+  - first:
+      213: -2194149401420472541
+    second: InteractPopup_68
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: InteractPopup_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d637f9901db3ff50800000000000000
+      internalID: 6914077731944085201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888ccb607a22be8f0800000000000000
+      internalID: -510276032008501112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724052265220ff230800000000000000
+      internalID: 3674658180541252647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de1bea813ef038b10800000000000000
+      internalID: 1982445729019245037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33058ce412840ea10800000000000000
+      internalID: 1936627147662184499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_5
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29dbfdc403eb511e0800000000000000
+      internalID: -2227665326007403118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7849a8e09c27b0e0800000000000000
+      internalID: -2254284087585322885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_7
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637c522be65df9020800000000000000
+      internalID: 2350832201922627382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_8
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3f36e74149e0950800000000000000
+      internalID: 6417229334790271936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_9
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbceca04f68055c10800000000000000
+      internalID: 2041547280001854653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_10
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fdf5d9141d8d060800000000000000
+      internalID: 6978557702353969040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_11
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88086a1168238e9c0800000000000000
+      internalID: -3897809926086033272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_12
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a09aba45749528f80800000000000000
+      internalID: -8105818216415385334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_13
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc81abc38f2cae4f0800000000000000
+      internalID: -798611612478334773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_14
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daec98eb318a1a970800000000000000
+      internalID: 8764471152594243245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_15
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5031c32726ce6bb80800000000000000
+      internalID: -8379250149108739323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_16
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73e99b36b1bdee50800000000000000
+      internalID: 6840318805287756669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_17
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211e800c8127901f0800000000000000
+      internalID: -1078205185151934190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_18
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3301a901329c7c60800000000000000
+      internalID: 7817283792520938301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InteractPopup_19
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 0
+        width: 46
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21c5f812e688d3110800000000000000
+      internalID: 1242299078814948370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
