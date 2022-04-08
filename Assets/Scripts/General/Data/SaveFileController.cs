@@ -14,7 +14,6 @@ public class SaveFileController : MonoBehaviour
     public GameObject clearSaveButton;
     public GameObject startButton;
 
-    private SaveManager saveManager { get => SaveManager.instance; }
     private TextMeshProUGUI startButtonText;
     private SaveData saveData;
     private bool hasData;
@@ -24,7 +23,7 @@ public class SaveFileController : MonoBehaviour
 
     private void Awake()
     {
-        hasData = SaveManager.GetSaveExists(fileName);
+        hasData = SaveHelper.GetSaveExists(fileName);
 
         startButtonText = startButton.GetComponent<TextMeshProUGUI>();
 
@@ -43,9 +42,9 @@ public class SaveFileController : MonoBehaviour
     {
         if (!hasData)
         {
-            saveManager.Save(fileName);
-            saveManager.currentSave.levelData.currentLevel = 3;
-            saveManager.Save();
+            SaveHelper.Save(fileName);
+            SaveHelper.CurrentSave.levelData.currentLevel = 3;
+            SaveHelper.Save();
         }
 
         LoadSave();
@@ -53,15 +52,15 @@ public class SaveFileController : MonoBehaviour
 
     public void LoadSave()
     {
-        saveManager.Load(fileName);
-        LevelLoader.instance.LoadLevel(saveManager.currentSave.levelData.currentLevel, true);
+        SaveHelper.Load(fileName);
+        LevelLoader.instance.LoadLevel(SaveHelper.CurrentSave.levelData.currentLevel, true);
     }
 
     public void ClearSave()
     {
-        saveManager.ClearSaveData(fileName);
+        SaveHelper.ClearSaveData(fileName);
 
-        hasData = SaveManager.GetSaveExists(fileName);
+        hasData = SaveHelper.GetSaveExists(fileName);
 
         SetButtonVisibility();
 

@@ -3,14 +3,14 @@ using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
 
-namespace Data
+namespace Data.Saving
 {
     public class SaveManager : MonoBehaviour
     {
         /// <Description> Variables </Description>
 
         public static SaveManager instance;
-        
+
         public static Action OnPreGameSaved;
 
         [SerializeField] private bool debug;
@@ -104,13 +104,5 @@ namespace Data
         {
             return File.Exists(instance.GetFilePath(saveName));
         }
-    }
-
-    public enum SaveNames
-    {
-        Save1,
-        Save2,
-        Save3,
-        Save4,
     }
 }

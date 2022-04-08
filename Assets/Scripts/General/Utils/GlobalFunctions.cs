@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using Data;
+
 namespace Utils
 {
     public class GlobalFunctions : MonoBehaviour

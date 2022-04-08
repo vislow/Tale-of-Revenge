@@ -19,7 +19,6 @@ namespace UI.Gameplay
         [SerializeField] private MenuManager menuManager;
 
         private PlayerControls controls;
-        private SaveManager saveManager { get => SaveManager.instance; }
 
         /// <Description> Methods </Description>
         /// <Description> Unity Methods </Description>
@@ -30,16 +29,16 @@ namespace UI.Gameplay
 
             controls.UI.Pause.performed += context => OnCancel();
 
-            if (IsPaused())
-            {
-                UnPause();
-            }
+            if (!IsPaused()) return;
+
+            UnPause();
         }
 
         private void Start()
         {
-            if (pauseMenu.activeSelf)
-                pauseMenu.SetActive(false);
+            if (!pauseMenu.activeSelf) return;
+
+            pauseMenu.SetActive(false);
         }
 
         private void OnEnable()
@@ -50,34 +49,35 @@ namespace UI.Gameplay
 
         private void OnApplicationQuit()
         {
-            saveManager.currentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
-            saveManager.Save();
+            SaveHelper.CurrentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
+            SaveHelper.Save();
         }
 
         /// <Description> Custom Methods </Description>
 
         private void OnCancel()
         {
-            if (IsPaused())
-            {
-                if (menuManager.currentActivePage == mainPageController)
-                {
-                    UnPause();
-                }
-                else
-                {
-                    menuManager.currentActivePage.backButton.ChangePage();
-                }
-            }
-            else
+            if (!IsPaused())
             {
                 Pause();
+                return;
             }
+
+            var currentPage = menuManager.currentActivePage;
+
+            if (currentPage != mainPageController)
+            {
+                currentPage.backButton.ChangePage();
+                return;
+            }
+
+            UnPause();
         }
 
         public void UnPause()
         {
             GameStateManager.SetState(GameState.Gameplay);
+
             pauseMenu.SetActive(false);
         }
 
@@ -85,8 +85,10 @@ namespace UI.Gameplay
         {
             pauseMenu.SetActive(true);
 
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(onPauseSelectedObject);
+            EventSystem eventSystem = EventSystem.current;
+
+            eventSystem.SetSelectedGameObject(null);
+            eventSystem.SetSelectedGameObject(onPauseSelectedObject);
 
             GameStateManager.SetState(GameState.Paused);
         }
@@ -96,15 +98,15 @@ namespace UI.Gameplay
 
         public void QuitToMainMenu()
         {
-            saveManager.currentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
-            saveManager.Save();
+            SaveHelper.CurrentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
+            SaveHelper.Save();
 
             LevelLoader.instance.LoadLevel(1);
         }
 
         public void QuitToDesktop()
         {
-            saveManager.currentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
+            SaveHelper.CurrentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
