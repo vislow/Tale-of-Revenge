@@ -33,7 +33,7 @@ namespace GameManagement
 
         private void SetInitialGameState()
         {
-            int sceneIndex = Utils.GlobalFunctions.GetActiveSceneIndex();
+            int sceneIndex = Utility.Utils.GetActiveSceneIndex();
 
             SetState(GameState.Gameplay);
         }

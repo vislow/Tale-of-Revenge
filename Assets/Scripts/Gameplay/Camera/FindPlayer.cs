@@ -1,41 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using Player;
 
-namespace Cameras {
+namespace Cameras
+{
     [RequireComponent(typeof(CinemachineVirtualCamera))]
-    public class FindPlayer : MonoBehaviour {
+    public class FindPlayer : MonoBehaviour
+    {
+        /// <Description> Variables </Description>
+
         private CinemachineVirtualCamera mainCam;
 
         [SerializeField] private bool debug;
 
         private PlayerManager player;
 
-        private void Awake() {
-            mainCam = GetComponent<CinemachineVirtualCamera>();
-        }
+        /// <Description> Methods </Description>
+        /// <Description> Unity Methods </Description>
 
-        private void Start() {
-            InvokeRepeating(nameof(LookForPlayer), 0, 0.05f);
-        }
+        private void Awake() => mainCam = GetComponent<CinemachineVirtualCamera>();
 
-        private void LookForPlayer() {
-            if (debug)
-                Debug.Log("Looking for player");
+        private void Start() => InvokeRepeating(nameof(LookForPlayer), 0, 0.05f);
 
+        /// <Description> Custom Methods </Description>
+
+        private void LookForPlayer()
+        {
             if (player != null) return;
 
             player = FindObjectOfType<PlayerManager>();
+
+            if (player == null) return;
 
             Transform playerTransform = player.transform;
 
             mainCam.LookAt = playerTransform;
             mainCam.Follow = playerTransform;
             mainCam.transform.position = playerTransform.position;
-
-            if (player != null) return;
 
             CancelInvoke();
         }

@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 
 using Data;
-using Utils;
+using Utility;
 using UI.Pages;
 using LevelLoading;
 using GameManagement;
@@ -49,7 +49,7 @@ namespace UI.Gameplay
 
         private void OnApplicationQuit()
         {
-            SaveHelper.CurrentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
+            SaveHelper.CurrentSave.levelData.currentLevel = Utils.GetActiveSceneIndex();
             SaveHelper.Save();
         }
 
@@ -98,7 +98,7 @@ namespace UI.Gameplay
 
         public void QuitToMainMenu()
         {
-            SaveHelper.CurrentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
+            SaveHelper.CurrentSave.levelData.currentLevel = Utils.GetActiveSceneIndex();
             SaveHelper.Save();
 
             LevelLoader.instance.LoadLevel(1);
@@ -106,7 +106,7 @@ namespace UI.Gameplay
 
         public void QuitToDesktop()
         {
-            SaveHelper.CurrentSave.levelData.currentLevel = GlobalFunctions.GetActiveSceneIndex();
+            SaveHelper.CurrentSave.levelData.currentLevel = Utils.GetActiveSceneIndex();
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif

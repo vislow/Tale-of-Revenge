@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using Utils;
+using Utility;
 using LevelLoading;
 
 namespace GameManagement.Preload
@@ -30,7 +30,7 @@ namespace GameManagement.Preload
 
         private void Start()
         {
-            if (GlobalFunctions.GetActiveSceneIndex() != 0)
+            if (Utils.GetActiveSceneIndex() != 0)
                 return;
 
             LevelLoader.instance.LoadNextLevel(loadingScreen: false);

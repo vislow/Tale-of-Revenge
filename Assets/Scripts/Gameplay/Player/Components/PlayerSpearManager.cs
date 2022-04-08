@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
-using Entities.Projectiles.Player;
-using Cameras;
 using UnityEngine.InputSystem;
-using Data;
+
+using Entities.Projectiles.Player;
 
 namespace Player.Components
 {
@@ -53,28 +51,28 @@ namespace Player.Components
             {
                 float distanceToSpear = Vector2.Distance(transform.position, currentSpearObject.transform.position);
 
-                if (distanceToSpear > maxSpearRange || (context.performed && spearRetractDelayCounter <= 0))
-                {
-                    RetractSpear();
-                }
+                bool spearInRange = distanceToSpear <= maxSpearRange;
+
+                if (spearInRange && (!context.performed || spearRetractDelayCounter >= 0)) return;
+
+                RetractSpear();
             }
             else
             {
-                if (context.performed && spearThrowDelayCounter <= 0)
-                {
-                    spearActive = true;
+                if (!context.performed || spearThrowDelayCounter > 0) return;
 
-                    OnSpearThrown?.Invoke();
+                spearActive = true;
 
-                    currentSpearObject = Instantiate(spearPrefab, GetSpearStartPosition(), GetSpearStartRotation());
+                OnSpearThrown?.Invoke();
 
-                    currentSpear = currentSpearObject.GetComponent<SpearProjectile>();
+                currentSpearObject = Instantiate(spearPrefab, GetSpearStartPosition(), GetSpearStartRotation());
 
-                    currentSpear.speed = spearVelocity;
+                currentSpear = currentSpearObject.GetComponent<SpearProjectile>();
 
-                    currentSpear.OnSpearDestroyed += OnSpearDestroyed;
-                    currentSpear.OnSpearDestroyed += OnSpearHitObject;
-                }
+                currentSpear.speed = spearVelocity;
+
+                currentSpear.OnSpearDestroyed += OnSpearDestroyed;
+                currentSpear.OnSpearDestroyed += OnSpearHitObject;
             }
         }
 
@@ -86,7 +84,7 @@ namespace Player.Components
 
         private Quaternion GetSpearStartRotation()
         {
-            Vector3 aimDir = MouseWorldPosition.instance.GetMouseWorldPosition() - center.position;
+            Vector3 aimDir = Utility.Utils.MouseWorldPosition - center.position;
 
             float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
@@ -97,7 +95,7 @@ namespace Player.Components
 
         private Vector3 GetSpearStartPosition()
         {
-            Vector3 aimDir = (MouseWorldPosition.instance.GetMouseWorldPosition() - center.position).normalized;
+            Vector3 aimDir = (Utility.Utils.MouseWorldPosition - center.position).normalized;
             Vector3 centerPos = center.position;
             Vector3 spearOriginPosition = centerPos + (aimDir * spearOffsetDistance);
 
@@ -123,28 +121,27 @@ namespace Player.Components
             spearThrowDelayCounter = spearThrowDelay;
         }
 
-        private void OnSpearHitObject()
-            => spearRetractDelayCounter = spearRetractDelay;
+        private void OnSpearHitObject() => spearRetractDelayCounter = spearRetractDelay;
 
-        private void OnDrawGizmos()
-        {
-            if (!debug || MouseWorldPosition.instance == null) return;
+        // private void OnDrawGizmos()
+        // {
+        //     if (!debug) return;
 
-            Vector3 centerPos = center.position;
-            Vector3 aimDir = (MouseWorldPosition.instance.GetMouseWorldPosition() - centerPos).normalized;
+        //     Vector3 centerPos = center.position;
+        //     Vector3 aimDir = (Utils.MouseWorldPosition - centerPos).normalized;
 
-            Vector3 spearOriginPosition = centerPos + (aimDir * spearOffsetDistance);
+        //     Vector3 spearOriginPosition = centerPos + (aimDir * spearOffsetDistance);
 
-            RaycastHit2D hit = Physics2D.Raycast(centerPos, aimDir, Mathf.Infinity, collision.groundLayer);
+        //     RaycastHit2D hit = Physics2D.Raycast(centerPos, aimDir, Mathf.Infinity, collision.groundLayer);
 
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(GetSpearStartPosition(), 0.2f);
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(center.position, 0.2f);
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(MouseWorldPosition.instance.GetMouseWorldPosition(), 0.2f);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(hit.point, 0.2f);
-        }
+        //     Gizmos.color = Color.green;
+        //     Gizmos.DrawWireSphere(GetSpearStartPosition(), 0.2f);
+        //     Gizmos.color = Color.red;
+        //     Gizmos.DrawWireSphere(center.position, 0.2f);
+        //     Gizmos.color = Color.yellow;
+        //     Gizmos.DrawWireSphere(Utils.MouseWorldPosition, 0.2f);
+        //     Gizmos.color = Color.blue;
+        //     Gizmos.DrawWireSphere(hit.point, 0.2f);
+        // }
     }
 }

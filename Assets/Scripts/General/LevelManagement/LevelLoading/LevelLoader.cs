@@ -40,7 +40,7 @@ namespace LevelLoading
 
         public void LoadNextLevel(bool loadingScreen = true)
         {
-            int nextSceneIndex = Utils.GlobalFunctions.GetActiveSceneIndex() + 1;
+            int nextSceneIndex = Utility.Utils.GetActiveSceneIndex() + 1;
 
             LoadLevel(nextSceneIndex, loadingScreen);
         }
@@ -126,7 +126,7 @@ namespace LevelLoading
 
         private void SetGameState()
         {
-            int sceneIndex = Utils.GlobalFunctions.GetActiveSceneIndex();
+            int sceneIndex = Utility.Utils.GetActiveSceneIndex();
 
             GameState gameState = default;
 

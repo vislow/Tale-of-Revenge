@@ -1,4 +1,3 @@
-using UnityEngine;
 using Data.Saving;
 
 namespace Data
@@ -7,8 +6,7 @@ namespace Data
     {
         /// <Description> Variables </Description>
 
-        public static SaveData CurrentSave => CurrentSaveAvailable
-                ? SaveManager.instance.currentSave : new SaveData();
+        public static SaveData CurrentSave => CurrentSaveAvailable ? SaveManager.instance.currentSave : new SaveData();
 
         public static bool CurrentSaveAvailable
         {
@@ -16,7 +14,7 @@ namespace Data
             {
                 SaveManager saveManager = SaveManager.instance;
 
-                return saveManager == null || saveManager.currentSave == null;
+                return saveManager != null && saveManager.currentSave != null;
             }
         }
 
@@ -26,14 +24,14 @@ namespace Data
 
         public static void Save()
         {
-            if (saveManager == null) return;
+            if (!CurrentSaveAvailable) return;
 
             saveManager.Save();
         }
 
         public static void Save(SaveNames saveName)
         {
-            if (saveManager == null) return;
+            if (!CurrentSaveAvailable) return;
 
             saveManager.Save(saveName);
         }
