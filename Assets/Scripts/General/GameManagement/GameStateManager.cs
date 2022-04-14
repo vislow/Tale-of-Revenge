@@ -5,6 +5,8 @@ namespace GameManagement
 {
     public class GameStateManager : MonoBehaviour
     {
+        public static GameStateManager instance;
+
         public static GameState CurrentGameState { get; private set; }
 
         public GameState currentGameState;
@@ -13,6 +15,15 @@ namespace GameManagement
 
         private void Awake()
         {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+
             SetInitialGameState();
         }
 
