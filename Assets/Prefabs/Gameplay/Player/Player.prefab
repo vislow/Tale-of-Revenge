@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 1274148175616414733}
   - component: {fileID: 1274148175616414732}
   - component: {fileID: 1274148175616414731}
-  - component: {fileID: 1274148175616414728}
   - component: {fileID: 1274148175616414727}
   - component: {fileID: 1274148175616414726}
   - component: {fileID: 1274148175616414725}
@@ -199,7 +198,7 @@ MonoBehaviour:
     m_ActionName: UI/Menu[/Keyboard/tab]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1274148175616414728}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player.Components.SpearManager, Assembly-CSharp
         m_MethodName: OnSpear
         m_Mode: 0
@@ -255,7 +254,6 @@ MonoBehaviour:
     combat: {fileID: 1274148175616414733}
     controller: {fileID: 1274148175616414731}
     deathManager: {fileID: 1274148175616414727}
-    spearManager: {fileID: 1274148175616414728}
     knockback: {fileID: 1274148175616414726}
     animation: {fileID: 1274148175616414735}
     collision: {fileID: 1274148175616414732}
@@ -379,42 +377,6 @@ MonoBehaviour:
   runParticleMinDelay: 0.1
   dashSpeed: 3500
   dashTime: 0.08
---- !u!114 &1274148175616414728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274148175616414720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46932d2a234b3ae47a069facfae31856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug: 1
-  spearPrefab: {fileID: 8701092326731975844, guid: 40d2637dc61bfcb40bfe2eb219f3bb3e,
-    type: 3}
-  spearSpawnOffset: {x: 0, y: 0.15}
-  spearVelocity: 150
-  spearOffsetDistance: 4
-  maxSpearRange: 30
-  spearThrowDelay: 0.15
-  spearRetractDelay: 0.08
-  OnSpearThrown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1274148175616414731}
-        m_TargetAssemblyTypeName: Player.Components.Controller, Assembly-CSharp
-        m_MethodName: SpearHop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1274148175616414727
 MonoBehaviour:
   m_ObjectHideFlags: 0

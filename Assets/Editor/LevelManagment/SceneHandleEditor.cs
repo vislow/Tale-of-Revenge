@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-
-using LevelLoading.ScriptableObjects;
+using Root.LevelLoading.ScriptableObjects;
 
 [CustomEditor(typeof(SceneHandle))]
 public class SceneHandleEditor : Editor

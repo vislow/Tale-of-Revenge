@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-using GameManagement;
+using Root.GameManagement;
 
 public class GameManagerWindow : EditorWindow
 {

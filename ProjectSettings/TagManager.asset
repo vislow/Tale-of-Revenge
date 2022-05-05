@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Spear
   layers:
   - Default
   - TransparentFX
