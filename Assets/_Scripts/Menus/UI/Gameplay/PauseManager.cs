@@ -36,11 +36,9 @@ namespace UI.Gameplay
             pauseMenu.SetActive(false);
         }
 
-        private void OnEnable()
-            => controls.Enable();
+        private void OnEnable() => controls.Enable();
 
-        private void OnDisable()
-            => controls.Disable();
+        private void OnDisable() => controls.Disable();
 
         private void OnApplicationQuit()
         {
@@ -86,15 +84,14 @@ namespace UI.Gameplay
             GameStateManager.SetState(GameState.Paused);
         }
 
-        private bool IsPaused()
-            => GameStateManager.CurrentGameState == GameState.Paused;
+        private bool IsPaused() => GameStateManager.CurrentGameState == GameState.Paused;
 
         public void QuitToMainMenu()
         {
             SaveHelper.CurrentSave.levelData.currentLevel = Utils.GetActiveSceneIndex();
             SaveHelper.Save();
 
-            LevelLoader.instance.LoadLevel(1);
+            LevelManager.instance.LoadLevel(0);
         }
 
         public void QuitToDesktop()
