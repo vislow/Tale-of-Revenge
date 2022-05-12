@@ -22,19 +22,15 @@ namespace Root.Player.Components
         }
 
         [ContextMenu("Knockback player")]
-        protected void Knockback()
-            => StartCoroutine(ApplyKnockback(defaultKnockbackDirection, defaultKnockbackForce, defaultKnockbackTime));
+        protected void Knockback() => StartCoroutine(ApplyKnockback(defaultKnockbackDirection, defaultKnockbackForce, defaultKnockbackTime));
 
-        public void Knockback(Vector2 direction)
-            => StartCoroutine(ApplyKnockback(direction, defaultKnockbackForce, defaultKnockbackTime));
+        public void Knockback(Vector2 direction) => StartCoroutine(ApplyKnockback(direction, defaultKnockbackForce, defaultKnockbackTime));
 
-        public void Knockback(Vector2 direction, float force, float time)
-            => StartCoroutine(ApplyKnockback(direction, force, time));
+        public void Knockback(Vector2 direction, float force, float time) => StartCoroutine(ApplyKnockback(direction, force, time));
 
         private IEnumerator ApplyKnockback(Vector2 direction, float force, float time)
         {
-            if (deathManager.dead)
-                yield return null;
+            if (deathManager.dead) yield return null;
 
             inKnockback = true;
 
@@ -48,14 +44,12 @@ namespace Root.Player.Components
             }
 
             rb.velocity = direction;
-
             inKnockback = false;
         }
 
         public void SelfKnockback(Vector2 direction, float force)
         {
-            if (deathManager.dead)
-                return;
+            if (deathManager.dead) return;
 
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(direction * force, ForceMode2D.Impulse);

@@ -6,53 +6,65 @@ namespace Root.Player.Components
     {
         private Animations currentAnimation;
 
-        private void Update()
+        private void Update() => HandleAnimations();
+
+        private void HandleAnimations()
         {
             if (deathManager.dead)
             {
-                switch (deathManager.CurrentDeathStage)
-                {
-                    case DeathStages.Dying:
-                        currentAnimation = Animations.Dying;
-                        break;
-                    case DeathStages.Respawning:
-                        currentAnimation = Animations.Respawning;
-                        break;
-                }
+                DeathAnimations();
             }
             else if (knockback.inKnockback)
             {
-                currentAnimation = Animations.Knockback;
+                KnockbackAnimations();
             }
             else if (combat.attacking)
             {
-                switch (combat.currentAttackIndex)
-                {
-                    case 0:
-                        currentAnimation = Animations.SideAttack;
-                        break;
-                    case 1:
-                        currentAnimation = Animations.UpAttack;
-                        break;
-                    case 2:
-                        currentAnimation = Animations.DownAttack;
-                        break;
-                }
+                AttackAnimations();
             }
             else if (collision.grounded)
             {
-                currentAnimation =
-                    Mathf.Abs(rb.velocity.x) > Mathf.Epsilon && controller.horizontalInput != 0
-                    ? Animations.Running : currentAnimation = Animations.Idle;
+                GroundedAnimations();
             }
             else
             {
-                currentAnimation =
-                    rb.velocity.y > 0
-                    ? Animations.Jumping : Animations.Falling;
+                AirAnimations();
             }
 
             anim.Play(currentAnimation.ToString());
         }
+
+        private void DeathAnimations()
+        {
+            switch (deathManager.CurrentDeathStage)
+            {
+                case DeathStages.Dying:
+                    currentAnimation = Animations.Dying;
+                    break;
+                case DeathStages.Respawning:
+                    currentAnimation = Animations.Respawning;
+                    break;
+            }
+        }
+
+        private void KnockbackAnimations() => currentAnimation = Animations.Knockback;
+
+        private void AttackAnimations()
+        {
+            switch (combat.currentAttackIndex)
+            {
+                case 0: currentAnimation = Animations.SideAttack; break;
+                case 1: currentAnimation = Animations.UpAttack; break;
+                case 2: currentAnimation = Animations.DownAttack; break;
+            }
+        }
+
+        private void GroundedAnimations()
+        {
+            bool running = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon && input.horizontalInput != 0;
+            currentAnimation = running ? Animations.Running : Animations.Idle;
+        }
+
+        private void AirAnimations() => currentAnimation = rb.velocity.y > 0 ? Animations.Jumping : Animations.Falling;
     }
 }

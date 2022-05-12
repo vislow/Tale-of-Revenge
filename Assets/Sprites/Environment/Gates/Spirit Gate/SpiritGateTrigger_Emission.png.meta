@@ -23,11 +23,14 @@ TextureImporter:
   - first:
       213: -6160735708879346190
     second: SpiritGateTrigger_Emission_6
+  - first:
+      213: 1807398194633075290
+    second: SpiritGateTrigger_Emission_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -71,9 +74,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -278,6 +281,27 @@ TextureImporter:
       bones: []
       spriteID: 2f5ae25838ba08aa0800000000000000
       internalID: -6160735708879346190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_Emission_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a69cef41b251910800000000000000
+      internalID: 1807398194633075290
       vertices: []
       indices: 
       edges: []

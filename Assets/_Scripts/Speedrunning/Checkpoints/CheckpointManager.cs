@@ -32,10 +32,7 @@ namespace Root
             }
         }
 
-        private void OnDestroy()
-        {
-            CheckpointController.OnCheckpointTrigger -= UpdateCurrentCheckpoint;
-        }
+        private void OnDestroy() => CheckpointController.OnCheckpointTrigger -= UpdateCurrentCheckpoint;
 
         private void UpdateCurrentCheckpoint(int checkpointIndex)
         {
@@ -63,10 +60,7 @@ namespace Root
             speedrunManager.player.transform.position = checkpoint.spawnPoint.position;
         }
 
-        public void OnRespawn()
-        {
-            GoToCheckpoint(currentCheckpoint);
-        }
+        public void OnRespawn() => GoToCheckpoint(currentCheckpoint);
 
         public void OnReset()
         {

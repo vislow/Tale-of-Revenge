@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Root.Systems.Input;
 
 namespace Root
 {
@@ -77,7 +78,7 @@ namespace Root
 
         private void Update()
         {
-            if (!timerStarted && speedrunManager.player.components.controller.horizontalInput != 0)
+            if (!timerStarted && InputManager.instance.horizontalInput != 0)
             {
                 timerStarted = true;
             }
@@ -92,6 +93,7 @@ namespace Root
         {
             float timeValue = PlayerPrefs.GetFloat("Checkpoint" + index + "Time");
             string timeText = ScoreToText(timeValue);
+
             checkpointTextList[index].text = $"C{index}: {timeText}";
         }
 

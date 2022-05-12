@@ -11,7 +11,6 @@ namespace Root
         private void Damage()
         {
             isOpen = !isOpen;
-
             gate.Open(isOpen);
         }
     }

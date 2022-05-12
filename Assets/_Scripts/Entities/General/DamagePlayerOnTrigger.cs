@@ -1,4 +1,5 @@
 using UnityEngine;
+using Root.Player.Components;
 
 namespace Root.Entities.General
 {
@@ -8,11 +9,11 @@ namespace Root.Entities.General
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
-                Vector2 knockbackDirection = (other.transform.position - transform.position).normalized;
-                other.GetComponent<Root.Player.Components.PlayerHealth>().Damage(damage, knockbackDirection);
-            }
+            if (!other.CompareTag("Player")) return;
+
+            Vector2 knockbackDirection = (other.transform.position - transform.position).normalized;
+
+            other.GetComponent<PlayerHealth>().Damage(damage, knockbackDirection);
         }
     }
 }

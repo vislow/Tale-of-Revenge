@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
-using Root.LevelLoading;
+using Root.Systems.Levels;
 
 namespace Root.Data
 {
@@ -9,8 +9,8 @@ namespace Root.Data
     {
         [SerializeField] private SaveNames fileName;
         [Space]
-        public GameObject clearSaveButton;
-        public GameObject startButton;
+        [SerializeField] private GameObject clearSaveButton;
+        [SerializeField] private GameObject startButton;
 
         private TextMeshProUGUI startButtonText;
         private SaveData saveData;
@@ -35,7 +35,7 @@ namespace Root.Data
             if (!hasData)
             {
                 SaveHelper.Save(fileName);
-                SaveHelper.CurrentSave.levelData.currentLevel = 2;
+                SaveHelper.GetCurrentSave().levelData.currentLevel = 2;
                 SaveHelper.Save();
             }
 
@@ -45,7 +45,7 @@ namespace Root.Data
         public void LoadSave()
         {
             SaveHelper.Load(fileName);
-            LevelManager.instance.LoadLevel(SaveHelper.CurrentSave.levelData.currentLevel);
+            LevelManager.instance.LoadLevel(SaveHelper.GetCurrentSave().levelData.currentLevel);
         }
 
         public void ClearSave()

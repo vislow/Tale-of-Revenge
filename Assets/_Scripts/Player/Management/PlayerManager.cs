@@ -1,19 +1,19 @@
 using UnityEngine;
-using Root.Audio;
+using Root.Systems.Audio;
 using Root.Cameras;
-using Root.GameManagement;
 using Root.Player.Components;
+using Root.Systems.States;
 
 namespace Root.Player
 {
-    [RequireComponent(typeof(Components.PlayerHealth))]
-    [RequireComponent(typeof(Components.PlayerCombat))]
-    [RequireComponent(typeof(Components.PlayerAnimation))]
-    [RequireComponent(typeof(Components.PlayerCollision))]
-    [RequireComponent(typeof(Components.PlayerController))]
-    [RequireComponent(typeof(Components.PlayerDeathManager))]
-    [RequireComponent(typeof(Components.PlayerKnockbackManager))]
-    [RequireComponent(typeof(Root.Audio.LocalAudioController))]
+    [RequireComponent(typeof(PlayerHealth))]
+    [RequireComponent(typeof(PlayerCombat))]
+    [RequireComponent(typeof(PlayerAnimation))]
+    [RequireComponent(typeof(PlayerCollision))]
+    [RequireComponent(typeof(PlayerController))]
+    [RequireComponent(typeof(PlayerDeathManager))]
+    [RequireComponent(typeof(PlayerKnockbackManager))]
+    [RequireComponent(typeof(LocalAudioController))]
     public class PlayerManager : MonoBehaviour
     {
         public static PlayerManager instance;
@@ -30,17 +30,17 @@ namespace Root.Player
             public Transform center;
             public Collider2D collider;
             [Space]
+            public LocalAudioController audioPlayer;
+            public PlayerCameraController playerCamera;
+            [Space]
             public PlayerHealth health;
             public PlayerCombat combat;
+            public SpearManager spearManager;
             public PlayerController controller;
             public PlayerDeathManager deathManager;
             public PlayerKnockbackManager knockback;
-            public Components.PlayerAnimation animation;
-            public Components.PlayerCollision collision;
-            [Space]
-            public PlayerCameraController playerCamera;
-            [Space]
-            public LocalAudioController audioPlayer;
+            public PlayerAnimation animation;
+            public PlayerCollision collision;
         }
 
         [System.Serializable]
@@ -69,29 +69,26 @@ namespace Root.Player
             GameStateManager.OnGameStateChanged += OnGameStateChanged;
         }
 
-        private void OnDestroy()
-            => GameStateManager.OnGameStateChanged -= OnGameStateChanged;
+        private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnGameStateChanged;
 
         private void Reset()
         {
             components.health = GetComponent<PlayerHealth>();
             components.combat = GetComponent<PlayerCombat>();
+            components.animation = GetComponent<PlayerAnimation>();
+            components.collision = GetComponent<PlayerCollision>();
+            components.spearManager = GetComponent<SpearManager>();
             components.controller = GetComponent<PlayerController>();
             components.deathManager = GetComponent<PlayerDeathManager>();
             components.knockback = GetComponent<PlayerKnockbackManager>();
-            components.animation = GetComponent<Components.PlayerAnimation>();
-            components.collision = GetComponent<Components.PlayerCollision>();
-            components.audioPlayer = GetComponent<Root.Audio.LocalAudioController>();
+            components.audioPlayer = GetComponent<LocalAudioController>();
         }
 
         public void OnGameStateChanged(GameState gameState)
         {
-            if ((gameState != GameState.Gameplay && gameState != GameState.Paused))
-                return;
+            if ((gameState != GameState.Gameplay && gameState != GameState.Paused)) return;
 
             bool active = gameState == GameState.Gameplay;
-
-            if (components == null) return;
 
             components.rb.bodyType = active ? RigidbodyType2D.Dynamic : RigidbodyType2D.Static;
 
@@ -102,6 +99,7 @@ namespace Root.Player
             components.knockback.enabled = active;
             components.animation.enabled = active;
             components.controller.enabled = active;
+            components.spearManager.enabled = active;
         }
 
         public void MovePlayer(Vector2 position)

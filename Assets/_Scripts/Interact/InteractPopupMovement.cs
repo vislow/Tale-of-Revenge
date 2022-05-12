@@ -9,14 +9,8 @@ namespace Root.Interact
 
         private Vector3 initialPosition;
 
-        private void Start()
-        {
-            initialPosition = transform.localPosition;
-        }
+        private void Start() => initialPosition = transform.localPosition;
 
-        private void FixedUpdate()
-        {
-            transform.localPosition = initialPosition + new Vector3(0f, Mathf.Sin(Time.time * sinSpeed) * sinMagnitude, 0f);
-        }
+        private void FixedUpdate() => transform.localPosition = initialPosition + new Vector3(0f, Mathf.Sin(Time.time * sinSpeed) * sinMagnitude, 0f);
     }
 }

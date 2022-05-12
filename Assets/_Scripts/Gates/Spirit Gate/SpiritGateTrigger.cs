@@ -11,7 +11,7 @@ namespace Root.Gates
         {
             if (!other.CompareTag("Spear")) return;
 
-            spiritGate.isOpen = true;
+            spiritGate.IsOpen = true;
             anim.SetTrigger("Activate");
         }
 
@@ -19,7 +19,7 @@ namespace Root.Gates
         {
             if (!other.CompareTag("Spear")) return;
 
-            spiritGate.isOpen = false;
+            spiritGate.IsOpen = false;
             anim.SetTrigger("Deactivate");
         }
     }

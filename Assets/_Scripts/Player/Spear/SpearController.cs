@@ -1,28 +1,54 @@
 using UnityEngine;
+using Root.Player.Components;
 using Root.Entities.Projectiles;
+using Root.Systems.Input;
 
 namespace Root.Player
 {
     public class SpearController : BaseProjectile
     {
-        [SerializeField] private float platformPlayerDistanceThreshold;
         [SerializeField] private GameObject solidCollider;
         [SerializeField] private LayerMask spearLayer;
+        [Space]
+        [SerializeField] private float spearCheckDistance;
 
-        internal GameObject playerObject;
-        internal bool returningToPlayer;
+        private PlayerController playerController;
+        private PlayerCollision playerCollision;
+        private GameObject playerObject;
+        private Rigidbody2D playerRb;
+
+        internal bool returningToPlayer { get; private set; }
         private bool inWall;
+
+        public void Init(PlayerCollision playerCollision, GameObject playerObject, Rigidbody2D playerRb)
+        {
+            this.playerCollision = playerCollision;
+            this.playerObject = playerObject;
+            this.playerRb = playerRb;
+        }
 
         private void Update() => HandlePlatformBehaviour();
 
         private void FixedUpdate() => HandleMovement();
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!returningToPlayer && other.CompareTag("Ground"))
+            {
+                inWall = true;
+                rb.velocity = Vector3.zero;
+            }
+            else if (returningToPlayer && other.CompareTag("Player"))
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
         private void HandleMovement()
         {
-            if (inWall) return;
+            if (inWall || rb.bodyType == RigidbodyType2D.Static) return;
 
-            var speed = transform.right * base.speed * Time.deltaTime;
-
+            Vector2 speed = transform.right * base.speed * Time.deltaTime;
             rb.velocity = returningToPlayer ? -speed : speed;
 
             if (!returningToPlayer) return;
@@ -38,26 +64,13 @@ namespace Root.Player
                 return;
             }
 
-            if (Vector2.Distance(playerObject.transform.position, transform.position) > platformPlayerDistanceThreshold) return;
-
-            var rayOrigin = playerObject.transform.position + new Vector3(0, 1f);
-
-            bool playerAboveSpear = Physics2D.Raycast(rayOrigin, Vector2.down, platformPlayerDistanceThreshold, spearLayer);
-
-            solidCollider.SetActive(playerAboveSpear);
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (!returningToPlayer && other.CompareTag("Ground"))
+            if (InputManager.instance.verticalInput == -1)
             {
-                inWall = true;
-                rb.velocity = Vector3.zero;
+                solidCollider.SetActive(false);
+                return;
             }
-            else if (returningToPlayer && other.CompareTag("Player"))
-            {
-                Destroy(this.gameObject);
-            }
+
+            solidCollider.SetActive(playerCollision.spearUnderPlayer);
         }
 
         public void ReturnToPlayer(GameObject playerObject)
@@ -79,7 +92,7 @@ namespace Root.Player
         {
             if (!debug) return;
 
-            Gizmos.DrawWireSphere(transform.position, platformPlayerDistanceThreshold);
+            Gizmos.DrawWireSphere(transform.position, spearCheckDistance);
 
             if (playerObject == null) return;
 

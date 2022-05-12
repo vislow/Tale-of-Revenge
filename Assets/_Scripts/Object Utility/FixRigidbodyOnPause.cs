@@ -1,5 +1,5 @@
-using Root.GameManagement;
 using UnityEngine;
+using Root.Systems.States;
 
 namespace Root.ObjectManagement
 {
@@ -9,13 +9,11 @@ namespace Root.ObjectManagement
 
         private Vector2 velocity;
         private float angularVelocity;
+        private RigidbodyType2D bodyType;
 
         private void Awake() => GameStateManager.OnGameStateChanged += OnStateChange;
 
-        private void OnDestroy()
-        {
-            GameStateManager.OnGameStateChanged -= OnStateChange;
-        }
+        private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnStateChange;
 
         private void OnStateChange(GameState gameState)
         {
@@ -24,13 +22,14 @@ namespace Root.ObjectManagement
             if (gameState == GameState.Paused)
             {
                 velocity = rb.velocity;
+                bodyType = rb.bodyType;
                 angularVelocity = rb.angularVelocity;
 
                 rb.bodyType = RigidbodyType2D.Static;
             }
             else if (gameState == GameState.Gameplay)
             {
-                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.bodyType = bodyType;
 
                 rb.velocity = velocity;
                 rb.angularVelocity = angularVelocity;

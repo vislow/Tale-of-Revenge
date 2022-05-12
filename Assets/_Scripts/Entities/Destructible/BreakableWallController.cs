@@ -34,7 +34,9 @@ namespace Root.Entities.Destructible
             while (spriteRenderer.color.a != 0)
             {
                 if (spriteRenderer.color.a < 0.01)
+                {
                     spriteRenderer.color = Color.clear;
+                }
 
                 spriteRenderer.color = new Color(1, 1, 1, Mathf.Lerp(spriteRenderer.color.a, 0, fadeTime));
 
@@ -49,7 +51,9 @@ namespace Root.Entities.Destructible
             while (spriteRenderer.color.a != 1)
             {
                 if (spriteRenderer.color.a > 0.99)
+                {
                     spriteRenderer.color = Color.white;
+                }
 
                 spriteRenderer.color = new Color(1, 1, 1, Mathf.Lerp(spriteRenderer.color.a, 1, fadeTime));
 

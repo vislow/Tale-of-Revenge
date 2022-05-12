@@ -1,8 +1,10 @@
-using UI.General;
 using UnityEngine;
+using Root.UI.General;
 
-namespace UI.Settings {
-    public class GameplaySettings : MonoBehaviour {
+namespace Root.UI.Settings
+{
+    public class GameplaySettings : MonoBehaviour
+    {
         /*[SerializeField] private HorizontalSelector gameSpeedSelector;
 
         private float currentGameSpeed;

@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-
 using Root.Data;
-using Utility;
-using UI.Pages;
-using Root.LevelLoading;
-using Root.GameManagement;
+using Root.Utility;
+using Root.UI.Pages;
+using Root.Systems.Levels;
+using Root.Systems.States;
 
-namespace UI.Gameplay
+namespace Root.UI.Gameplay
 {
     public class PauseManager : MonoBehaviour
     {
@@ -21,7 +20,6 @@ namespace UI.Gameplay
         private void Awake()
         {
             controls = new PlayerControls();
-
             controls.UI.Pause.performed += context => OnCancel();
 
             if (!IsPaused()) return;
@@ -42,7 +40,7 @@ namespace UI.Gameplay
 
         private void OnApplicationQuit()
         {
-            SaveHelper.CurrentSave.levelData.currentLevel = Utils.GetActiveSceneIndex();
+            SaveHelper.GetCurrentSave().levelData.currentLevel = Utils.GetActiveSceneIndex();
             SaveHelper.Save();
         }
 
@@ -88,7 +86,7 @@ namespace UI.Gameplay
 
         public void QuitToMainMenu()
         {
-            SaveHelper.CurrentSave.levelData.currentLevel = Utils.GetActiveSceneIndex();
+            SaveHelper.GetCurrentSave().levelData.currentLevel = Utils.GetActiveSceneIndex();
             SaveHelper.Save();
 
             LevelManager.instance.LoadLevel(0);
@@ -96,7 +94,7 @@ namespace UI.Gameplay
 
         public void QuitToDesktop()
         {
-            SaveHelper.CurrentSave.levelData.currentLevel = Utils.GetActiveSceneIndex();
+            SaveHelper.GetCurrentSave().levelData.currentLevel = Utils.GetActiveSceneIndex();
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif

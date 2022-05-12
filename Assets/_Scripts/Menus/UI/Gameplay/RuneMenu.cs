@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace UI.Gameplay {
-    public class RuneMenu : MonoBehaviour {
+namespace Root.UI.Gamplay
+{
+    public class RuneMenu : MonoBehaviour
+    {
         public static RuneMenu instance;
 
         [SerializeField] private EventSystem eventSystem;
@@ -10,28 +12,37 @@ namespace UI.Gameplay {
         [SerializeField] private GameObject firstSelected;
         [SerializeField] private Animator anim;
 
-        private void Awake() {
+        private void Awake()
+        {
             if (instance = null)
+            {
                 instance = this;
+            }
             else
+            {
                 Destroy(this);
+            }
         }
 
-        public void OpenMenu() {
+        public void OpenMenu()
+        {
             menu.SetActive(true);
             eventSystem.SetSelectedGameObject(firstSelected);
         }
 
-        public void ActivateBearRune() {
+        public void ActivateBearRune()
+        {
             //PlayerRunes.instance.bearRune = true;
             anim.SetTrigger("Bear");
         }
 
-        public void ActivateWolfRune() {
+        public void ActivateWolfRune()
+        {
             //PlayerRunes.instance.wolfRune = true;
         }
 
-        public void ActivateFaeryRune() {
+        public void ActivateFaeryRune()
+        {
             //PlayerRunes.instance.faeryRune = true;
         }
     }

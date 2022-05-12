@@ -13,10 +13,9 @@ namespace Root
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
-            {
-                OnCheckpointTrigger?.Invoke(id);
-            }
+            if (!other.CompareTag("Player")) return;
+
+            OnCheckpointTrigger?.Invoke(id);
         }
     }
 }

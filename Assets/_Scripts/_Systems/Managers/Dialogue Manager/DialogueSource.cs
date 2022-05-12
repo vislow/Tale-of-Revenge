@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Root.Dialogue
+namespace Root.Systems.Dialogue
 {
     public class DialogueSource : MonoBehaviour
     {
@@ -19,10 +19,9 @@ namespace Root.Dialogue
 
         private void Update()
         {
-            if (Input.GetButtonDown("Submit"))
-            {
-                StartDialogue();
-            }
+            if (!UnityEngine.Input.GetButtonDown("Submit")) return;
+
+            StartDialogue();
         }
     }
 }

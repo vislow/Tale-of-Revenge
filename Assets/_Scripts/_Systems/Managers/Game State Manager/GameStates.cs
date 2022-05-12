@@ -1,4 +1,4 @@
-namespace Root.GameManagement
+namespace Root.Systems.States
 {
     public enum GameState
     {

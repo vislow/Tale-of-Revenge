@@ -3301,7 +3301,6 @@ MonoBehaviour:
   onPauseSelectedObject: {fileID: 1308237178574346380}
   mainPageController: {fileID: 9178390097575861264}
   menuManager: {fileID: 6730697205563618006}
-  titleScreen: {fileID: 11400000, guid: 03f99c6f06c45764d98dea55622140a9, type: 2}
 --- !u!114 &6730697205563618006
 MonoBehaviour:
   m_ObjectHideFlags: 0

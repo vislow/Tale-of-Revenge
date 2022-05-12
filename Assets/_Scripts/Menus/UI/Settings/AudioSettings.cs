@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
-namespace UI.Settings {
-    public class AudioSettings : MonoBehaviour {
+namespace Root.UI.Settings
+{
+    public class AudioSettings : MonoBehaviour
+    {
         [SerializeField] private bool debug;
         [Space]
         [SerializeField] private List<SliderData> sliderDataList = new List<SliderData>(4);
@@ -12,19 +14,21 @@ namespace UI.Settings {
         private AudioMixer MasterMixer;
 
         [System.Serializable]
-        public class SliderData {
+        public class SliderData
+        {
             public Slider slider;
             public int defaultValue;
         }
 
         private void Awake() => MasterMixer = (AudioMixer)Resources.Load("MasterMixer");
 
-        private void Start() {
-            foreach (var sliderComponents in sliderDataList) {
+        private void Start()
+        {
+            foreach (var sliderComponents in sliderDataList)
+            {
                 Slider slider = sliderComponents.slider;
 
                 slider.onValueChanged.AddListener(delegate { UpdateMixer(slider); });
-
                 UpdateMixer(slider);
             }
 
@@ -35,8 +39,10 @@ namespace UI.Settings {
 
         private void OnDisable() => SaveSettings();
 
-        public void SetToDefaults() {
-            foreach (var components in sliderDataList) {
+        public void SetToDefaults()
+        {
+            foreach (var components in sliderDataList)
+            {
                 components.slider.value = components.defaultValue;
             }
 
@@ -50,7 +56,8 @@ namespace UI.Settings {
         private const string sfxVolume = "SfxVolume";
         private const string uiVolume = "UIVolume";
 
-        private void SaveSettings() {
+        private void SaveSettings()
+        {
             PlayerPrefs.SetFloat(masterVolume, sliderDataList[0].slider.value);
             PlayerPrefs.SetFloat(musicVolume, sliderDataList[1].slider.value);
             PlayerPrefs.SetFloat(sfxVolume, sliderDataList[2].slider.value);
@@ -59,7 +66,8 @@ namespace UI.Settings {
             PlayerPrefs.Save();
         }
 
-        private void LoadSettings() {
+        private void LoadSettings()
+        {
             sliderDataList[0].slider.value = PlayerPrefs.GetFloat(masterVolume, sliderDataList[0].defaultValue);
             sliderDataList[1].slider.value = PlayerPrefs.GetFloat(musicVolume, sliderDataList[1].defaultValue);
             sliderDataList[2].slider.value = PlayerPrefs.GetFloat(sfxVolume, sliderDataList[2].defaultValue);

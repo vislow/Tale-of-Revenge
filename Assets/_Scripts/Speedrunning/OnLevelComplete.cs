@@ -6,19 +6,10 @@ namespace Root
     {
         [SerializeField] private Animator anim;
 
-        private void Awake()
-        {
-            CheckpointManager.OnFinalCheckpointTriggered += OnFinalCheckpointTriggered;
-        }
+        private void Awake() => CheckpointManager.OnFinalCheckpointTriggered += OnFinalCheckpointTriggered;
 
-        private void OnDestroy()
-        {
-            CheckpointManager.OnFinalCheckpointTriggered -= OnFinalCheckpointTriggered;
-        }
+        private void OnDestroy() => CheckpointManager.OnFinalCheckpointTriggered -= OnFinalCheckpointTriggered;
 
-        private void OnFinalCheckpointTriggered()
-        {
-            anim.SetTrigger("Popup");
-        }
+        private void OnFinalCheckpointTriggered() => anim.SetTrigger("Popup");
     }
 }

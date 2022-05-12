@@ -1,7 +1,7 @@
 using UnityEngine;
 using Root.Player;
 using Root.Player.Components;
-using Root.GameManagement;
+using Root.Systems.States;
 
 namespace Root
 {
@@ -34,15 +34,9 @@ namespace Root
             GameStateManager.OnGameStateChanged -= SetUIActivity;
         }
 
-        private void OnEnable()
-        {
-            controls.Enable();
-        }
+        private void OnEnable() => controls.Enable();
 
-        private void OnDisable()
-        {
-            controls.Disable();
-        }
+        private void OnDisable() => controls.Disable();
 
         private void DeathEvents(DeathStages deathStages)
         {
@@ -50,22 +44,11 @@ namespace Root
             {
                 case DeathStages.Resetting:
                     checkpointManager.OnRespawn();
-                    deathCounter.OnRespawn();
                     break;
             }
         }
 
-        private void SetUIActivity(GameState gameState)
-        {
-            if (gameState == GameState.Gameplay)
-            {
-                statsUI.SetActive(true);
-            }
-            else
-            {
-                statsUI.SetActive(false);
-            }
-        }
+        private void SetUIActivity(GameState gameState) => statsUI.SetActive(gameState == GameState.Gameplay);
 
         private void TriggerReset()
         {

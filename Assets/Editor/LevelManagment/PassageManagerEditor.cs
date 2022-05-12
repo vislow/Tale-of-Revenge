@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-
-using Root.LevelLoading;
-using Root.LevelLoading.ScriptableObjects;
+using Root.Systems.Levels;
 
 [CustomEditor(typeof(PassageManager))]
 public class PassageManagerEditor : Editor

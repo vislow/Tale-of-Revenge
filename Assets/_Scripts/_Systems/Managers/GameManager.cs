@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Root.Systems.States;
 
-namespace Root.GameManagement
+namespace Root.Systems.GameManagement
 {
     public class GameManager : MonoBehaviour
     {
@@ -12,31 +13,26 @@ namespace Root.GameManagement
         private void Awake()
         {
             if (instance == null)
+            {
                 instance = this;
+            }
             else
+            {
                 Destroy(this.gameObject);
+            }
 
             GameStateManager.OnGameStateChanged += OnGameStateChanged;
         }
 
-        private void OnDestroy()
-        {
-            GameStateManager.OnGameStateChanged -= OnGameStateChanged;
-        }
+        private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnGameStateChanged;
 
-        private void OnGameStateChanged(GameState state)
-        {
-            UpdateGameSpeed(state);
-        }
+        private void OnGameStateChanged(GameState state) => UpdateGameSpeed(state);
 
-        private void UpdateGameSpeed(GameState currentState)
-        {
-            Time.timeScale = currentState != GameState.Gameplay ? 1f : PlayerPrefs.GetFloat(gameSpeed);
-        }
+        private void UpdateGameSpeed(GameState currentState) => Time.timeScale = currentState != GameState.Gameplay ? 1f : PlayerPrefs.GetFloat(gameSpeed);
 
         private void Update()
         {
-            var active = GameStateManager.CurrentGameState == GameState.Gameplay;
+            bool active = GameStateManager.CurrentGameState == GameState.Gameplay;
 
             Cursor.visible = active;
 

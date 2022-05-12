@@ -4,23 +4,20 @@ namespace Root.Data
 {
     public class SaveHelper
     {
-        public static SaveData CurrentSave => CurrentSaveAvailable ? SaveManager.instance.currentSave : new SaveData();
+        public static SaveData GetCurrentSave() => GetCurrentSaveAvailable() ? SaveManager.instance.currentSave : new SaveData();
 
-        public static bool CurrentSaveAvailable
+        public static bool GetCurrentSaveAvailable()
         {
-            get
-            {
-                SaveManager saveManager = SaveManager.instance;
+            SaveManager saveManager = SaveManager.instance;
 
-                return saveManager != null && saveManager.currentSave != null;
-            }
+            return saveManager != null && saveManager.currentSave != null;
         }
 
         private static SaveManager saveManager => SaveManager.instance;
 
         public static void Save()
         {
-            if (!CurrentSaveAvailable) return;
+            if (!GetCurrentSaveAvailable()) return;
 
             saveManager.Save();
         }

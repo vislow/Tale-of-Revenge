@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Root
+namespace Root.ObjectManagement
 {
     public class DontDestroyOnLoad : MonoBehaviour
     {

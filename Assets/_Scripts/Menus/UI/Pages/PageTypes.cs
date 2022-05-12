@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace UI.Pages {
-    public enum PageTypes {
+namespace Root.UI.Pages
+{
+    public enum PageTypes
+    {
         Main,
         SaveSlots,
         Settings,

@@ -19,15 +19,9 @@ namespace Root
             visible = canvasGroup.alpha == 1;
         }
 
-        private void OnEnable()
-        {
-            controls.Enable();
-        }
+        private void OnEnable() => controls.Enable();
 
-        private void OnDisable()
-        {
-            controls.Disable();
-        }
+        private void OnDisable() => controls.Disable();
 
         private void OnMenu()
         {

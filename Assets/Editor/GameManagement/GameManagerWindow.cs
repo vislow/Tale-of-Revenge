@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-
-using Root.GameManagement;
+using Root.Systems.States;
 
 public class GameManagerWindow : EditorWindow
 {
@@ -15,20 +14,20 @@ public class GameManagerWindow : EditorWindow
             headerStyle.fontStyle = FontStyle.Bold;
             return style;
         }
-
     }
 
     [MenuItem("Custom Editors/Game Manager")]
-    public static void ShowWindow()
-    {
-        GetWindow<GameManagerWindow>("Game Manager");
-    }
+    public static void ShowWindow() => GetWindow<GameManagerWindow>("Game Manager");
+
+    private void Awake() => GameStateManager.OnGameStateChanged += RenderGameManagerStats;
 
     private void OnGUI()
     {
         gameStateManager = GameStateManager.instance;
         RenderGameManagerStats();
     }
+
+    private void RenderGameManagerStats(GameState gameState) => RenderGameManagerStats();
 
     private void RenderGameManagerStats()
     {

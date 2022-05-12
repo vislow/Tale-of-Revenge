@@ -1,31 +1,48 @@
 using UnityEngine;
-using System.Collections;
+using Root.Systems.States;
 
 namespace Root.Gates
 {
     public class SpiritGate : MonoBehaviour
     {
         [SerializeField] private float gateLiftSpeed;
+        [SerializeField, Range(0, 1)] private float gateLiftLerpSpeed;
         [SerializeField] private float gateLiftDistance = 4f;
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Animator anim;
 
         private Vector3 openPosition;
-        internal bool isOpen;
+        private bool liftGate;
+        private float currentSpeed;
 
-        private void Awake()
+        private bool isOpen;
+        internal bool IsOpen
         {
-            openPosition = transform.localPosition + new Vector3(0, gateLiftDistance);
+            get => isOpen;
+            set
+            {
+                isOpen = value;
+                currentSpeed = 0f;
+                rb.bodyType = value ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
+                rb.velocity = Vector2.zero;
+
+                anim.SetTrigger(value ? "Activate" : "Deactivate");
+            }
         }
+
+        private void Awake() => openPosition = transform.position + new Vector3(0, gateLiftDistance);
 
         private void FixedUpdate()
         {
-            rb.bodyType = isOpen ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
+            if (GameStateManager.CurrentGameState == GameState.Paused || !liftGate) return;
 
-            if (!isOpen) return;
+            Vector3 position = transform.position;
 
-            var position = transform.localPosition;
-
-            transform.localPosition = Vector3.MoveTowards(position, openPosition, gateLiftSpeed);
+            currentSpeed = Mathf.Lerp(currentSpeed, gateLiftSpeed, gateLiftLerpSpeed);
+            transform.position = Vector3.MoveTowards(position, openPosition, currentSpeed);
         }
+
+        private void LiftGate() => liftGate = true;
+        private void DropGate() => liftGate = false;
     }
 }

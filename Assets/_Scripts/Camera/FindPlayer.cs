@@ -21,7 +21,7 @@ namespace Root.Cameras
         {
             if (player != null) return;
 
-            player = FindObjectOfType<PlayerManager>();
+            player = PlayerManager.instance;
 
             if (player == null) return;
 

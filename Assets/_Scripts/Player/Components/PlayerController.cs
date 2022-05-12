@@ -25,8 +25,6 @@ namespace Root.Player.Components
         [SerializeField] private float dashSpeed = 3500f;
         [SerializeField] private float dashTime = 0.08f;
 
-        internal float horizontalInput;
-        internal float verticalInput;
         internal float facingDirection = 1;
         internal bool dashing;
 
@@ -35,47 +33,29 @@ namespace Root.Player.Components
         private float runParticleTimer;
         private bool jumping;
 
+        private Vector2 slopeNormal;
+        private float slopeAngle;
+
         private bool jumpPressed;
         private bool jumpHeld;
 
-        private void Start()
-            => PlayerDeathManager.OnDeathStageChanged += DeathEvents;
+        private void Start() => PlayerDeathManager.OnDeathStageChanged += DeathEvents;
 
-        private void OnDestroy()
-            => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
+        private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
 
         private void Update()
         {
-            if (deathManager.dead)
-            {
-                horizontalInput = 0;
-                return;
-            }
-
-            if (horizontalInput != 0)
-            {
-                facingDirection = horizontalInput;
-            }
-
             FaceDirection();
             JumpHandling();
         }
 
-        private void FixedUpdate()
-        {
-            if (deathManager.dead)
-                return;
-
-            HorizontalMovement();
-        }
+        private void FixedUpdate() => HorizontalMovement();
 
         private void DeathEvents(DeathStages deathStage)
         {
             switch (deathStage)
             {
                 case DeathStages.Dying:
-                    horizontalInput = 0;
-                    verticalInput = 0;
                     rb.bodyType = RigidbodyType2D.Static;
                     break;
                 case DeathStages.Done:
@@ -90,9 +70,9 @@ namespace Root.Player.Components
         {
             if (dashing || combat.attacking || knockback.inKnockback) return;
 
-            if (context.canceled)
+            if (context.started)
             {
-                jumpHeld = false;
+                jumpHeld = true;
             }
 
             if (context.performed)
@@ -102,9 +82,9 @@ namespace Root.Player.Components
                 jumpPressed = true;
             }
 
-            if (context.started)
+            if (context.canceled)
             {
-                jumpHeld = true;
+                jumpHeld = false;
             }
         }
 
@@ -132,8 +112,7 @@ namespace Root.Player.Components
 
             if (jumping) return;
 
-            if ((jumpPressed || jumpBufferCounter > 0)
-            && (collision.grounded || coyoteTimeCounter > 0))
+            if ((jumpPressed || jumpBufferCounter > 0) && (collision.grounded || coyoteTimeCounter > 0))
             {
                 jumping = true;
 
@@ -153,7 +132,7 @@ namespace Root.Player.Components
 
         public void SpearHop()
         {
-            if (collision.grounded || rb.velocity.y < spearHopMinVelocity) return;
+            if (collision.grounded || rb.velocity.y < spearHopMinVelocity || rb.bodyType == RigidbodyType2D.Static) return;
 
             audioPlayer.Play(soundEffects.jump);
 
@@ -199,28 +178,16 @@ namespace Root.Player.Components
         #endregion
 
         #region Movement
-        public void OnMove(InputAction.CallbackContext context)
-        {
-            Vector2 dir = context.ReadValue<Vector2>();
-
-            horizontalInput = dir.x;
-            verticalInput = dir.y;
-        }
-
         private void HorizontalMovement()
         {
-            if (dashing || knockback.inKnockback)
-                return;
+            if (deathManager.dead || dashing || knockback.inKnockback) return;
 
             runParticleTimer -= Time.deltaTime;
 
-            if (horizontalInput == 0)
+            if (input.horizontalInput == 0)
             {
                 ResetRunParticleTimer();
-
-                var velocity = Mathf.Lerp(rb.velocity.x, 0f, decceleration);
-
-                Move(velocity);
+                Move(Mathf.Lerp(rb.velocity.x, 0f, decceleration));
             }
             else
             {
@@ -230,31 +197,46 @@ namespace Root.Player.Components
                     ResetRunParticleTimer();
                 }
 
-                var velocity = Mathf.Lerp(rb.velocity.x, horizontalInput * speed, acceleration);
-
-                Move(velocity);
+                Move(Mathf.Lerp(rb.velocity.x, input.horizontalInput * speed, acceleration));
             }
         }
 
         private void Move(float xSpeed)
-            => rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+        {
+            if (!collision.grounded)
+            {
+                rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+                return;
+            }
+
+            if (jumping) return;
+
+            RaycastHit2D hit = Physics2D.Raycast(center.position, Vector2.down, 1f, collision.groundLayer);
+
+            if (hit)
+            {
+                slopeNormal = Vector2.Perpendicular(hit.normal).normalized;
+                slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+            }
+
+            rb.velocity = new Vector2(-xSpeed * slopeNormal.x, -xSpeed * slopeNormal.y);
+        }
         #endregion
 
         private void FaceDirection()
         {
-            if (dashing || combat.attacking)
-                return;
+            if (input.horizontalInput == 0) return;
 
-            if (horizontalInput != 0)
-            {
-                var yRotation = horizontalInput == 1 ? 0f : 180f;
-                var rotation = Quaternion.Euler(0f, yRotation, 0f);
+            facingDirection = input.horizontalInput;
 
-                transform.rotation = rotation;
-            }
+            if (dashing || combat.attacking) return;
+
+            float yRotation = input.horizontalInput == 1 ? 0f : 180f;
+            Quaternion rotation = Quaternion.Euler(0f, yRotation, 0f);
+
+            transform.rotation = rotation;
         }
 
-        private void ResetRunParticleTimer()
-            => runParticleTimer = Random.Range(runParticleMinDelay, runParticleMaxDelay);
+        private void ResetRunParticleTimer() => runParticleTimer = Random.Range(runParticleMinDelay, runParticleMaxDelay);
     }
 }

@@ -38,8 +38,7 @@ namespace Root.Player.Components
         internal bool attacking;
         internal int currentAttackIndex;
 
-        private void Update()
-            => attackCooldownTimer -= Time.deltaTime;
+        private void Update() => attackCooldownTimer -= Time.deltaTime;
 
         public void OnAttack(InputAction.CallbackContext context)
         {
@@ -47,11 +46,11 @@ namespace Root.Player.Components
 
             if (context.performed && attackCooldownTimer <= 0)
             {
-                if (controller.verticalInput == -1 && !collision.grounded)
+                if (input.verticalInput == -1 && !collision.grounded)
                 {
                     Attack(2);
                 }
-                else if (controller.verticalInput == 1)
+                else if (input.verticalInput == 1)
                 {
                     Attack(1);
                 }
@@ -153,7 +152,6 @@ namespace Root.Player.Components
                     newAttackPoint.x *= controller.facingDirection;
 
                 Vector2 pos = transform.position + (Vector3)newAttackPoint;
-
                 Vector2 leftPos = pos;
                 Vector2 rightPos = pos;
 

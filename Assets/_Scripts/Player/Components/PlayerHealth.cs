@@ -70,10 +70,7 @@ namespace Root.Player.Components
             CurrentHealth = MaxHealth;
         }
 
-        private void OnDestroy()
-        {
-            PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
-        }
+        private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
 
         private void DeathEvents(DeathStages deathStage)
         {
@@ -99,8 +96,9 @@ namespace Root.Player.Components
 
             ApplyDamage(damage, allowIFrames);
 
-            if (knockbackDirection != default)
-                knockback.Knockback(knockbackDirection);
+            if (knockbackDirection == default) return;
+
+            knockback.Knockback(knockbackDirection);
         }
 
         public void Damage(int damage, Vector2 knockbackDirection, float knockbackForce, float knockbackTime, bool allowIFrames = true)
@@ -117,10 +115,9 @@ namespace Root.Player.Components
 
             CurrentHealth -= damage;
 
-            if (allowIFrames && CurrentHealth > 0)
-            {
-                StartCoroutine(InvincibilityFrames());
-            }
+            if (!allowIFrames || CurrentHealth <= 0) return;
+
+            StartCoroutine(InvincibilityFrames());
         }
 
         private IEnumerator InvincibilityFrames()

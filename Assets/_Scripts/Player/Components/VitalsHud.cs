@@ -48,8 +48,6 @@ namespace Root.Player.Components
 
             childList.Clear();
 
-            if (this == null) return;
-
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
@@ -59,10 +57,9 @@ namespace Root.Player.Components
             {
                 GameObject newHeart = Instantiate(heartPrefab, Vector3.zero, Quaternion.identity, transform);
 
-                childList.Add(newHeart.transform);
-
                 SpriteRenderer heartSprite = newHeart.GetComponent<SpriteRenderer>();
 
+                childList.Add(newHeart.transform);
                 heartSprite.sprite = playerHealth.CurrentHealth <= i ? emptyHeart : fullHeart;
             }
 

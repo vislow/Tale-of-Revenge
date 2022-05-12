@@ -47,6 +47,9 @@
         },
         {
             "m_Id": "691cd8e312704affac50a9c096e3e6bf"
+        },
+        {
+            "m_Id": "d321a4f03fb846f993f0d55da0850617"
         }
     ],
     "m_GroupDatas": [],
@@ -104,6 +107,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "47e407fb9b694957a9fc16e0d9a692af"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "5f2c4999294c42339ba703769fa7ef7d"
+                },
+                "m_SlotId": 7
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "d321a4f03fb846f993f0d55da0850617"
                 },
                 "m_SlotId": 0
             }
@@ -176,12 +193,15 @@
         "m_Blocks": [
             {
                 "m_Id": "18dc6397b77f40d3b2e2073109d591a3"
+            },
+            {
+                "m_Id": "d321a4f03fb846f993f0d55da0850617"
             }
         ]
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10210,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
             "m_Guid": ""
         }
     },
@@ -196,6 +216,12 @@
             "m_Id": "423cb780ca6043a5ad57b60f650c67e1"
         }
     ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteUnlitSubTarget",
+    "m_ObjectId": "08d49e59b4624ca9a08eb495a66e5bd1"
 }
 
 {
@@ -390,7 +416,7 @@
     "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalTarget",
     "m_ObjectId": "423cb780ca6043a5ad57b60f650c67e1",
     "m_ActiveSubTarget": {
-        "m_Id": "c1b0375e3cbc4610965f739eb908ec2e"
+        "m_Id": "08d49e59b4624ca9a08eb495a66e5bd1"
     },
     "m_SurfaceType": 0,
     "m_AlphaMode": 0,
@@ -576,7 +602,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"0039620366e27fa4cb6d4d069682c609\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"beeb1543bbe34bb40b13989261a49bb1\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_Modifiable": true,
@@ -942,6 +968,21 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "8e375c044b3f4b3e98eac87cb74e32bb",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Alpha",
+    "m_StageCapability": 2,
+    "m_Value": 1.0,
+    "m_DefaultValue": 1.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "8fb6be6e8fd4437f91d53a44811a6f76",
     "m_Id": 4,
     "m_DisplayName": "R",
@@ -1018,7 +1059,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"c471844fe0bdcca4bbd154c35864c983\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"758ea31f82aa3894f8d25b2d6947185a\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_Modifiable": true,
@@ -1158,12 +1199,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalUnlitSubTarget",
-    "m_ObjectId": "c1b0375e3cbc4610965f739eb908ec2e"
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "c5d7923e58a247d6bb0a0460e30c3f72",
     "m_Id": 2,
@@ -1208,6 +1243,39 @@
         "e32": 0.0,
         "e33": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "d321a4f03fb846f993f0d55da0850617",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.Alpha",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "8e375c044b3f4b3e98eac87cb74e32bb"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.Alpha"
 }
 
 {

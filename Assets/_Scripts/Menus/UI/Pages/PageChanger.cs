@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 
-namespace UI.Pages {
-    public class PageChanger : MonoBehaviour {
+namespace Root.UI.Pages
+{
+    public class PageChanger : MonoBehaviour
+    {
         [SerializeField] private MenuPageController targetPage;
 
         public static event Action<MenuPageController> OnChangePage;

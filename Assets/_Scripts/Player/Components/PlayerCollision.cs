@@ -30,19 +30,16 @@ namespace Root.Player.Components
         private void Start()
         {
             PlayerDeathManager.OnDeathStageChanged += DeathEvents;
-
             originalGravityScale = rb.gravityScale;
 
-            if (!SaveHelper.CurrentSaveAvailable) return;
+            if (!SaveHelper.GetCurrentSaveAvailable()) return;
 
-            playerManager.MovePlayer(SaveHelper.CurrentSave.playerData.lastSafePosition);
+            playerManager.MovePlayer(SaveHelper.GetCurrentSave().playerData.lastSafePosition);
         }
 
-        private void Update()
-        {
-            Collision();
-            Effects();
-        }
+        private void Update() => Effects();
+
+        private void FixedUpdate() => Collision();
 
         private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
 
@@ -51,9 +48,10 @@ namespace Root.Player.Components
             if (!drawGizmos) return;
 
             // This draws a gizmo representing the position of the players ground check
-            Vector3 groundCheckCenter = transform.position + (Vector3)groundCheckOffset;
+            Bounds bounds = collider.bounds;
+            Vector3 groundCheckPosition = bounds.center + new Vector3(0, -bounds.extents.y);
 
-            Gizmos.DrawWireSphere(groundCheckCenter, groundCheckRadius);
+            Gizmos.DrawWireSphere(groundCheckPosition, groundCheckRadius);
         }
 
         private void DeathEvents(DeathStages deathStages)
@@ -65,37 +63,42 @@ namespace Root.Player.Components
         }
 
         #region Collision
-
         private void Collision()
         {
             // Update wasGrounded
             wasGrounded = grounded;
 
-            //
-            Vector3 groundCheckPosition = transform.position + (Vector3)groundCheckOffset;
+            HandleGroundCheck();
 
-            grounded =
-                Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer)
-                && components.collider.IsTouchingLayers(groundLayer);
+            rb.gravityScale = grounded && input.horizontalInput == 0 ? 0 : originalGravityScale;
 
-            rb.gravityScale =
-                grounded && components.controller.horizontalInput == 0 ? 0 : originalGravityScale;
-
-            CheckSpearUnderPlayer();
+            HandleCheckSpearUnderPlayer();
             SaveLastSafePosition();
         }
 
-        private void CheckSpearUnderPlayer()
+        private void HandleGroundCheck()
+        {
+            Bounds bounds = collider.bounds;
+
+            Vector3 groundCheckPosition = bounds.center + new Vector3(0, -bounds.extents.y);
+
+            bool nearGround = Physics2D.OverlapCircle(groundCheckPosition, groundCheckRadius, groundLayer);
+            bool colliderTouchingGround = components.collider.IsTouchingLayers(groundLayer);
+
+            grounded = nearGround && colliderTouchingGround;
+        }
+
+        private void HandleCheckSpearUnderPlayer()
         {
             Vector2 playerPos = transform.position;
 
             Vector2 leftRayPos = new Vector2(playerPos.x - spearCheckOffset, playerPos.y);
-            bool rayLeft = Physics2D.Raycast(leftRayPos, Vector2.down, 2f, spearLayer);
+            Vector2 rightRayPos = new Vector2(playerPos.x + spearCheckOffset, playerPos.y);
 
-            Vector2 rightRayPos = new Vector2(playerPos.x - spearCheckOffset, playerPos.y);
-            bool rayRight = Physics2D.Raycast(rightRayPos, Vector2.down, 2f, spearLayer);
+            bool leftRayHit = Physics2D.Raycast(leftRayPos, Vector2.down, 1f, spearLayer);
+            bool rightRayHit = Physics2D.Raycast(rightRayPos, Vector2.down, 1f, spearLayer);
 
-            spearUnderPlayer = rayLeft || rayRight;
+            spearUnderPlayer = leftRayHit || rightRayHit;
         }
 
         private void SaveLastSafePosition()
@@ -103,15 +106,17 @@ namespace Root.Player.Components
             if (!grounded)
             {
                 safePositionCounter = timeToSavePosition;
+                return;
             }
-            else if (!spearUnderPlayer)
+
+            if (!spearUnderPlayer)
             {
                 safePositionCounter -= Time.deltaTime;
 
                 if (safePositionCounter >= 0) return;
 
                 lastSafePosition = transform.position;
-                SaveHelper.CurrentSave.playerData.lastSafePosition = lastSafePosition;
+                SaveHelper.GetCurrentSave().playerData.lastSafePosition = lastSafePosition;
             }
         }
 
@@ -119,16 +124,13 @@ namespace Root.Player.Components
 
         private void Effects()
         {
-            // Landing Effects
             if (wasGrounded || !grounded) return;
 
-            // Play landing sound
             components.audioPlayer.Play(soundEffects.land);
 
-            // Spawn landing smoke
-            var rotation = components.controller.facingDirection == 1 ? 180f : 0f;
-            var smokeRotation = Quaternion.Euler(
-                new Vector3(0f, rotation, 0f));
+            float rotation = components.controller.facingDirection == 1 ? 180f : 0f;
+
+            Quaternion smokeRotation = Quaternion.Euler(new Vector3(0f, rotation, 0f));
 
             Instantiate(particleEffects.land, transform.position, smokeRotation);
         }

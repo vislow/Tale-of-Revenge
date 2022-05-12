@@ -10,10 +10,7 @@ namespace Root
 
         private Vector3 originalPos;
 
-        private void Start()
-        {
-            originalPos = transform.position;
-        }
+        private void Start() => originalPos = transform.position;
 
         public void Open(bool open)
         {

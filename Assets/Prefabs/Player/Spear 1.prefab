@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 2446798206309529771}
   - component: {fileID: 2446798206309529770}
   - component: {fileID: 2446798206309529769}
+  - component: {fileID: 4911546180338161095}
   m_Layer: 10
   m_Name: Spear 1
   m_TagString: Spear
@@ -161,11 +162,12 @@ MonoBehaviour:
   debug: 1
   speed: 6000
   rb: {fileID: 2446798206309529771}
-  platformPlayerDistanceThreshold: 4.5
   solidCollider: {fileID: 1773246967504505574}
   spearLayer:
     serializedVersion: 2
     m_Bits: 1024
+  spearCheckDistance: 1
+  platformDisableTime: 1.5
 --- !u!50 &2446798206309529771
 Rigidbody2D:
   serializedVersion: 4
@@ -264,6 +266,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4911546180338161095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446798206309529768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93c485ba966f5c4480760b1d070cdb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2446798206309529771}
 --- !u!1 &3709218579846755872
 GameObject:
   m_ObjectHideFlags: 0

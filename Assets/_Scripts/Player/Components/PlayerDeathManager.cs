@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using Root.LevelManagement;
+using Root.Systems.Levels;
 
 namespace Root.Player.Components
 {

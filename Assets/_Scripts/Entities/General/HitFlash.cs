@@ -23,11 +23,12 @@ namespace Root.Entities.General
                 Debug.Log($"Please manually set reference to sprite renderer in the inspector ({gameObject.name})");
             }
 
-            var material = spriteRenderer.material;
+            Material material = spriteRenderer.material;
 
             if (hitParticles != null)
             {
-                var emission = hitParticles.emission;
+                ParticleSystem.EmissionModule emission = hitParticles.emission;
+
                 hitParticles.Play();
             }
 

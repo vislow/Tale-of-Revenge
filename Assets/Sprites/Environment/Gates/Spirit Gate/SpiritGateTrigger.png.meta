@@ -4,7 +4,31 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -1577664448083903085
-    second: InteractiveTiles_SpiritGateTrigger
+    second: SpiritGateTrigger
+  - first:
+      213: -7777142094199601916
+    second: SpiritGateTrigger_0
+  - first:
+      213: 4477409668658304648
+    second: SpiritGateTrigger_1
+  - first:
+      213: 4142766923595704065
+    second: SpiritGateTrigger_2
+  - first:
+      213: -3764715210427904727
+    second: SpiritGateTrigger_3
+  - first:
+      213: -3707545226832051704
+    second: SpiritGateTrigger_4
+  - first:
+      213: -2261949636109920876
+    second: SpiritGateTrigger_5
+  - first:
+      213: 1980766094194026361
+    second: SpiritGateTrigger_6
+  - first:
+      213: 1996532888485116443
+    second: SpiritGateTrigger_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,7 +142,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InteractiveTiles_SpiritGateTrigger
+      name: SpiritGateTrigger_0
       rect:
         serializedVersion: 2
         x: 0
@@ -132,8 +156,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39d32351b820b1ae0800000000000000
-      internalID: -1577664448083903085
+      spriteID: 405ce7b687a021490800000000000000
+      internalID: -7777142094199601916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886174e0f54f22e30800000000000000
+      internalID: 4477409668658304648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107e82451901e7930800000000000000
+      internalID: 4142766923595704065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d4fe1667b01cbc0800000000000000
+      internalID: -3764715210427904727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8020bf572472c8cc0800000000000000
+      internalID: -3707545226832051704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49518df4ac0fb90e0800000000000000
+      internalID: -2261949636109920876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977a293a4481d7b10800000000000000
+      internalID: 1980766094194026361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpiritGateTrigger_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a3a80851c15bb10800000000000000
+      internalID: 1996532888485116443
       vertices: []
       indices: 
       edges: []
@@ -148,7 +319,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures:
-    - texture: {fileID: 2800000, guid: 0039620366e27fa4cb6d4d069682c609, type: 3}
+    - texture: {fileID: 2800000, guid: f653e9ae028acf748b479e60f189d767, type: 3}
       name: _Emission
   spritePackingTag: 
   pSDRemoveMatte: 0

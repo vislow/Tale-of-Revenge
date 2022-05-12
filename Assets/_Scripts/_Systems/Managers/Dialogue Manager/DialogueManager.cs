@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace Root.Dialogue
+namespace Root.Systems.Dialogue
 {
     public class DialogueManager : MonoBehaviour
     {
@@ -19,9 +19,13 @@ namespace Root.Dialogue
         private void Awake()
         {
             if (instance == null)
+            {
                 instance = this;
+            }
             else
+            {
                 Destroy(this);
+            }
 
             dialogueIndex = -1;
             UpdateDialogueText();

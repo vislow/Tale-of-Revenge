@@ -1,7 +1,6 @@
-﻿using Root.LevelManagement;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace UI.General
+namespace Root.UI.General
 {
     public class TitleScreen : MonoBehaviour
     {

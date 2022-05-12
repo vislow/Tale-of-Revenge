@@ -106,19 +106,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1274148175616414731}
-        m_TargetAssemblyTypeName: Player.Components.Controller, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 00ce6512-2d20-42ac-af69-358355efdf69
     m_ActionName: Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
@@ -199,8 +187,8 @@ MonoBehaviour:
     m_ActionName: UI/Menu[/Keyboard/tab]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player.Components.SpearManager, Assembly-CSharp
+      - m_Target: {fileID: 7218249104530089183}
+        m_TargetAssemblyTypeName: Root.Player.Components.SpearManager, Assembly-CSharp
         m_MethodName: OnSpear
         m_Mode: 0
         m_Arguments:
@@ -251,15 +239,16 @@ MonoBehaviour:
     rb: {fileID: 1274148175616414724}
     center: {fileID: 1274148174772049984}
     collider: {fileID: 1274148175616414723}
+    audioPlayer: {fileID: 1274148175616414725}
+    playerCamera: {fileID: 0}
     health: {fileID: 1274148175616414734}
     combat: {fileID: 1274148175616414733}
+    spearManager: {fileID: 7218249104530089183}
     controller: {fileID: 1274148175616414731}
     deathManager: {fileID: 1274148175616414727}
     knockback: {fileID: 1274148175616414726}
     animation: {fileID: 1274148175616414735}
     collision: {fileID: 1274148175616414732}
-    playerCamera: {fileID: 0}
-    audioPlayer: {fileID: 1274148175616414725}
   soundEffects:
     jump: {fileID: 11400000, guid: ba6f48d29fd2e6a47b1c3c46ae7cfb33, type: 2}
     land: {fileID: 11400000, guid: 620fd7536b9dcbc46bb7894e49def5b3, type: 2}
@@ -281,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83000e51e0301104a867e27eaa489e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
 --- !u!114 &1274148175616414734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1b952318272284480ce7d1b6629ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
   initialMaxHealth: 4
   invincibilityTime: 0.3
   spriteRenderer: {fileID: 1274148175616414729}
@@ -308,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cd1473093cd0f4c862c5926f4c3f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
   debug: 0
   attackDamage: 1
   timeBetweenAttacks: 0.1
@@ -342,13 +334,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd60ec8c9c88ca94fb5ca5a46ae23c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
   drawGizmos: 0
-  groundCheckRadius: 0.25
-  groundCheckOffset: {x: 0, y: 0.1}
+  groundCheckRadius: 0.29
+  groundCheckOffset: {x: -0.03, y: 0.05}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  spearCheckOffset: 0.1
+  spearCheckOffset: 0.2
   spearLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -366,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b648414be29e8d4494916e4f3cc2df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
   speed: 10
   acceleration: 0.4
   decceleration: 0.9
@@ -391,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f375f892c0d6eff4290229e65557223a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
   useSpawnPoint: 0
 --- !u!114 &1274148175616414726
 MonoBehaviour:
@@ -404,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eb9fd63d1b69a4d9a8dd374f8ccce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
   defaultKnockbackDirection: {x: 0, y: 0}
   defaultKnockbackTime: 0
   defaultKnockbackForce: 0
@@ -419,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ed6a617c9d89e4885272f120d9899d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1274148175616414736}
   debug: 0
   spearPrefab: {fileID: 2446798206309529768, guid: fcdd3e15189323249985bb113f069399,
     type: 3}
@@ -426,7 +423,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 2112
+  maxSpearDistance: 40
   spearOffsetDistance: 4
+  spearThrowCooldown: 0.35
 --- !u!114 &1274148175616414725
 MonoBehaviour:
   m_ObjectHideFlags: 0

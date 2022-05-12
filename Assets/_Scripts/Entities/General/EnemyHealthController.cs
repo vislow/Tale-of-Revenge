@@ -18,20 +18,19 @@ namespace Root.Entities.Enemies
 
         public void Damage(int damage, Vector2 knockbackDirection)
         {
-            if (!invincible)
-                health -= damage;
+            if (invincible) return;
 
+            health -= damage;
             OnDamaged?.Invoke();
 
-            if (rb != null && takeKnockback)
+            if (takeKnockback)
             {
                 rb.velocity = knockbackDirection * knockbackAmount;
             }
 
-            if (!invincible && health <= 0)
-            {
-                OnDead?.Invoke();
-            }
+            if (health > 0) return;
+
+            OnDead?.Invoke();
         }
     }
 }

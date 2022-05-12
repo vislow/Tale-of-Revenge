@@ -40,10 +40,7 @@ namespace Root
             PlayerDeathManager.OnDeathStageChanged += UpdateDeathCounter;
         }
 
-        private void OnDestroy()
-        {
-            PlayerDeathManager.OnDeathStageChanged -= UpdateDeathCounter;
-        }
+        private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= UpdateDeathCounter;
 
         private void UpdateDeathCounter(DeathStages deathStages)
         {
@@ -67,10 +64,7 @@ namespace Root
             }
         }
 
-        private void ResetDeathCounter()
-        {
-            CurrentDeaths = 0;
-        }
+        private void ResetDeathCounter() => CurrentDeaths = 0;
 
         private void SaveHighestDeaths()
         {
@@ -78,11 +72,6 @@ namespace Root
 
             PlayerPrefs.SetInt("HighestDeaths", HighestDeaths);
             PlayerPrefs.Save();
-        }
-
-        public void OnRespawn()
-        {
-
         }
 
         public void OnReset()

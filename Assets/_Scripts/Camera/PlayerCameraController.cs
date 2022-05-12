@@ -24,10 +24,7 @@ namespace Root.Cameras
             parentTransform = transform.parent.transform;
         }
 
-        private void Start()
-        {
-            player = PlayerManager.instance;
-        }
+        private void Start() => player = PlayerManager.instance;
 
         private void Update()
         {
@@ -35,28 +32,24 @@ namespace Root.Cameras
 
             latePlayerPos = playerPos;
             playerPos = player.components.center.transform.position;
-
             centerCameraTimer -= Time.deltaTime;
 
-            if (latePlayerPos != playerPos && !player.components.deathManager.dead)
-            {
-                vcam.enabled = true;
+            if (latePlayerPos == playerPos || player.components.deathManager.dead) return;
 
-                centerCameraTimer = timeBeforeCenterCamera;
-            }
+            vcam.enabled = true;
+            centerCameraTimer = timeBeforeCenterCamera;
         }
 
         private void LateUpdate()
         {
-            if (centerCameraTimer < 0 || player.components.deathManager.dead)
-            {
-                vcam.enabled = false;
+            if (centerCameraTimer >= 0 && !player.components.deathManager.dead) return;
 
-                float xPos = Mathf.Lerp(parentTransform.position.x, playerPos.x, cameraCenterSpeed);
-                float yPos = Mathf.Lerp(parentTransform.position.y, playerPos.y, cameraCenterSpeed);
+            vcam.enabled = false;
 
-                parentTransform.position = new Vector3(xPos, yPos, parentTransform.position.z);
-            }
+            float xPos = Mathf.Lerp(parentTransform.position.x, playerPos.x, cameraCenterSpeed);
+            float yPos = Mathf.Lerp(parentTransform.position.y, playerPos.y, cameraCenterSpeed);
+
+            parentTransform.position = new Vector3(xPos, yPos, parentTransform.position.z);
         }
 
         public void CenterCamera(bool lerp = false)
