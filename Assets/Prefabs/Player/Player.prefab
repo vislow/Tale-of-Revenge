@@ -425,7 +425,7 @@ MonoBehaviour:
     m_Bits: 2112
   maxSpearDistance: 40
   spearOffsetDistance: 4
-  spearThrowCooldown: 0.35
+  spearThrowCooldown: 0.65
 --- !u!114 &1274148175616414725
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,12 +22,26 @@ namespace Root.Systems.Input
 
         private void Awake()
         {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
+
             input = new PlayerControls();
 
-            input.Gameplay.Move.performed += context => inputDirection = context.ReadValue<Vector2>();
+            input.Gameplay.Move.performed += context => inputDirection = context.ReadValue<Vector2>().normalized;
+            input.Gameplay.Move.canceled += context => inputDirection = Vector2.zero;
 
             PlayerDeathManager.OnDeathStageChanged += DeathEvents;
         }
+
+        private void OnEnable() => input.Enable();
+
+        private void OnDisable() => input.Disable();
 
         private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
 
