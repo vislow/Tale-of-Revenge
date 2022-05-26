@@ -1,5 +1,5 @@
-using UnityEngine;
 using Root.Systems.States;
+using UnityEngine;
 
 namespace Root.ObjectManagement
 {
@@ -31,8 +31,11 @@ namespace Root.ObjectManagement
             {
                 rb.bodyType = bodyType;
 
-                rb.velocity = velocity;
-                rb.angularVelocity = angularVelocity;
+                if (rb.bodyType != RigidbodyType2D.Static)
+                {
+                    rb.velocity = velocity;
+                    rb.angularVelocity = angularVelocity;
+                }
             }
         }
     }

@@ -1,5 +1,5 @@
-using UnityEngine;
 using Root.Player.Components;
+using UnityEngine;
 
 namespace Root.Systems.Input
 {
@@ -7,16 +7,18 @@ namespace Root.Systems.Input
     {
         public static InputManager instance;
 
+        [SerializeField] private RectTransform cursorTransform;
+
         internal PlayerControls input;
-        internal float horizontalInput;
-        internal float verticalInput;
+        public float horizontalInput;
+        public float verticalInput;
 
         private Vector2 inputDirection
         {
             set
             {
-                horizontalInput = value.x;
-                verticalInput = value.y;
+                horizontalInput = Mathf.RoundToInt(value.x);
+                verticalInput = Mathf.RoundToInt(value.y);
             }
         }
 
@@ -33,10 +35,18 @@ namespace Root.Systems.Input
 
             input = new PlayerControls();
 
-            input.Gameplay.Move.performed += context => inputDirection = context.ReadValue<Vector2>().normalized;
+            input.Gameplay.Move.performed += context => inputDirection = context.ReadValue<Vector2>();
             input.Gameplay.Move.canceled += context => inputDirection = Vector2.zero;
 
             PlayerDeathManager.OnDeathStageChanged += DeathEvents;
+        }
+
+        private void Update()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+
+            cursorTransform.position = UnityEngine.Input.mousePosition;
         }
 
         private void OnEnable() => input.Enable();

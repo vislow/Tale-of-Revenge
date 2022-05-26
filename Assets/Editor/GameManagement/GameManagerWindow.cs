@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEditor;
 using Root.Systems.States;
+using Root.Systems.Input;
 
 public class GameManagerWindow : EditorWindow
 {
     private static GameStateManager gameStateManager;
+    private static InputManager inputManager;
+
+    private string status;
 
     GUIStyle headerStyle
     {
@@ -23,17 +27,26 @@ public class GameManagerWindow : EditorWindow
 
     private void OnGUI()
     {
-        gameStateManager = GameStateManager.instance;
-        RenderGameManagerStats();
+        if (EditorApplication.isPlaying && !EditorApplication.isPaused)
+        {
+            gameStateManager = GameStateManager.instance;
+            inputManager = InputManager.instance;
+
+            RenderGameManagerStats();
+            RenderInputManagerStats();
+        }
+        else
+        {
+            status = "Waiting for Editor to Play";
+            GUILayout.Label(status, EditorStyles.boldLabel);
+        }
     }
 
     private void RenderGameManagerStats(GameState gameState) => RenderGameManagerStats();
 
     private void RenderGameManagerStats()
     {
-        GUILayout.BeginVertical(EditorStyles.helpBox);
-
-        GUILayout.Label("Game State Manager", EditorStyles.boldLabel);
+        BeginSection("Game State Manager");
 
         string gameState =
             "Game State: " +
@@ -41,6 +54,26 @@ public class GameManagerWindow : EditorWindow
 
         GUILayout.Label(gameState);
 
-        GUILayout.EndVertical();
+        EndSection();
     }
+
+    private void RenderInputManagerStats()
+    {
+        BeginSection("Input Manager");
+
+        string horizontalInput = $"Horizontal Input: {(inputManager == null ? "Inactive" : inputManager.horizontalInput.ToString())}";
+        string verticalInput = $"Vertical Input: {(inputManager == null ? "Inactive" : inputManager.verticalInput.ToString())}";
+
+        GUILayout.Label(horizontalInput + "\n" + verticalInput);
+
+        EndSection();
+    }
+
+    private void BeginSection(string header)
+    {
+        GUILayout.BeginVertical(EditorStyles.helpBox);
+        GUILayout.Label(header, EditorStyles.boldLabel);
+    }
+
+    private void EndSection() => GUILayout.EndVertical();
 }

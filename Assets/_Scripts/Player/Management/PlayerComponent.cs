@@ -1,7 +1,7 @@
-using UnityEngine;
 using Root.Cameras;
 using Root.Systems.Audio;
 using Root.Systems.Input;
+using UnityEngine;
 
 namespace Root.Player.Components
 {
@@ -25,7 +25,7 @@ namespace Root.Player.Components
         public PlayerHealth health { get => components.health; }
         public PlayerCollision collision { get => components.collision; }
         public PlayerController controller { get => components.controller; }
-        public SpearManager spearManager { get => components.spearManager; }
+        public PlayerSpearManager spearManager { get => components.spearManager; }
         public PlayerKnockbackManager knockback { get => components.knockback; }
         public PlayerDeathManager deathManager { get => components.deathManager; }
         public PlayerCameraController playerCamera { get => components.playerCamera; }

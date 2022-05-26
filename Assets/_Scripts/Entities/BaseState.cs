@@ -2,12 +2,10 @@ namespace Root.Entities
 {
     public class BaseState
     {
-        public string name;
         protected StateMachine stateMachine;
 
-        public BaseState(string name, StateMachine stateMachine)
+        public BaseState(StateMachine stateMachine)
         {
-            this.name = name;
             this.stateMachine = stateMachine;
         }
 

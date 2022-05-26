@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1b613c42a2cf5448a453144676c9e1, type: 3}
+  m_Name: Idle
+  m_EditorClassIdentifier: 
+  framerate: 12
+  reverse: 0
+  startingFrame: 1
+  frames:
+  - {fileID: -467307283419413426, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: -5258030014049578038, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: -8906209229327139148, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: -7329941963295623720, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: -1461283530703516926, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: 1447435686714733766, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: 3301799781894900959, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: 3583257001652028932, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: 4245344421344247407, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: 6236088313408774587, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}
+  - {fileID: 9073950842162242612, guid: 128c1c7f9fe80df4cb5a4026eb1ab50c, type: 3}

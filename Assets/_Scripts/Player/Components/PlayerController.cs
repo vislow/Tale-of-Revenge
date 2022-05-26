@@ -10,31 +10,39 @@ namespace Root.Player.Components
         [SerializeField] private float speed = 10f;
         [SerializeField][Range(0, 1)] private float acceleration = 0.4f;
         [SerializeField][Range(0, 1)] private float decceleration = 0.9f;
-        [Space]
+        [Header("Spear Hop")]
         [SerializeField] private float spearHopForce = 20f;
-        [SerializeField] private float spearHopMinVelocity = -20f;
-        [Space]
+        //[SerializeField] private float spearHopMinVelocity = -20f;
+        [Header("Jumping")]
         [SerializeField] private float jumpForce = 28f;
         [SerializeField] private float coyoteTime = 0.12f;
         [SerializeField] private float jumpBufferTime = 0.25f;
         [SerializeField][Range(0, 1)] private float variableJumpMultiplier = 0.4f;
-        [Space]
-        [SerializeField] private float runParticleMaxDelay = 0.25f;
-        [SerializeField] private float runParticleMinDelay = 0.1f;
-        [Space]
+        [Header("Dashing")]
         [SerializeField] private float dashSpeed = 3500f;
         [SerializeField] private float dashTime = 0.08f;
+        [Header("Effects")]
+        [SerializeField] private float runParticleMaxDelay = 0.25f;
+        [SerializeField] private float runParticleMinDelay = 0.1f;
 
         internal float facingDirection = 1;
-        internal bool dashing;
 
         private float coyoteTimeCounter;
         private float jumpBufferCounter;
         private float runParticleTimer;
         private bool jumping;
+        private bool dashing;
+        internal bool Dashing
+        {
+            get => dashing;
+            set
+            {
+                if (value == dashing) return;
 
-        private Vector2 slopeNormal;
-        private float slopeAngle;
+                health.invincible = value;
+                dashing = value;
+            }
+        }
 
         private bool jumpPressed;
         private bool jumpHeld;
@@ -132,7 +140,7 @@ namespace Root.Player.Components
 
         public void SpearHop()
         {
-            if (collision.grounded || rb.velocity.y < spearHopMinVelocity || rb.bodyType == RigidbodyType2D.Static) return;
+            if (collision.grounded || rb.bodyType == RigidbodyType2D.Static) return;
 
             audioPlayer.Play(soundEffects.jump);
 
@@ -201,26 +209,7 @@ namespace Root.Player.Components
             }
         }
 
-        private void Move(float xSpeed)
-        {
-            if (!collision.grounded)
-            {
-                rb.velocity = new Vector2(xSpeed, rb.velocity.y);
-                return;
-            }
-
-            if (jumping) return;
-
-            RaycastHit2D hit = Physics2D.Raycast(center.position, Vector2.down, 1f, collision.groundLayer);
-
-            if (hit)
-            {
-                slopeNormal = Vector2.Perpendicular(hit.normal).normalized;
-                slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-            }
-
-            rb.velocity = new Vector2(-xSpeed * slopeNormal.x, -xSpeed * slopeNormal.y);
-        }
+        private void Move(float xSpeed) => rb.velocity = new Vector2(xSpeed, rb.velocity.y);
         #endregion
 
         private void FaceDirection()

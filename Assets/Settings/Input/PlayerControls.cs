@@ -252,7 +252,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Point"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""0cff5a37-86bb-4267-bccd-eb3c92514afe"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",

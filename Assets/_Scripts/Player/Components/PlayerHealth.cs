@@ -11,7 +11,7 @@ namespace Root.Player.Components
         [Space]
         [SerializeField] private SpriteRenderer spriteRenderer;
 
-        private bool invincible;
+        internal bool invincible;
 
         private int maxHealth;
         public int MaxHealth

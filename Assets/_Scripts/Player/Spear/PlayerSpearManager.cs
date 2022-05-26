@@ -1,9 +1,10 @@
+using Root.Player.Spear;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Root.Player.Components
 {
-    public class SpearManager : PlayerComponent
+    public class PlayerSpearManager : PlayerComponent
     {
         [SerializeField] private bool debug;
         [Space]
@@ -15,38 +16,25 @@ namespace Root.Player.Components
         [SerializeField] private float spearOffsetDistance = 4f;
         [SerializeField] private float spearThrowCooldown = 0.15f;
 
-        private SpearController spearController;
-        private bool isSpearActive;
+        private SpearStateManager spearStateManager;
+        internal bool isSpearActive;
+        private bool SpearInRange => Vector2.Distance(center.position, spearStateManager.transform.position) <= maxSpearDistance;
         private float spearThrowCooldownTimer;
 
         private void Update() => spearThrowCooldownTimer -= Time.deltaTime;
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (spearController == null || !spearController.returningToPlayer || !other.CompareTag("Spear")) return;
-
-            isSpearActive = false;
-        }
-
         public void OnSpear(InputAction.CallbackContext context)
         {
-            if (isSpearActive && Vector2.Distance(center.position, spearController.transform.position) > maxSpearDistance)
+            if (isSpearActive && (context.performed || !SpearInRange))
             {
                 RetractSpear();
                 return;
             }
 
-            if (!context.performed) return;
-
-            if (isSpearActive)
+            if (context.performed && spearThrowCooldownTimer <= 0)
             {
-                RetractSpear();
-                return;
+                ThrowSpear();
             }
-
-            if (spearThrowCooldownTimer > 0) return;
-
-            ThrowSpear();
         }
 
         private void ThrowSpear()
@@ -57,18 +45,16 @@ namespace Root.Player.Components
 
             GameObject spearObject = Instantiate(spearPrefab, GetSpearStartPosition(), GetSpearStartRotation());
 
-            spearController = spearObject.GetComponent<SpearController>();
-            spearController.Init(playerCollision: collision, playerObject: gameObject, playerRb: rb);
+            spearStateManager = spearObject.GetComponent<SpearStateManager>();
+            spearStateManager.Init(playerManager);
         }
 
-        private void RetractSpear() => spearController.ReturnToPlayer(gameObject);
+        private void RetractSpear() => spearStateManager.ReturnToPlayer();
 
         private Quaternion GetSpearStartRotation()
         {
             Vector3 aimDir = Utility.Utils.MouseWorldPosition - playerCenter.position;
-
             float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
-
             Quaternion quaternion = Quaternion.AngleAxis(angle, Vector3.forward);
 
             return quaternion;
@@ -76,13 +62,12 @@ namespace Root.Player.Components
 
         private Vector3 GetSpearStartPosition()
         {
-            Vector3 aimDir = (Utility.Utils.MouseWorldPosition - playerCenter.position).normalized;
-            Vector3 centerPos = playerCenter.position;
+            Vector3 position = playerCenter.position;
+            Vector3 aimDir = (Utility.Utils.MouseWorldPosition - position).normalized;
+            Vector3 centerPos = position;
             Vector3 spearOriginPosition = centerPos + (aimDir * spearOffsetDistance);
 
             RaycastHit2D hit = Physics2D.Raycast(centerPos, aimDir, spearOffsetDistance, groundLayer);
-
-            if (hit.point != Vector2.zero) return spearOriginPosition;
 
             float distanceToHitPoint = Vector2.Distance(centerPos, hit.point);
             float distanceToSpearOrigin = Vector2.Distance(centerPos, spearOriginPosition);

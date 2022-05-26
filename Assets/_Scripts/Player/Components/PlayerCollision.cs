@@ -6,7 +6,7 @@ namespace Root.Player.Components
 {
     public class PlayerCollision : PlayerComponent
     {
-        [SerializeField] private bool drawGizmos;
+        [SerializeField] private bool debug;
         [Header("Ground Collision")]
         [SerializeField] private float groundCheckRadius = 0.25f;
         [SerializeField] private Vector2 groundCheckOffset = new Vector2(0, 0.1f);
@@ -45,7 +45,7 @@ namespace Root.Player.Components
 
         private void OnDrawGizmos()
         {
-            if (!drawGizmos) return;
+            if (!debug) return;
 
             // This draws a gizmo representing the position of the players ground check
             Bounds bounds = collider.bounds;
@@ -69,11 +69,10 @@ namespace Root.Player.Components
             wasGrounded = grounded;
 
             HandleGroundCheck();
-
-            rb.gravityScale = grounded && input.horizontalInput == 0 ? 0 : originalGravityScale;
-
             HandleCheckSpearUnderPlayer();
             SaveLastSafePosition();
+
+            rb.gravityScale = grounded && input.horizontalInput == 0 ? 0 : originalGravityScale;
         }
 
         private void HandleGroundCheck()
@@ -91,7 +90,6 @@ namespace Root.Player.Components
         private void HandleCheckSpearUnderPlayer()
         {
             Vector2 playerPos = transform.position;
-
             Vector2 leftRayPos = new Vector2(playerPos.x - spearCheckOffset, playerPos.y);
             Vector2 rightRayPos = new Vector2(playerPos.x + spearCheckOffset, playerPos.y);
 

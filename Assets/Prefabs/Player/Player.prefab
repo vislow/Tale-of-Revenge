@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 1274148175616414736}
-  drawGizmos: 0
+  debug: 0
   groundCheckRadius: 0.29
   groundCheckOffset: {x: -0.03, y: 0.05}
   groundLayer:
@@ -364,15 +364,14 @@ MonoBehaviour:
   acceleration: 0.4
   decceleration: 0.9
   spearHopForce: 20
-  spearHopMinVelocity: -50
   jumpForce: 28
   coyoteTime: 0.12
   jumpBufferTime: 0.25
   variableJumpMultiplier: 0.4
-  runParticleMaxDelay: 0.25
-  runParticleMinDelay: 0.1
   dashSpeed: 3500
   dashTime: 0.08
+  runParticleMaxDelay: 0.25
+  runParticleMinDelay: 0.1
 --- !u!114 &1274148175616414727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 1274148175616414736}
   debug: 0
-  spearPrefab: {fileID: 2446798206309529768, guid: fcdd3e15189323249985bb113f069399,
+  spearPrefab: {fileID: 8473467740631215258, guid: 8f17355e1b3f8464a884622ded6226c4,
     type: 3}
   playerCenter: {fileID: 1274148174772049984}
   groundLayer:
@@ -425,7 +424,8 @@ MonoBehaviour:
     m_Bits: 2112
   maxSpearDistance: 40
   spearOffsetDistance: 4
-  spearThrowCooldown: 0.65
+  spearThrowCooldown: 0.075
+  isSpearActive: 0
 --- !u!114 &1274148175616414725
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,8 +1,8 @@
-using UnityEngine;
-using Root.Systems.Audio;
 using Root.Cameras;
 using Root.Player.Components;
+using Root.Systems.Audio;
 using Root.Systems.States;
+using UnityEngine;
 
 namespace Root.Player
 {
@@ -35,7 +35,7 @@ namespace Root.Player
             [Space]
             public PlayerHealth health;
             public PlayerCombat combat;
-            public SpearManager spearManager;
+            public PlayerSpearManager spearManager;
             public PlayerController controller;
             public PlayerDeathManager deathManager;
             public PlayerKnockbackManager knockback;
@@ -77,7 +77,7 @@ namespace Root.Player
             components.combat = GetComponent<PlayerCombat>();
             components.animation = GetComponent<PlayerAnimation>();
             components.collision = GetComponent<PlayerCollision>();
-            components.spearManager = GetComponent<SpearManager>();
+            components.spearManager = GetComponent<PlayerSpearManager>();
             components.controller = GetComponent<PlayerController>();
             components.deathManager = GetComponent<PlayerDeathManager>();
             components.knockback = GetComponent<PlayerKnockbackManager>();
