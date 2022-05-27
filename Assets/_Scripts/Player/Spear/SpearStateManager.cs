@@ -63,9 +63,11 @@ namespace Root.Player.Spear
             transform.rotation = rotation;
         }
 
-        public void DestroySelf(float time = 0f) => Destroy(gameObject, time);
-
-        private void OnDestroy() => player.components.spearManager.isSpearActive = false;
+        public void DestroySelf(float time = 0f)
+        {
+            player.components.spearManager.isSpearActive = false;
+            Destroy(gameObject, time);
+        }
 
         public void ReturnToPlayer() => ChangeState(returningState);
     }

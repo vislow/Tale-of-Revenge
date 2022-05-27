@@ -90,8 +90,6 @@ namespace Root.Player
 
             bool active = gameState == GameState.Gameplay;
 
-            components.rb.bodyType = active ? RigidbodyType2D.Dynamic : RigidbodyType2D.Static;
-
             components.anim.enabled = active;
             components.combat.enabled = active;
             components.health.enabled = active;

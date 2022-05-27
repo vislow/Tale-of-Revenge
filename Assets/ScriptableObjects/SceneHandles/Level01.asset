@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Passage0
   m_EditorClassIdentifier: 
   passageName: Passage0
-  targetScene: {fileID: 11400000, guid: 208a0bf3f2ae48242abd7e5440870783, type: 2}
-  targetPassage: 0
   passageId: 0
+  targetScene: {fileID: 11400000, guid: 208a0bf3f2ae48242abd7e5440870783, type: 2}
+  targetPassageId: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: Passage1
   m_EditorClassIdentifier: 
   passageName: Passage1
-  targetScene: {fileID: 11400000, guid: 208a0bf3f2ae48242abd7e5440870783, type: 2}
-  targetPassage: 1
   passageId: 1
+  targetScene: {fileID: 11400000, guid: 208a0bf3f2ae48242abd7e5440870783, type: 2}
+  targetPassageId: 1

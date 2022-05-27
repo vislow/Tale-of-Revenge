@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEditor;
-using Root.Systems.States;
 using Root.Systems.Input;
+using Root.Systems.States;
+using UnityEditor;
+using UnityEngine;
 
 public class GameManagerWindow : EditorWindow
 {
@@ -42,7 +42,11 @@ public class GameManagerWindow : EditorWindow
         }
     }
 
-    private void RenderGameManagerStats(GameState gameState) => RenderGameManagerStats();
+    private void RenderGameManagerStats(GameState gameState)
+    {
+        RenderGameManagerStats();
+        Repaint();
+    }
 
     private void RenderGameManagerStats()
     {

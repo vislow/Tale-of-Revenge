@@ -1,4 +1,5 @@
 using System.Collections;
+using Root.Systems.States;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +13,6 @@ namespace Root.Player.Components
         [SerializeField][Range(0, 1)] private float decceleration = 0.9f;
         [Header("Spear Hop")]
         [SerializeField] private float spearHopForce = 20f;
-        //[SerializeField] private float spearHopMinVelocity = -20f;
         [Header("Jumping")]
         [SerializeField] private float jumpForce = 28f;
         [SerializeField] private float coyoteTime = 0.12f;
@@ -53,11 +53,26 @@ namespace Root.Player.Components
 
         private void Update()
         {
+            if (!GameStateManager.inGame)
+            {
+                rb.bodyType = RigidbodyType2D.Static;
+                return;
+            }
+
             FaceDirection();
             JumpHandling();
         }
 
-        private void FixedUpdate() => HorizontalMovement();
+        private void FixedUpdate()
+        {
+            if (!GameStateManager.inGame)
+            {
+                rb.bodyType = RigidbodyType2D.Static;
+                return;
+            }
+
+            HorizontalMovement();
+        }
 
         private void DeathEvents(DeathStages deathStage)
         {
@@ -76,6 +91,8 @@ namespace Root.Player.Components
         #region Jump
         public void OnJump(InputAction.CallbackContext context)
         {
+            if (!GameStateManager.inGame) return;
+
             if (dashing || combat.attacking || knockback.inKnockback) return;
 
             if (context.started)
@@ -159,7 +176,7 @@ namespace Root.Player.Components
         #region Dash
         public void OnDash(InputAction.CallbackContext context)
         {
-            if (!context.performed) return;
+            if (!GameStateManager.inGame || !context.performed) return;
 
             StartCoroutine(Dash());
         }

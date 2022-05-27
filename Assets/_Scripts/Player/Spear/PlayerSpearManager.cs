@@ -1,4 +1,5 @@
 using Root.Player.Spear;
+using Root.Systems.States;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,8 @@ namespace Root.Player.Components
 
         public void OnSpear(InputAction.CallbackContext context)
         {
+            if (!GameStateManager.inGame) return;
+
             if (isSpearActive && (context.performed || !SpearInRange))
             {
                 RetractSpear();
@@ -68,6 +71,8 @@ namespace Root.Player.Components
             Vector3 spearOriginPosition = centerPos + (aimDir * spearOffsetDistance);
 
             RaycastHit2D hit = Physics2D.Raycast(centerPos, aimDir, spearOffsetDistance, groundLayer);
+
+            if (hit.collider == null) return spearOriginPosition;
 
             float distanceToHitPoint = Vector2.Distance(centerPos, hit.point);
             float distanceToSpearOrigin = Vector2.Distance(centerPos, spearOriginPosition);

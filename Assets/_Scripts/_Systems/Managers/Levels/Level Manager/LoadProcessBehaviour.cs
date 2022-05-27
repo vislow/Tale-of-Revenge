@@ -1,8 +1,7 @@
 using System.Collections;
+using Root.Systems.States;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Root.Systems.Levels;
-using Root.Systems.States;
 
 namespace Root.Systems.Levels
 {
@@ -13,7 +12,7 @@ namespace Root.Systems.Levels
         /// 2. Unload current scene 
         /// 3. Load new scene
         /// 4. Fade in
-        ///</Description>
+        /// </Description>
         public static IEnumerator LoadProcess(int levelIndex = default, PassageHandle passageHandle = null)
         {
             GameStateManager.SetState(GameState.Loading);

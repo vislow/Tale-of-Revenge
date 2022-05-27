@@ -1,5 +1,5 @@
-using UnityEngine;
 using Root.Systems.States;
+using UnityEngine;
 
 namespace Root.Gates
 {
@@ -22,11 +22,12 @@ namespace Root.Gates
             set
             {
                 isOpen = value;
-                currentSpeed = 0f;
-                rb.bodyType = value ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
+
+                anim.SetTrigger(isOpen ? "Activate" : "Deactivate");
+                rb.bodyType = isOpen ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
                 rb.velocity = Vector2.zero;
 
-                anim.SetTrigger(value ? "Activate" : "Deactivate");
+                currentSpeed = 0f;
             }
         }
 
@@ -34,7 +35,7 @@ namespace Root.Gates
 
         private void FixedUpdate()
         {
-            if (GameStateManager.CurrentGameState == GameState.Paused || !liftGate) return;
+            if (!GameStateManager.inGame || !liftGate) return;
 
             Vector3 position = transform.position;
 

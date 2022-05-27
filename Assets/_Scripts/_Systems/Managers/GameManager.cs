@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using UnityEngine;
 using Root.Systems.States;
+using UnityEngine;
 
 namespace Root.Systems.GameManagement
 {
@@ -30,16 +30,7 @@ namespace Root.Systems.GameManagement
 
         private void UpdateGameSpeed(GameState currentState) => Time.timeScale = currentState != GameState.Gameplay ? 1f : PlayerPrefs.GetFloat(gameSpeed);
 
-        private void Update()
-        {
-            bool active = GameStateManager.CurrentGameState == GameState.Gameplay;
-
-            Cursor.visible = active;
-
-            Cursor.lockState = active ? CursorLockMode.Confined : CursorLockMode.Locked;
-
-            transform.Rotate(new Vector3(0, 0, 10), Space.Self);
-        }
+        private void Update() => transform.Rotate(new Vector3(0, 0, 10), Space.Self);
 
         public void FreezeGame(float duration = 0.05f) => StartCoroutine(Freeze(duration));
 

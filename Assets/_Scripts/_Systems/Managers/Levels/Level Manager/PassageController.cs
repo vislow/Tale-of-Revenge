@@ -1,17 +1,17 @@
-using UnityEngine;
 using Root.Player;
+using UnityEngine;
 
 namespace Root.Systems.Levels
 {
     public class PassageController : MonoBehaviour
     {
-        [HideInInspector] public int id;
+        public int id;
 
         [SerializeField] private Collider2D passageTrigger;
         [Space]
         [SerializeField] private Vector2 spawnPositionOffset = new Vector2(0, -2);
 
-        internal Vector3 spawnPosition { get => (Vector3)spawnPositionOffset + transform.position; }
+        internal Vector3 spawnPosition { get => transform.position + (Vector3)spawnPositionOffset; }
 
         private bool passageDisabled;
 

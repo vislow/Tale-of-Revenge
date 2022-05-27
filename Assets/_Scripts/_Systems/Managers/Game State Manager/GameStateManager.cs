@@ -8,8 +8,8 @@ namespace Root.Systems.States
         public static GameStateManager instance;
 
         public static GameState CurrentGameState { get; private set; }
-
         public GameState currentGameState;
+        public static bool inGame => CurrentGameState == GameState.Gameplay;
 
         public static event Action<GameState> OnGameStateChanged;
 

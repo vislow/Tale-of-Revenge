@@ -31,11 +31,8 @@ namespace Root.ObjectManagement
             {
                 rb.bodyType = bodyType;
 
-                if (rb.bodyType != RigidbodyType2D.Static)
-                {
-                    rb.velocity = velocity;
-                    rb.angularVelocity = angularVelocity;
-                }
+                rb.velocity = velocity;
+                rb.angularVelocity = angularVelocity;
             }
         }
     }

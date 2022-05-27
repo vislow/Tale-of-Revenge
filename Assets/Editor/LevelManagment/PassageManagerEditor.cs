@@ -1,6 +1,6 @@
-using UnityEngine;
-using UnityEditor;
 using Root.Systems.Levels;
+using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(PassageManager))]
 public class PassageManagerEditor : Editor
@@ -125,6 +125,7 @@ public class PassageManagerEditor : Editor
         for (int i = 0; i < passageNames.Length; i++)
         {
             passageNames[i] = passage.targetScene.passages[i].passageName.ToString();
+            passage.passageId = i;
         }
 
         passage.targetPassageId = EditorGUILayout.Popup(passage.targetPassageId, passageNames);
