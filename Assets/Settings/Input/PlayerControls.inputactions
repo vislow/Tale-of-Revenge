@@ -279,15 +279,15 @@
                 },
                 {
                     "name": "Submit",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "2220ccaf-c49b-46fc-ad4f-9f80c3445af3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Cancel",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "b8575cde-0596-41cf-a04b-efb0cb8beabb",
                     "expectedControlType": "Button",
                     "processors": "",

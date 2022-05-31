@@ -1,4 +1,4 @@
-namespace Root.UI.Pages
+namespace Root.Systems.Pages
 {
     public enum PageTypes
     {

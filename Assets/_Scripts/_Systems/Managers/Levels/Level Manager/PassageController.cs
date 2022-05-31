@@ -1,14 +1,17 @@
 using Root.Player;
+using Root.Systems.Input;
 using UnityEngine;
 
 namespace Root.Systems.Levels
 {
     public class PassageController : MonoBehaviour
     {
-        public int id;
+        [HideInInspector] public int id;
 
-        [SerializeField] private Collider2D passageTrigger;
+        [SerializeField] private float inputExitDuration = 0.5f;
+        [SerializeField, Range(-1, 1)] private int inputOverrideDirection;
         [Space]
+        [SerializeField] private Collider2D passageTrigger;
         [SerializeField] private Vector2 spawnPositionOffset = new Vector2(0, -2);
 
         internal Vector3 spawnPosition { get => transform.position + (Vector3)spawnPositionOffset; }
@@ -19,6 +22,7 @@ namespace Root.Systems.Levels
         {
             if (passageDisabled || !other.CompareTag("Player")) return;
 
+            InputManager.instance.OverrideInput(inputOverrideDirection);
             PassageManager.instance.LoadLevel(this);
         }
 
@@ -32,17 +36,20 @@ namespace Root.Systems.Levels
         public void TeleportPlayer()
         {
             passageDisabled = true;
-
             PlayerManager playerManager = PlayerManager.instance;
 
             if (playerManager == null)
             {
-                Debug.Log("There is no available instance of the player");
-
+                ConsoleLog("Player is not available, can't teleport to next passage");
                 return;
             }
 
             playerManager.MovePlayer(spawnPosition);
+            InputManager.instance.OverrideInput(-inputOverrideDirection, inputExitDuration);
         }
+
+        [ContextMenu("Run Log Test")]
+        private void LogTest() => ConsoleLog("Log test");
+        private void ConsoleLog(string message) => Utility.Utils.ConsoleLog(this, message);
     }
 }

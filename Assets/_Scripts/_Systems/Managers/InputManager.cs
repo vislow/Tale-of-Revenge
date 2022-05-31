@@ -1,4 +1,5 @@
-using Root.Player.Components;
+using Root.Player;
+using Root.Systems.States;
 using UnityEngine;
 
 namespace Root.Systems.Input
@@ -10,17 +11,14 @@ namespace Root.Systems.Input
         [SerializeField] private RectTransform cursorTransform;
 
         internal PlayerControls input;
-        public float horizontalInput;
-        public float verticalInput;
 
-        private Vector2 inputDirection
-        {
-            set
-            {
-                horizontalInput = Mathf.RoundToInt(value.x);
-                verticalInput = Mathf.RoundToInt(value.y);
-            }
-        }
+        private Vector2 inputDirection;
+        private Vector2 overriddenInputDirection;
+        public float verticalInput => overrideInput ? overriddenInputDirection.y : Mathf.RoundToInt(inputDirection.y);
+        public float horizontalInput => overrideInput ? overriddenInputDirection.x : Mathf.RoundToInt(inputDirection.x);
+        private bool overrideInput;
+
+        private PlayerManager player => PlayerManager.instance;
 
         private void Awake()
         {
@@ -33,37 +31,89 @@ namespace Root.Systems.Input
                 Destroy(this);
             }
 
-            input = new PlayerControls();
+            Initialize();
 
-            input.Gameplay.Move.performed += context => inputDirection = context.ReadValue<Vector2>();
-            input.Gameplay.Move.canceled += context => inputDirection = Vector2.zero;
+            void Initialize()
+            {
+                input = new PlayerControls();
 
-            PlayerDeathManager.OnDeathStageChanged += DeathEvents;
+                input.Gameplay.Move.performed += context => inputDirection = context.ReadValue<Vector2>();
+                input.Gameplay.Move.canceled += context => inputDirection = Vector2.zero;
+
+                GameStateManager.OnGameStateChanged += OnGameStateChanged;
+            }
         }
 
+        private void OnGameStateChanged(GameState state) => cursorTransform.gameObject.SetActive(state == GameState.Gameplay);
+
         private void Update()
+        {
+            HandleCursor();
+        }
+
+        private void HandleCursor()
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
 
-            cursorTransform.position = UnityEngine.Input.mousePosition;
-        }
-
-        private void OnEnable() => input.Enable();
-
-        private void OnDisable() => input.Disable();
-
-        private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
-
-        private void DeathEvents(DeathStages deathStage)
-        {
-            switch (deathStage)
+            if (GameStateManager.inGame)
             {
-                case DeathStages.Dying:
-                    horizontalInput = 0;
-                    verticalInput = 0;
-                    break;
+                cursorTransform.position = UnityEngine.Input.mousePosition;
             }
         }
+
+        #region Input Overriding
+        public void OverrideInput(int direction) => Override(direction);
+        public void OverrideInput(int direction, float time = 0)
+        {
+            Override(direction);
+            Invoke(nameof(ReturnInput), time);
+        }
+
+        private void Override(int direction)
+        {
+            overrideInput = true;
+            overriddenInputDirection.x = direction;
+        }
+
+        public void ReturnInput() => overrideInput = false;
+        #endregion
+
+        #region Input Activity
+        [ContextMenu("Disable Player Input")]
+        public void DisablePlayerInput()
+        {
+            if (!CheckPlayerAvailable()) return;
+            input.Gameplay.Disable();
+            PlayerManager.instance.playerInputComponent.DeactivateInput();
+        }
+
+        [ContextMenu("Enable Player Input")]
+        public void EnablePlayerInput()
+        {
+            if (!CheckPlayerAvailable()) return;
+            input.Gameplay.Enable();
+            PlayerManager.instance.playerInputComponent.ActivateInput();
+        }
+
+        private bool CheckPlayerAvailable()
+        {
+            if (player == null || player.playerInputComponent == null)
+            {
+                ConsoleLog("Player not available, can't access player input component");
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        private void OnEnable() => input.Enable();
+        private void OnDisable() => input.Disable();
+        private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnGameStateChanged;
+
+        [ContextMenu("Run Log Test")]
+        private void LogTest() => ConsoleLog("Log test");
+        private void ConsoleLog(string message) => Utility.Utils.ConsoleLog(this, message);
     }
 }

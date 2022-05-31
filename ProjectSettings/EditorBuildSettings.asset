@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameplay/Level01.unity
     guid: dceedd02dc7597e4d84300021235f7bb
-  - enabled: 0
-    path: Assets/Scenes/Challenges/PlatformingChallenge01.unity
-    guid: 1b747f791b5526b498055834e5e1e46a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 751916832fdf31f4fa78463e560d0b26,
       type: 2}

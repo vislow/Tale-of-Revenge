@@ -1,7 +1,7 @@
+using Root.Systems.Components;
 using UnityEngine;
-using Root.UI.Components;
 
-namespace Root.UI.Settings
+namespace Root.Systems.Settings
 {
     public class VideoSettings : MonoBehaviour
     {

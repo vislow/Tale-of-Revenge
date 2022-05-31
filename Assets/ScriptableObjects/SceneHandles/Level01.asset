@@ -29,22 +29,6 @@ MonoBehaviour:
   m_Name: Level01
   m_EditorClassIdentifier: 
   scene: {fileID: 102900000, guid: dceedd02dc7597e4d84300021235f7bb, type: 3}
+  sceneName: Level01
   passageList:
   - {fileID: -4068704116337557670}
-  - {fileID: 125735270406299346}
---- !u!114 &125735270406299346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d4524bc3396154f90e21f669ebe1e1, type: 3}
-  m_Name: Passage1
-  m_EditorClassIdentifier: 
-  passageName: Passage1
-  passageId: 1
-  targetScene: {fileID: 11400000, guid: 208a0bf3f2ae48242abd7e5440870783, type: 2}
-  targetPassageId: 1

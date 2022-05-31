@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-namespace Root.UI.Components
+namespace Root.Systems.Components
 {
     public class HorizontalSelectorController : MonoBehaviour, ISelectHandler, IDeselectHandler
     {

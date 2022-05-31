@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Root.UI.Pages
+namespace Root.Systems.Pages
 {
     public class MenuManager : MonoBehaviour
     {

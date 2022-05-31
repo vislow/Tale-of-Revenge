@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
-namespace Root.UI.Settings
+namespace Root.Systems.Settings
 {
     public class AudioSettings : MonoBehaviour
     {

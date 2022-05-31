@@ -7,6 +7,7 @@ namespace Root.Systems.Levels
     public class SceneHandle : ScriptableObject
     {
         public Object scene;
+        public string sceneName;
         [SerializeField] private List<PassageHandle> passageList = new List<PassageHandle>();
         public List<PassageHandle> passages { get => passageList; set => passageList = value; }
     }

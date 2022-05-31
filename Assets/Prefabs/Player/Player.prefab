@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd52d9b8cd1af5b439356c5037d9201b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInputComponent: {fileID: 1274148175616414738}
   components:
     anim: {fileID: 1274148175616414730}
     rb: {fileID: 1274148175616414724}
@@ -341,7 +342,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  spearCheckOffset: 0.2
+  spearCheckOffset: 0.01
   spearLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -416,14 +417,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 1274148175616414736}
   debug: 0
+  unlocked: 0
   spearPrefab: {fileID: 8473467740631215258, guid: 8f17355e1b3f8464a884622ded6226c4,
     type: 3}
   playerCenter: {fileID: 1274148174772049984}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 2112
+    m_Bits: 1088
   maxSpearDistance: 40
-  spearOffsetDistance: 4
+  spearOffsetDistance: 2
   spearThrowCooldown: 0.65
 --- !u!114 &1274148175616414725
 MonoBehaviour:

@@ -15,13 +15,14 @@ namespace Root.Systems.Levels
         /// </Description>
         public static IEnumerator LoadProcess(int levelIndex = default, PassageHandle passageHandle = null)
         {
-            GameStateManager.SetState(GameState.Loading);
 
             TransitionManager transitionManager = TransitionManager.instance;
             transitionManager.FadeOut();
 
             // Wait for fade out to finish
             while (transitionManager.currentState != TransitionStates.FadeOutFinished) yield return null;
+
+            GameStateManager.SetState(GameState.Loading);
 
             // Start loading next level
             AsyncOperation loadOperation = new AsyncOperation();
@@ -36,7 +37,8 @@ namespace Root.Systems.Levels
             }
             else
             {
-                loadOperation = SceneManager.LoadSceneAsync(passageHandle.targetScene.scene.name, LoadSceneMode.Additive);
+                var targetScene = passageHandle.targetScene.sceneName;
+                loadOperation = SceneManager.LoadSceneAsync(targetScene, LoadSceneMode.Additive);
             }
 
             // Wait for level to finish loading 

@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEditor;
 using Root.Systems.Levels;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CustomEditor(typeof(SceneHandle))]
 public class SceneHandleEditor : Editor
@@ -58,6 +59,12 @@ public class SceneHandleEditor : Editor
         EditorGUILayout.LabelField("Scene", GUILayout.MaxWidth(50f));
 
         sceneHandle.scene = EditorGUILayout.ObjectField(sceneHandle.scene, typeof(SceneAsset), true);
+
+        if (sceneHandle.scene != null && sceneHandle.scene.name != string.Empty)
+        {
+            sceneHandle.sceneName = sceneHandle.scene.name;
+            EditorUtility.SetDirty(sceneHandle);
+        }
 
         GUILayout.EndHorizontal();
     }

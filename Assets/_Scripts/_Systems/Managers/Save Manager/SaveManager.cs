@@ -12,6 +12,7 @@ namespace Root.Data.Saving
         public static Action OnPreGameSaved;
 
         [SerializeField] private bool debug;
+        [SerializeField] private bool saveSystemActive = true;
 
         internal SaveData currentSave;
 
@@ -29,6 +30,8 @@ namespace Root.Data.Saving
 
         public void Save(SaveNames saveName)
         {
+            if (saveSystemActive) return;
+
             if (!File.Exists(GetFilePath(saveName)))
             {
                 currentSave = new SaveData();
@@ -48,6 +51,8 @@ namespace Root.Data.Saving
 
         public void Save()
         {
+            if (saveSystemActive) return;
+
             OnPreGameSaved?.Invoke();
 
             XmlSerializer serializer = new XmlSerializer(typeof(SaveData));
@@ -63,6 +68,8 @@ namespace Root.Data.Saving
 
         public void Load(SaveNames saveName)
         {
+            if (saveSystemActive) return;
+
             if (!File.Exists(GetFilePath(saveName))) return;
 
             XmlSerializer serializer = new XmlSerializer(typeof(SaveData));
@@ -78,6 +85,8 @@ namespace Root.Data.Saving
 
         public void ClearSaveData(SaveNames saveName)
         {
+            if (saveSystemActive) return;
+
             if (!File.Exists(GetFilePath(saveName))) return;
 
             File.Delete(GetFilePath(saveName));

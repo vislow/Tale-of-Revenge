@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Root.UI
+namespace Root.Systems
 {
     public class AutoSelect : MonoBehaviour, IPointerEnterHandler
     {

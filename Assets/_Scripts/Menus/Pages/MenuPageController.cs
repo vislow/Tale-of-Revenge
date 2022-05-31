@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Root.UI.Pages
+namespace Root.Systems.Pages
 {
     public class MenuPageController : MonoBehaviour
     {
