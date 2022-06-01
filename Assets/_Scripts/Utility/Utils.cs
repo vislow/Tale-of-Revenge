@@ -6,6 +6,7 @@ namespace Root.Utility
     public class Utils
     {
         public static void ConsoleLog(Object source, string message) => Debug.Log($"<b>{source.name}</b>: {message}", source);
+        public static void ConsoleLog(string source, string message) => Debug.Log($"<b>{source}</b>: {message}");
 
         public static int GetActiveSceneIndex() => SceneManager.GetActiveScene().buildIndex;
 

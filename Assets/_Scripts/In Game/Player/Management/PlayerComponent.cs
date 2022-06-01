@@ -11,7 +11,7 @@ namespace Root.Player.Components
 
         public InputManager input { get => InputManager.instance; }
 
-        public PlayerManager.PlayerComponents components { get => playerManager.components; }
+        public PlayerClasses.PlayerComponents components { get => playerManager.components; }
 
         public new Collider2D collider { get => components.collider; }
         public new PlayerAnimation animation { get => components.animation; }
@@ -30,7 +30,7 @@ namespace Root.Player.Components
         public PlayerDeathManager deathManager { get => components.deathManager; }
         public CameraController playerCamera { get => components.playerCamera; }
 
-        public PlayerManager.PlayerSoundEffects soundEffects { get => playerManager.soundEffects; }
-        public PlayerManager.PlayerParticleEffects particleEffects { get => playerManager.particleEffects; }
+        public PlayerClasses.PlayerSoundEffects soundEffects { get => playerManager.soundEffects; }
+        public PlayerClasses.PlayerParticleEffects particleEffects { get => playerManager.particleEffects; }
     }
 }

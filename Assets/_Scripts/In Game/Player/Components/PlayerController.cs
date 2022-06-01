@@ -7,10 +7,13 @@ namespace Root.Player.Components
 {
     public class PlayerController : PlayerComponent
     {
-        [Header("Movement")]
+        [Header("Horizontal Movement")]
         [SerializeField] private float speed = 10f;
         [SerializeField][Range(0, 1)] private float acceleration = 0.4f;
         [SerializeField][Range(0, 1)] private float decceleration = 0.9f;
+        [Space]
+        [SerializeField] private float runParticleMaxDelay = 0.25f;
+        [SerializeField] private float runParticleMinDelay = 0.1f;
         [Header("Spear Hop")]
         [SerializeField] private float spearHopForce = 20f;
         [Header("Jumping")]
@@ -21,68 +24,78 @@ namespace Root.Player.Components
         [Header("Dashing")]
         [SerializeField] private float dashSpeed = 3500f;
         [SerializeField] private float dashTime = 0.08f;
-        [Header("Effects")]
-        [SerializeField] private float runParticleMaxDelay = 0.25f;
-        [SerializeField] private float runParticleMinDelay = 0.1f;
 
-        internal float facingDirection = 1;
+        private float runParticleTimer;
+
+        private bool canSpearHop;
 
         private float coyoteTimeCounter;
         private float jumpBufferCounter;
-        private float runParticleTimer;
         private bool jumping;
-        private bool canSpearHop;
-
-        private bool dashing;
-        internal bool Dashing
-        {
-            get => dashing;
-            set
-            {
-                if (value == dashing) return;
-
-                health.invincible = value;
-                dashing = value;
-            }
-        }
-
         private bool jumpPressed;
         private bool jumpHeld;
 
-        private void Start() => PlayerDeathManager.OnDeathStageChanged += DeathEvents;
+        private bool dashing;
 
-        private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
+        internal float facingDirection = 1;
 
         private void Update()
         {
             FaceDirection();
             JumpHandling();
-        }
 
-        private void FixedUpdate()
-        {
-            HorizontalMovement();
-        }
-
-        private void DeathEvents(DeathStages deathStage)
-        {
-            switch (deathStage)
+            if (collision.grounded)
             {
-                case DeathStages.Dying:
-                    rb.bodyType = RigidbodyType2D.Static;
-                    break;
-                case DeathStages.Done:
-                    rb.velocity = Vector2.zero;
-                    rb.bodyType = RigidbodyType2D.Dynamic;
-                    break;
+                canSpearHop = true;
             }
         }
 
-        #region Jump
+        private void FixedUpdate() => HorizontalMovement();
+
+        public void DoSpearHop()
+        {
+            if (!canSpearHop || collision.grounded || rb.bodyType == RigidbodyType2D.Static) return;
+
+            audioPlayer.Play(soundEffects.jump);
+            rb.velocity = new Vector2(rb.velocity.x, spearHopForce);
+
+            canSpearHop = false;
+        }
+
+        #region Horizontal Movement
+        private void HorizontalMovement()
+        {
+            if (!GameStateManager.inGameplay) return;
+
+            if (dashing || knockback.inKnockback) return;
+
+            runParticleTimer -= Time.deltaTime;
+
+            if (input.horizontalInput == 0)
+            {
+                Move(Mathf.Lerp(rb.velocity.x, 0f, decceleration));
+                ResetRunParticleTimer();
+            }
+            else
+            {
+                if (collision.grounded && runParticleTimer < 0)
+                {
+                    Instantiate(particleEffects.run, transform.position, Quaternion.identity);
+                    ResetRunParticleTimer();
+                }
+
+                Move(Mathf.Lerp(rb.velocity.x, input.horizontalInput * speed, acceleration));
+            }
+        }
+
+        private void Move(float xSpeed) => rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+
+        private void ResetRunParticleTimer() => runParticleTimer = Random.Range(runParticleMinDelay, runParticleMaxDelay);
+        #endregion
+
+        #region Jumping
         public void OnJump(InputAction.CallbackContext context)
         {
-            if (!GameStateManager.inGame) return;
-
             if (dashing || combat.attacking || knockback.inKnockback) return;
 
             if (context.started)
@@ -104,88 +117,70 @@ namespace Root.Player.Components
 
         private void JumpHandling()
         {
-            if (collision.grounded)
-            {
-                canSpearHop = true;
-            }
-
             jumpBufferCounter -= Time.deltaTime;
             coyoteTimeCounter -= Time.deltaTime;
 
             if (dashing) return;
 
-            if (rb.velocity.y < Mathf.Epsilon)
+            HandleFalling();
+            HandleActiveInput();
+            HandleJumping();
+
+            void HandleFalling()
             {
+                if (rb.velocity.y >= Mathf.Epsilon) return;
+
                 jumping = false;
 
-                if (collision.wasGrounded && !collision.grounded)
-                {
-                    coyoteTimeCounter = coyoteTime;
-                }
+                if (!collision.wasGrounded || collision.grounded) return;
+
+                coyoteTimeCounter = coyoteTime;
             }
 
-            if (jumping && !jumpHeld)
+            void HandleActiveInput()
             {
-                StopJump();
+                if (!jumping || jumpHeld) return;
+
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpMultiplier);
+                jumping = false;
             }
 
-            if (jumping) return;
-
-            if ((jumpPressed || jumpBufferCounter > 0) && (collision.grounded || coyoteTimeCounter > 0))
+            void HandleJumping()
             {
-                jumping = true;
+                if (jumping) return;
 
-                audioPlayer.Play(soundEffects.jump);
-
-                if (collision.grounded)
+                if ((jumpPressed || jumpBufferCounter > 0) && (collision.grounded || coyoteTimeCounter > 0))
                 {
-                    var smokeRotation = Quaternion.Euler(new Vector3(0f, facingDirection == 1 ? 180f : 0f, 0f));
-                    Instantiate(particleEffects.jump, transform.position, smokeRotation);
+                    jumping = true;
+
+                    audioPlayer.Play(soundEffects.jump);
+
+                    if (collision.grounded)
+                    {
+                        var smokeRotation = Quaternion.Euler(new Vector3(0f, facingDirection == 1 ? 180f : 0f, 0f));
+                        Instantiate(particleEffects.jump, transform.position, smokeRotation);
+                    }
+
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 }
 
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpPressed = false;
             }
-
-            jumpPressed = false;
-        }
-
-        public void SpearHop()
-        {
-            if (!canSpearHop || collision.grounded || rb.bodyType == RigidbodyType2D.Static) return;
-
-            audioPlayer.Play(soundEffects.jump);
-            rb.velocity = new Vector2(rb.velocity.x, spearHopForce);
-
-            canSpearHop = false;
-        }
-
-        private void StopJump()
-        {
-            Vector2 velocity = rb.velocity;
-            rb.velocity = new Vector2(velocity.x, velocity.y * variableJumpMultiplier);
-            jumping = false;
         }
         #endregion
 
-        #region Dash
-        public void OnDash(InputAction.CallbackContext context)
+        #region Dashing
+        public IEnumerator OnDash(InputAction.CallbackContext context)
         {
-            if (!GameStateManager.inGame || !context.performed) return;
+            if (!context.performed) yield return null;
 
-            //StartCoroutine(Dash());
-        }
-
-        private IEnumerator Dash()
-        {
             dashing = true;
 
-            var dashTimer = dashTime;
+            float dashTimer = dashTime;
 
             while (dashTimer > 0)
             {
-                var velocity = new Vector2(facingDirection * dashSpeed * Time.deltaTime, 0f);
-
-                rb.velocity = velocity;
+                rb.velocity = new Vector2(facingDirection * dashSpeed * Time.deltaTime, 0f);
                 dashTimer -= Time.deltaTime;
 
                 yield return null;
@@ -195,33 +190,7 @@ namespace Root.Player.Components
         }
         #endregion
 
-        #region Movement
-        private void HorizontalMovement()
-        {
-            if (deathManager.dead || dashing || knockback.inKnockback) return;
-
-            runParticleTimer -= Time.deltaTime;
-
-            if (input.horizontalInput == 0)
-            {
-                ResetRunParticleTimer();
-                Move(Mathf.Lerp(rb.velocity.x, 0f, decceleration));
-            }
-            else
-            {
-                if (collision.grounded && runParticleTimer < 0)
-                {
-                    Instantiate(particleEffects.run, transform.position, Quaternion.identity);
-                    ResetRunParticleTimer();
-                }
-
-                Move(Mathf.Lerp(rb.velocity.x, input.horizontalInput * speed, acceleration));
-            }
-        }
-
-        private void Move(float xSpeed) => rb.velocity = new Vector2(xSpeed, rb.velocity.y);
-        #endregion
-
+        #region Player Direction
         private void FaceDirection()
         {
             if (input.horizontalInput == 0) return;
@@ -235,7 +204,6 @@ namespace Root.Player.Components
 
             transform.rotation = rotation;
         }
-
-        private void ResetRunParticleTimer() => runParticleTimer = Random.Range(runParticleMinDelay, runParticleMaxDelay);
+        #endregion
     }
 }

@@ -15,16 +15,12 @@ namespace Root.Systems.Popups
         [SerializeField] private Image popupIcon;
         [SerializeField] private TextMeshProUGUI popupText;
 
+        internal static float popupInputTime = 0.2f;
+        internal float popupInputTimer;
+
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            if (instance == null) instance = this; else Destroy(this);
         }
 
         public void InvokePopup(string text, Sprite icon = null)

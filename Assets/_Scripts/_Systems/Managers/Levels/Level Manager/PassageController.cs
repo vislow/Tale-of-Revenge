@@ -22,7 +22,7 @@ namespace Root.Systems.Levels
         {
             if (passageDisabled || !other.CompareTag("Player")) return;
 
-            InputManager.instance.OverrideInput(inputOverrideDirection);
+            InputManager.instance.OverrideXInput(inputOverrideDirection);
             PassageManager.instance.LoadLevel(this);
         }
 
@@ -36,16 +36,17 @@ namespace Root.Systems.Levels
         public void TeleportPlayer()
         {
             passageDisabled = true;
+
             PlayerManager playerManager = PlayerManager.instance;
 
-            if (playerManager == null)
+            if (PlayerManager.isPlayerNull)
             {
                 ConsoleLog("Player is not available, can't teleport to next passage");
                 return;
             }
 
-            playerManager.MovePlayer(spawnPosition);
-            InputManager.instance.OverrideInput(-inputOverrideDirection, inputExitDuration);
+            PlayerManager.instance.MovePlayer(spawnPosition);
+            InputManager.instance.OverrideXInput(-inputOverrideDirection, inputExitDuration);
         }
 
         [ContextMenu("Run Log Test")]

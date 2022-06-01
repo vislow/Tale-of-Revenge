@@ -9,20 +9,14 @@ namespace Root.Systems.States
 
         public static GameState CurrentGameState { get; private set; }
         public GameState currentGameState;
-        public static bool inGame => CurrentGameState == GameState.Gameplay;
+        public static bool inGameplay => CurrentGameState == GameState.Gameplay;
+        public static bool inGame => GameStateManager.CurrentGameState == GameState.Gameplay || GameStateManager.CurrentGameState == GameState.Paused;
 
         public static event Action<GameState> OnGameStateChanged;
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            if (instance == null) instance = this; else Destroy(this);
 
             SetInitialGameState();
         }

@@ -18,14 +18,7 @@ namespace Root.Data.Saving
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            if (instance == null) instance = this; else Destroy(this);
         }
 
         public void Save(SaveNames saveName)

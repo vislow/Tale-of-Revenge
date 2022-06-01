@@ -12,14 +12,7 @@ namespace Root.Systems.GameManagement
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+            if (instance == null) instance = this; else Destroy(this);
 
             GameStateManager.OnGameStateChanged += OnGameStateChanged;
         }

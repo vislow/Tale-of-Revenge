@@ -138,17 +138,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LookaheadTime: 0.226
+  m_LookaheadTime: 0.188
   m_LookaheadSmoothing: 7.2
   m_LookaheadIgnoreY: 1
-  m_XDamping: 1
+  m_XDamping: 0.8
   m_YDamping: 0.6
   m_ZDamping: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.1
-  m_DeadZoneHeight: 0.2
+  m_DeadZoneWidth: 0.07
+  m_DeadZoneHeight: 0.15
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.66
@@ -215,8 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a39a988e6f67c479c771a72a735b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeCenterCamera: 5
+  centerCameraWaitTime: 5
   cameraCenterSpeed: 0.2
+  vcam: {fileID: 4938111649041406246}
 --- !u!20 &3301256031927626856
 Camera:
   m_ObjectHideFlags: 0

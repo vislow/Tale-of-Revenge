@@ -10,7 +10,7 @@ namespace Root.Gates
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!GameStateManager.inGame || !other.CompareTag("Spear")) return;
+            if (!GameStateManager.inGameplay || !other.CompareTag("Spear")) return;
 
             spiritGate.IsOpen = true;
             anim.SetTrigger("Activate");
@@ -18,7 +18,7 @@ namespace Root.Gates
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (!GameStateManager.inGame || !other.CompareTag("Spear")) return;
+            if (!GameStateManager.inGameplay || !other.CompareTag("Spear")) return;
 
             spiritGate.IsOpen = false;
             anim.SetTrigger("Deactivate");

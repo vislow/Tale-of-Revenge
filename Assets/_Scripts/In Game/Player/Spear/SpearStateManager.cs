@@ -1,5 +1,4 @@
 using Root.Entities;
-using Root.Player.Components;
 using UnityEngine;
 
 namespace Root.Player.Spear
@@ -18,8 +17,7 @@ namespace Root.Player.Spear
         [Space]
         public GameObject spearImpactParticles;
 
-        private PlayerManager player;
-        internal PlayerCollision PlayerCollision => player.components.collision;
+        internal PlayerManager player;
         internal Vector2 PlayerPos => player.components.center.position;
 
         private Active activeState;

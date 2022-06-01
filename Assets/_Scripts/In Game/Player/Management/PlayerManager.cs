@@ -1,6 +1,6 @@
-using Root.Player.Camera;
 using Root.Player.Components;
 using Root.Systems.Audio;
+using Root.Systems.Input;
 using Root.Systems.States;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,97 +18,75 @@ namespace Root.Player
     public class PlayerManager : MonoBehaviour
     {
         public static PlayerManager instance;
+        public static bool isPlayerNull => PlayerManager.instance == null;
 
-        public PlayerInput playerInputComponent;
-        public PlayerComponents components;
-        public PlayerSoundEffects soundEffects;
-        public PlayerParticleEffects particleEffects;
+        public PlayerInput playerInput;
 
-        [System.Serializable]
-        public class PlayerComponents
-        {
-            public Animator anim;
-            public Rigidbody2D rb;
-            public Transform center;
-            public Collider2D collider;
-            [Space]
-            public LocalAudioController audioPlayer;
-            public CameraController playerCamera;
-            [Space]
-            public PlayerHealth health;
-            public PlayerCombat combat;
-            public PlayerSpearManager spearManager;
-            public PlayerController controller;
-            public PlayerDeathManager deathManager;
-            public PlayerKnockbackManager knockback;
-            public PlayerAnimation animation;
-            public PlayerCollision collision;
-        }
+        public PlayerClasses.PlayerComponents components;
+        public PlayerClasses.PlayerSoundEffects soundEffects;
+        public PlayerClasses.PlayerParticleEffects particleEffects;
 
-        [System.Serializable]
-        public class PlayerParticleEffects
-        {
-            public GameObject jump, land, damaged, run;
-        }
-
-        [System.Serializable]
-        public class PlayerSoundEffects
-        {
-            public AudioObject jump, land;
-        }
-
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
-
-            GameStateManager.OnGameStateChanged += OnGameStateChanged;
-        }
-
-        private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnGameStateChanged;
-
-        private void Reset()
-        {
-            components.health = GetComponent<PlayerHealth>();
-            components.combat = GetComponent<PlayerCombat>();
-            components.animation = GetComponent<PlayerAnimation>();
-            components.collision = GetComponent<PlayerCollision>();
-            components.spearManager = GetComponent<PlayerSpearManager>();
-            components.controller = GetComponent<PlayerController>();
-            components.deathManager = GetComponent<PlayerDeathManager>();
-            components.knockback = GetComponent<PlayerKnockbackManager>();
-            components.audioPlayer = GetComponent<LocalAudioController>();
-        }
-
-        public void OnGameStateChanged(GameState gameState)
-        {
-            if ((gameState != GameState.Gameplay && gameState != GameState.Paused)) return;
-
-            bool active = gameState == GameState.Gameplay;
-
-            components.anim.enabled = active;
-            components.combat.enabled = active;
-            components.health.enabled = active;
-            components.collider.enabled = active;
-            components.knockback.enabled = active;
-            components.animation.enabled = active;
-            components.controller.enabled = active;
-            components.spearManager.enabled = active;
-        }
+        internal bool isPlayerDead => instance.components.deathManager.dead;
+        internal Vector3 playerPosition => instance.transform.position;
 
         public void MovePlayer(Vector2 position)
         {
             transform.position = position;
-
             components.playerCamera.CenterCamera();
         }
 
-        public void EnableSpear() => components.spearManager.spearUnlocked = true;
+        public void UnlockSpear() => components.spearManager.spearUnlocked = true;
+
+        #region Private Functions
+        private void Awake()
+        {
+            if (instance == null) instance = this; else Destroy(this);
+
+            GameStateManager.OnGameStateChanged += OnGameStateChanged;
+        }
+
+        private void Start() => PlayerDeathManager.OnDeathStageChanged += DeathEvents;
+
+        private void OnGameStateChanged(GameState gameState)
+        {
+            switch (gameState)
+            {
+                case GameState.Gameplay: UnPauseActions(); break;
+                case GameState.Paused: PauseActions(); break;
+            }
+
+            void PauseActions()
+            {
+                InputManager.instance.DisablePlayerInput();
+            }
+
+            void UnPauseActions()
+            {
+                InputManager.instance.EnablePlayerInput();
+            }
+        }
+
+        private void DeathEvents(DeathStages deathStage)
+        {
+            switch (deathStage)
+            {
+                case DeathStages.Dying:
+                    InputManager.instance.DisablePlayerInput();
+                    components.rb.bodyType = RigidbodyType2D.Static;
+                    break;
+                case DeathStages.Done:
+                    components.rb.velocity = Vector2.zero;
+                    components.rb.bodyType = RigidbodyType2D.Dynamic;
+                    InputManager.instance.EnablePlayerInput();
+                    break;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            GameStateManager.OnGameStateChanged -= OnGameStateChanged;
+            PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
+        }
+        #endregion
     }
 }

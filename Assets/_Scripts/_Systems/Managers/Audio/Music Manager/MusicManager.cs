@@ -12,22 +12,10 @@ namespace Root.Systems.Audio
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            if (instance == null) instance = this; else Destroy(this);
         }
 
-        public void StartMusic(MusicObject nextSong)
-        {
-            if (instance == null) return;
-
-            StartCoroutine(FadeIn(nextSong));
-        }
+        public void StartMusic(MusicObject nextSong) => StartCoroutine(FadeIn(nextSong));
 
         public void StopMusic() => StartCoroutine(FadeOut());
 

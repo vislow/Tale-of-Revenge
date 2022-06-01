@@ -19,7 +19,6 @@ namespace Root.Systems
         [SerializeField] private GameObject inGameObjects;
 
         private UITypes currentActiveUI;
-        private bool inGame => GameStateManager.CurrentGameState == GameState.Gameplay || GameStateManager.CurrentGameState == GameState.Paused;
         private PlayerControls input => InputManager.instance.input;
 
         private void Awake() => GameStateManager.OnGameStateChanged += OnGameStateChanged;
@@ -31,7 +30,7 @@ namespace Root.Systems
                 PauseManager.instance.UnPause();
             }
 
-            inGameObjects.SetActive(inGame);
+            inGameObjects.SetActive(GameStateManager.inGame);
         }
 
         private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnGameStateChanged;

@@ -65,7 +65,7 @@ namespace Root.Player.Components
 
         public void OnSpear(InputAction.CallbackContext context)
         {
-            if (!spearUnlocked || !GameStateManager.inGame) return;
+            if (!spearUnlocked || !GameStateManager.inGameplay) return;
 
             if (isSpearActive && (context.performed || !SpearInRange))
             {
@@ -84,7 +84,7 @@ namespace Root.Player.Components
             isSpearActive = true;
             spearThrowCooldownTimer = spearThrowCooldown;
 
-            controller.SpearHop();
+            controller.DoSpearHop();
 
             GameObject spearObject = Instantiate(spearPrefab, GetSpearStartPosition(), GetSpearStartRotation());
 

@@ -15,14 +15,7 @@ namespace Root.Systems.Levels
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+            if (instance == null) instance = this; else Destroy(this);
         }
 
         public void LoadNextLevel()

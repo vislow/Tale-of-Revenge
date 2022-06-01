@@ -1,5 +1,5 @@
+using Root.Player;
 using UnityEngine;
-using Root.Player.Components;
 
 namespace Root.Entities.General
 {
@@ -13,7 +13,8 @@ namespace Root.Entities.General
 
             Vector2 knockbackDirection = (other.transform.position - transform.position).normalized;
 
-            other.GetComponent<PlayerHealth>().Damage(damage, knockbackDirection);
+            var playerHealth = other.GetComponent<PlayerManager>().components.health;
+            playerHealth.Damage(damage, knockbackDirection);
         }
     }
 }

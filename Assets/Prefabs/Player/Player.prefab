@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd52d9b8cd1af5b439356c5037d9201b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInputComponent: {fileID: 1274148175616414738}
+  playerInput: {fileID: 1274148175616414738}
   components:
     anim: {fileID: 1274148175616414730}
     rb: {fileID: 1274148175616414724}
@@ -364,15 +364,15 @@ MonoBehaviour:
   speed: 10
   acceleration: 0.4
   decceleration: 0.9
+  runParticleMaxDelay: 0.25
+  runParticleMinDelay: 0.1
   spearHopForce: 20
   jumpForce: 28
   coyoteTime: 0.12
   jumpBufferTime: 0.25
-  variableJumpMultiplier: 0.4
+  variableJumpMultiplier: 0.242
   dashSpeed: 3500
   dashTime: 0.08
-  runParticleMaxDelay: 0.25
-  runParticleMinDelay: 0.1
 --- !u!114 &1274148175616414727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 1274148175616414736}
   debug: 0
-  unlocked: 0
   spearPrefab: {fileID: 8473467740631215258, guid: 8f17355e1b3f8464a884622ded6226c4,
     type: 3}
   playerCenter: {fileID: 1274148174772049984}

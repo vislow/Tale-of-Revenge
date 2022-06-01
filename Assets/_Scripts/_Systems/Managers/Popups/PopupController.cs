@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using Root.Systems.Input;
-using Root.Systems.States;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,15 +10,8 @@ namespace Root.Systems.Popups
         [SerializeField] private bool popupOnAwake;
         [SerializeField] private bool singleUsePopup = true;
         [Space]
-        [SerializeField] private List<Popup> popups = new List<Popup>();
+        [SerializeField] private PopupData popupData;
         [SerializeField] private UnityEvent OnPopupClosed;
-
-        [System.Serializable]
-        public class Popup
-        {
-            public Sprite icon;
-            [TextArea(4, 4)] public string text;
-        }
 
         private bool popupShown;
         private bool submitPressed = false;
@@ -56,14 +47,25 @@ namespace Root.Systems.Popups
         {
             submitPressed = false;
 
-            for (int i = 0; i < popups.Count; i++)
+            for (int i = 0; i < popupData.popups.Count; i++)
             {
-                Popup popup = popups[i];
+                PopupData.Popup popup = popupData.popups[i];
                 PopupManager.instance.InvokePopup(popup.text, popup.icon);
 
-                while (!submitPressed) yield return null;
+                PopupManager.instance.popupInputTimer = PopupManager.popupInputTime;
 
-                if (i == popups.Count - 1)
+                while (PopupManager.instance.popupInputTimer >= 0f)
+                {
+                    PopupManager.instance.popupInputTimer -= Time.deltaTime;
+                    yield return null;
+                }
+
+                while (!submitPressed)
+                {
+                    yield return null;
+                }
+
+                if (i == popupData.popups.Count - 1)
                 {
                     PopupManager.instance.ClosePopup();
                 }
@@ -78,7 +80,7 @@ namespace Root.Systems.Popups
 
         private void SubmitPressed()
         {
-            if (PauseManager.instance.GamePaused) return;
+            if (PauseManager.instance.GamePaused || PopupManager.instance.popupInputTimer > 0f) return;
 
             submitPressed = true;
         }

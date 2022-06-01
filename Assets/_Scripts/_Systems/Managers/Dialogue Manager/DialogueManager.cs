@@ -1,5 +1,5 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 namespace Root.Systems.Dialogue
 {
@@ -18,14 +18,7 @@ namespace Root.Systems.Dialogue
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            if (instance == null) instance = this; else Destroy(this);
 
             dialogueIndex = -1;
             UpdateDialogueText();

@@ -5,7 +5,7 @@ namespace Root.Systems.Audio
 {
     public class AudioManager : MonoBehaviour
     {
-        public static AudioManager Instance;
+        public static AudioManager instance;
 
         [SerializeField] private AudioSource audioSource;
         [Space]
@@ -18,14 +18,7 @@ namespace Root.Systems.Audio
 
         private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            if (instance == null) instance = this; else Destroy(this);
 
             masterMixer = (AudioMixer)Resources.Load("MasterMixer");
         }

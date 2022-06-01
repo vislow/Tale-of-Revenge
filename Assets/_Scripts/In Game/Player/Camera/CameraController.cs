@@ -5,68 +5,45 @@ namespace Root.Player.Camera
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private float timeBeforeCenterCamera = 5f;
+        [SerializeField] private float centerCameraWaitTime = 5f;
         [SerializeField][Range(0, 1)] private float cameraCenterSpeed = 0.2f;
 
-        private CinemachineVirtualCamera vcam;
-        private PlayerManager player;
-
-        private Transform parentTransform;
+        public CinemachineVirtualCamera vcam;
 
         private Vector2 playerPos;
         private Vector2 latePlayerPos;
         private float centerCameraTimer;
 
-        private void Awake()
-        {
-            vcam = GetComponentInChildren<CinemachineVirtualCamera>();
-            parentTransform = transform.parent.transform;
-        }
-
-        private void Start() => player = PlayerManager.instance;
-
         private void Update()
         {
-            if (player == null) return;
+            if (PlayerManager.isPlayerNull) return;
 
             latePlayerPos = playerPos;
-            playerPos = player.components.center.transform.position;
+            playerPos = PlayerManager.instance.playerPosition;
             centerCameraTimer -= Time.deltaTime;
 
-            if (latePlayerPos == playerPos || player.components.deathManager.dead) return;
+            if (latePlayerPos == playerPos || PlayerManager.instance.isPlayerDead) return;
 
             vcam.enabled = true;
-            centerCameraTimer = timeBeforeCenterCamera;
+            centerCameraTimer = centerCameraWaitTime;
         }
 
         private void LateUpdate()
         {
-            if (centerCameraTimer >= 0 && !player.components.deathManager.dead) return;
+            if (centerCameraTimer >= 0 && !PlayerManager.instance.isPlayerDead) return;
 
             vcam.enabled = false;
 
-            float xPos = Mathf.Lerp(parentTransform.position.x, playerPos.x, cameraCenterSpeed);
-            float yPos = Mathf.Lerp(parentTransform.position.y, playerPos.y, cameraCenterSpeed);
+            float xPos = Mathf.Lerp(transform.position.x, playerPos.x, cameraCenterSpeed);
+            float yPos = Mathf.Lerp(transform.position.y, playerPos.y, cameraCenterSpeed);
 
-            parentTransform.position = new Vector3(xPos, yPos, parentTransform.position.z);
+            transform.position = new Vector3(xPos, yPos, transform.position.z);
         }
 
-        public void CenterCamera(bool lerp = false)
+        public void CenterCamera()
         {
             vcam.enabled = false;
-
-            if (lerp)
-            {
-                float xPos = Mathf.Lerp(parentTransform.position.x, playerPos.x, cameraCenterSpeed);
-                float yPos = Mathf.Lerp(parentTransform.position.y, playerPos.y, cameraCenterSpeed);
-
-                parentTransform.position = new Vector3(xPos, yPos, parentTransform.position.z);
-            }
-            else
-            {
-                parentTransform.position = new Vector3(playerPos.x, playerPos.y, parentTransform.position.z);
-            }
-
+            transform.position = new Vector3(playerPos.x, playerPos.y, transform.position.z);
             vcam.enabled = true;
         }
     }

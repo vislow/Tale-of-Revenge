@@ -8,7 +8,7 @@ namespace Root.Player.Spear
     public class Stuck : BaseState
     {
         public Stuck(StateMachine stateMachine) : base(stateMachine) { }
-        private SpearStateManager Sm => (SpearStateManager)stateMachine;
+        private SpearStateManager sm => (SpearStateManager)stateMachine;
 
         private float spearAngleOffset = 25f;
         private Vector4 spearAnglesDefault => new Vector4(45, 135, 225, 315);
@@ -25,12 +25,12 @@ namespace Root.Player.Spear
             base.Enter();
 
 
-            Sm.SetObjectActivity(activeObj: false, stuckObj: true, returnObj: false);
-            Sm.rb.velocity = Vector3.zero;
+            sm.SetObjectActivity(activeObj: false, stuckObj: true, returnObj: false);
+            sm.rb.velocity = Vector3.zero;
 
             FixSpearRotation();
 
-            solidCollider = Sm.stuckObjects.GetComponent<Collider2D>();
+            solidCollider = sm.stuckObjects.GetComponent<Collider2D>();
         }
 
         public override void Exit()
@@ -43,7 +43,7 @@ namespace Root.Player.Spear
             base.UpdateLogic();
 
             /// TODO: Make S + Spacebar to fall through platform
-            solidCollider.enabled = InputManager.instance.verticalInput == -1 ? false : Sm.PlayerCollision.spearUnderPlayer;
+            solidCollider.enabled = InputManager.instance.verticalInput == -1 ? false : sm.player.components.collision.spearUnderPlayer;
         }
 
         public override void UpdatePhysics()
@@ -53,7 +53,7 @@ namespace Root.Player.Spear
 
         private void FixSpearRotation()
         {
-            var angles = Sm.transform.eulerAngles;
+            var angles = sm.transform.eulerAngles;
             var zAngle = angles.z;
 
             if (zAngle > spearAngles.x && zAngle < 90)
@@ -73,7 +73,7 @@ namespace Root.Player.Spear
                 zAngle = spearAngles.w;
             }
 
-            Sm.transform.eulerAngles = new Vector3(angles.x, angles.y, zAngle);
+            sm.transform.eulerAngles = new Vector3(angles.x, angles.y, zAngle);
         }
     }
 }

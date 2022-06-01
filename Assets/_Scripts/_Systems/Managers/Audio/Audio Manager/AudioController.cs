@@ -11,9 +11,9 @@ namespace Root.Systems.Audio
         {
             if (audioIndex < 0 || audioIndex > objectList.Count - 1) return;
 
-            AudioManager.Instance.PlayGlobalOneShot(objectList[audioIndex]);
+            AudioManager.instance.PlayGlobalOneShot(objectList[audioIndex]);
         }
 
-        public void PlaySound(AudioObject audioObject) => AudioManager.Instance.PlayGlobalOneShot(audioObject);
+        public void PlaySound(AudioObject audioObject) => AudioManager.instance.PlayGlobalOneShot(audioObject);
     }
 }

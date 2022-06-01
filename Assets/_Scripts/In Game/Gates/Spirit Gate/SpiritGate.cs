@@ -35,7 +35,7 @@ namespace Root.Gates
 
         private void FixedUpdate()
         {
-            if (!GameStateManager.inGame || !liftGate) return;
+            if (!GameStateManager.inGameplay || !liftGate) return;
 
             Vector3 position = transform.position;
 

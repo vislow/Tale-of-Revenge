@@ -13,7 +13,7 @@ namespace Root.Systems.Audio
 
         public void Play(AudioObject audioObject)
         {
-            AudioMixerGroup mixerGroup = AudioManager.Instance.GetMixerGroup(audioObject);
+            AudioMixerGroup mixerGroup = AudioManager.instance.GetMixerGroup(audioObject);
 
             source.outputAudioMixerGroup = mixerGroup;
             source.PlayOneShot(audioObject.clip, audioObject.volume);

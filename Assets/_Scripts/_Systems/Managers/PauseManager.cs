@@ -24,14 +24,7 @@ namespace Root.Systems
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            if (instance == null) instance = this; else Destroy(this);
 
             Initialize();
 

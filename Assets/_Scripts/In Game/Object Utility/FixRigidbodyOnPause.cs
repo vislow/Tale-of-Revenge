@@ -7,15 +7,15 @@ namespace Root.ObjectManagement
     {
         public Rigidbody2D rb;
 
+        private RigidbodyType2D bodyType;
         private Vector2 velocity;
         private float angularVelocity;
-        private RigidbodyType2D bodyType;
 
-        private void Awake() => GameStateManager.OnGameStateChanged += OnStateChange;
+        private void Awake() => GameStateManager.OnGameStateChanged += OnGameStateChange;
 
-        private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnStateChange;
+        private void OnDestroy() => GameStateManager.OnGameStateChanged -= OnGameStateChange;
 
-        private void OnStateChange(GameState gameState)
+        private void OnGameStateChange(GameState gameState)
         {
             if (rb == null) return;
 
