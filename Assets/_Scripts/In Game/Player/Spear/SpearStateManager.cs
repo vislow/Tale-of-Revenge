@@ -10,11 +10,17 @@ namespace Root.Player.Spear
         public float speed;
         [Range(0, 1)] public float acceleration;
         public float playerDestroyDistance = 3f;
-        [Space]
+        public float spearReturnTime = 3f;
+        [Header("State Objects")]
         public GameObject activeObjects;
-        public GameObject stuckObjects;
-        public GameObject returnObjects;
         [Space]
+        public GameObject stuckObjects;
+        public Collider2D stuckObjectCollider;
+        public SpriteRenderer stuckObjectRenderer;
+        public Color fadedColor;
+        [Space]
+        public GameObject returnObjects;
+        [Header("Effects")]
         public GameObject spearImpactParticles;
 
         internal PlayerManager player;

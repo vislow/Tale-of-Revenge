@@ -122,9 +122,9 @@ namespace Root.Player.Components
 
             if (dashing) return;
 
+            HandleJumping();
             HandleFalling();
             HandleActiveInput();
-            HandleJumping();
 
             void HandleFalling()
             {

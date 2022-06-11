@@ -99,7 +99,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 1.125, z: 0, w: 1.6875}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3, y: 3}
     newSize: {x: 3, y: 3}
@@ -121,9 +121,9 @@ GameObject:
   - component: {fileID: 2403135262509600083}
   - component: {fileID: 2403135262509600081}
   - component: {fileID: 2403135262509600082}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,9 +154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7689d7a8d0583504b8b903a394dd282f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  hitParticles: {fileID: 446159292116986006, guid: 721c20e56122d4549bacab6abe557450,
-    type: 3}
+  invincible: 0
+  health: 2
+  takeKnockback: 1
+  knockbackAmount: 3
+  rb: {fileID: 0}
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []

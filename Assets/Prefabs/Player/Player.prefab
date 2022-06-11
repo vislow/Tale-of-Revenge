@@ -423,7 +423,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1088
-  maxSpearDistance: 40
+  maxSpearDistance: 20
   spearOffsetDistance: 2
   spearThrowCooldown: 0.65
 --- !u!114 &1274148175616414725

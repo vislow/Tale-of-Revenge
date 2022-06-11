@@ -18,19 +18,19 @@ namespace Root.Player.Spear
             spearAnglesDefault.z - spearAngleOffset,
             spearAnglesDefault.w + spearAngleOffset);
 
-        private Collider2D solidCollider;
+        private float spearReturnTimer;
 
         public override void Enter()
         {
             base.Enter();
-
 
             sm.SetObjectActivity(activeObj: false, stuckObj: true, returnObj: false);
             sm.rb.velocity = Vector3.zero;
 
             FixSpearRotation();
 
-            solidCollider = sm.stuckObjects.GetComponent<Collider2D>();
+            spearReturnTimer = sm.spearReturnTime;
+            sm.stuckObjectRenderer.color = Color.white;
         }
 
         public override void Exit()
@@ -42,8 +42,16 @@ namespace Root.Player.Spear
         {
             base.UpdateLogic();
 
-            /// TODO: Make S + Spacebar to fall through platform
-            solidCollider.enabled = InputManager.instance.verticalInput == -1 ? false : sm.player.components.collision.spearUnderPlayer;
+            spearReturnTimer -= Time.deltaTime;
+
+            sm.stuckObjectRenderer.color = Color.Lerp(sm.stuckObjectRenderer.color, sm.fadedColor, 0.05f / sm.spearReturnTime);
+
+            if (spearReturnTimer < 0)
+            {
+                sm.ReturnToPlayer();
+            }
+
+            sm.stuckObjectCollider.enabled = InputManager.instance.verticalInput == -1 ? false : sm.player.components.collision.spearUnderPlayer;
         }
 
         public override void UpdatePhysics()

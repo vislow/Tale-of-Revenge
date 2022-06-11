@@ -14867,8 +14867,12 @@ MonoBehaviour:
   speed: 8000
   acceleration: 0.543
   playerDestroyDistance: 1
+  spearReturnTime: 3
   activeObjects: {fileID: 5445615741672380415}
   stuckObjects: {fileID: 6344071440479374997}
+  stuckObjectCollider: {fileID: 1577315603123248560}
+  stuckObjectRenderer: {fileID: 3081755901896454092}
+  fadedColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
   returnObjects: {fileID: 3998438777199450652}
   spearImpactParticles: {fileID: 863900280657886717, guid: e514aa81dbe330b4e8954ae26e1a01dd,
     type: 3}

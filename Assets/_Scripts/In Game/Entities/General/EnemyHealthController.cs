@@ -23,7 +23,7 @@ namespace Root.Entities.Enemies
             health -= damage;
             OnDamaged?.Invoke();
 
-            if (takeKnockback)
+            if (rb != null && takeKnockback)
             {
                 rb.velocity = knockbackDirection * knockbackAmount;
             }

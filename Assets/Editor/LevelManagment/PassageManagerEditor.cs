@@ -59,6 +59,11 @@ public class PassageManagerEditor : Editor
 
         passageManager.sceneHandle = (SceneHandle)EditorGUILayout.ObjectField(passageManager.sceneHandle, typeof(SceneHandle), true);
 
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(passageManager);
+        }
+
         GUILayout.EndHorizontal();
     }
 
@@ -106,10 +111,13 @@ public class PassageManagerEditor : Editor
 
         passageManager.passages[passageIndex] = (PassageController)EditorGUILayout.ObjectField("Passage Controller: ", passageManager.passages[passageIndex], typeof(PassageController), true);
 
-        var pageController = passageManager.passages[passageIndex];
+        var passageController = passageManager.passages[passageIndex];
 
-        if (pageController != null)
-            pageController.id = passageIndex;
+        if (passageController != null)
+        {
+            passageController.id = passageIndex;
+            EditorUtility.SetDirty(passageController);
+        }
 
         //DrawTargetPassagesList(passage);
 

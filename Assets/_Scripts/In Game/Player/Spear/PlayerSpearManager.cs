@@ -124,6 +124,7 @@ namespace Root.Player.Components
         {
             if (!debug) return;
 
+            Gizmos.DrawWireSphere(center.position, maxSpearDistance);
             Gizmos.DrawWireSphere(GetSpearStartPosition(), 0.3f);
         }
     }

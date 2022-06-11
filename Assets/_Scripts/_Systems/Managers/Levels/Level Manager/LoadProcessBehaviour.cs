@@ -44,7 +44,7 @@ namespace Root.Systems.Levels
             // Wait for level to finish loading 
             while (!loadOperation.isDone) yield return null;
 
-            TeleportPlayerToPassage(passageHandle);
+            TeleportPlayerToTargetPassage(passageHandle);
 
             SceneManager.UnloadSceneAsync(1);
             LevelManager.OnLoadingFinished?.Invoke();
@@ -71,31 +71,30 @@ namespace Root.Systems.Levels
             GameStateManager.SetState(gameState);
         }
 
-        public static void TeleportPlayerToPassage(PassageHandle passageHandle)
+        public static void TeleportPlayerToTargetPassage(PassageHandle passageHandle)
         {
-            if (passageHandle == null) return;
+            PassageManager passageManager = PassageManager.instance;
 
-            PassageManager currentPassageManager = PassageManager.instance;
-
-            if (currentPassageManager == null)
+            if (passageManager == null)
             {
-                Debug.Log("There is no available instance of the passage manager");
-
+                ConsoleLog("There is no available instance of the passage manager");
                 return;
             }
 
-            int passageId = passageHandle.passageId;
-
-            PassageController targetController = currentPassageManager.passages[passageId];
+            int targetPassageId = passageHandle.targetPassageId;
+            PassageController targetController = passageManager.passages[targetPassageId];
 
             if (targetController == null)
             {
-                Debug.Log($"Passage controller for passage #{passageId} cannot be found, you probably have to assign it in the passage manager");
-
+                ConsoleLog($"Passage controller for passage #{targetPassageId} cannot be found, you probably have to assign it in the passage manager");
                 return;
             }
 
             targetController.TeleportPlayer();
         }
+
+        [ContextMenu("Run Log Test")]
+        private void LogTest() => ConsoleLog("Log test");
+        private static void ConsoleLog(string message) => Utility.Utils.ConsoleLog(LevelManager.instance, message);
     }
 }
