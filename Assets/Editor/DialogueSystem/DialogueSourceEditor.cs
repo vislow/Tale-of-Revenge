@@ -1,6 +1,6 @@
-using UnityEngine;
+using Root.Dialogue;
 using UnityEditor;
-using Root.Systems.Dialogue;
+using UnityEngine;
 
 [CustomEditor(typeof(DialogueSource))]
 public class DialogueSourceEditor : Editor

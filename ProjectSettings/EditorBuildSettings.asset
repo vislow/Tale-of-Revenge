@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main/Title Screen.unity
+    path: Assets/Scenes/Gameplay/Title Screen.unity
     guid: 97de8a996f32fbd4ea80d15f3c47008a
   - enabled: 1
-    path: Assets/Scenes/Main/LoadingScreen.unity
+    path: Assets/Scenes/Game Management/LoadingScreen.unity
     guid: db421d5082b28d24b9d5cb09da01dc29
   - enabled: 1
     path: Assets/Scenes/Gameplay/Level0.unity
@@ -23,3 +23,4 @@ EditorBuildSettings:
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 751916832fdf31f4fa78463e560d0b26,
       type: 2}
+  m_UseUCBPForAssetBundles: 0

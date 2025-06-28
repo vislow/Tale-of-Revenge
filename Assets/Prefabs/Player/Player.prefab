@@ -23,12 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274148174772050047}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.874, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1274148175616414721}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1274148175616414720
 GameObject:
@@ -71,13 +72,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274148175616414720}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1274148174772049984}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1274148175616414738
 MonoBehaviour:
@@ -108,7 +110,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 00ce6512-2d20-42ac-af69-358355efdf69
-    m_ActionName: Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: 'Gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1274148175616414731}
@@ -124,7 +126,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 17731e28-9c00-4c7f-a299-394f7856cca4
-    m_ActionName: Gameplay/Jump[/Keyboard/space]
+    m_ActionName: 'Gameplay/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1274148175616414733}
@@ -140,11 +142,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 1e221182-0115-401f-82cb-4af7ecfb83ea
-    m_ActionName: Gameplay/Attack[/Mouse/leftButton]
+    m_ActionName: 'Gameplay/Attack[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 57a0799f-1fc8-453c-891a-54612f06fdd4
-    m_ActionName: Gameplay/Reset[/Keyboard/r]
+    m_ActionName: 'Gameplay/Reset[/Keyboard/r]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 0cff5a37-86bb-4267-bccd-eb3c92514afe
@@ -152,39 +154,39 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: f31043a5-b57e-4f00-a4a4-3514e71cbebc
-    m_ActionName: UI/LeftClick[/Mouse/leftButton]
+    m_ActionName: 'UI/LeftClick[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: df93ff6c-5856-49a0-ae60-4d75377e87ae
-    m_ActionName: UI/Middle Click[/Mouse/middleButton]
+    m_ActionName: 'UI/Middle Click[/Mouse/middleButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 6f300ffc-3afa-4a8b-b531-21f84096bd3d
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: cab97380-08fa-42fe-b50a-1b0d0cbd418a
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 2220ccaf-c49b-46fc-ad4f-9f80c3445af3
-    m_ActionName: UI/Submit[/Keyboard/enter,/Keyboard/space]
+    m_ActionName: 'UI/Submit[/Keyboard/enter,/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: b8575cde-0596-41cf-a04b-efb0cb8beabb
-    m_ActionName: UI/Cancel[/Keyboard/escape]
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 68dedcb1-ab78-4015-b323-171d2fa36b63
-    m_ActionName: UI/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionName: 'UI/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: a647393a-eb18-40ce-bbb5-7760e54ee50d
-    m_ActionName: UI/Pause[/Keyboard/escape]
+    m_ActionName: 'UI/Pause[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: beef0823-c82d-43be-b5b0-9a82221e5371
-    m_ActionName: UI/Menu[/Keyboard/tab]
+    m_ActionName: 'UI/Menu[/Keyboard/tab]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7218249104530089183}
@@ -200,7 +202,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 008e3167-4576-41ac-b970-0c4500a9ce12
-    m_ActionName: Gameplay/Spear[/Mouse/leftButton]
+    m_ActionName: 'Gameplay/Spear[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1274148175616414731}
@@ -216,7 +218,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 216a1c57-3e15-42de-b72b-5bdad71cfcff
-    m_ActionName: Gameplay/Dash[/Keyboard/shift]
+    m_ActionName: 'Gameplay/Dash[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -303,7 +305,7 @@ MonoBehaviour:
   playerManager: {fileID: 1274148175616414736}
   debug: 0
   attackDamage: 1
-  timeBetweenAttacks: 0.1
+  timeBetweenAttacks: 0.2
   attacks:
   - debug: 1
     position: {x: 2.02, y: 0.99}
@@ -446,7 +448,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274148175616414720}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93c485ba966f5c4480760b1d070cdb5, type: 3}
   m_Name: 
@@ -463,11 +465,15 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -506,7 +512,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &1274148175616414730
 Animator:
-  serializedVersion: 3
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -519,13 +525,16 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &1274148175616414724
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -536,10 +545,16 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_GravityScale: 6.3
   m_Material: {fileID: 6200000, guid: 5aa27b1c3e99d284b8c5be9703daceef, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -552,11 +567,32 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274148175616414720}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.02798462, y: 0.9038124}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,7 +603,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.61968994, y: 1.7476196}
   m_EdgeRadius: 0
 --- !u!82 &1274148175616414722
@@ -581,6 +616,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

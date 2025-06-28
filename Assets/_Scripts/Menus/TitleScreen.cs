@@ -1,12 +1,10 @@
-﻿using Root.Systems.Levels;
+﻿using Root.Levels;
 using UnityEngine;
 
-namespace Root.Systems
+namespace Root
 {
     public class TitleScreen : MonoBehaviour
     {
-        private Vector3 previousMousePosition;
-
         public void StartGame()
         {
             LevelManager.instance.LoadLevel(2);

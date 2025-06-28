@@ -225,7 +225,7 @@ TextureImporter:
       213: 2145606438080633636
     second: PlayerLandingSmoke_20
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -242,10 +242,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -284,8 +286,10 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -295,9 +299,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -307,10 +312,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
@@ -319,6 +325,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -335,6 +355,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -356,6 +377,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -377,6 +399,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -398,6 +421,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -419,6 +443,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -440,6 +465,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -461,6 +487,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -482,6 +509,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -503,6 +531,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -524,6 +553,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -545,6 +575,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -566,6 +597,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -587,6 +619,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -608,6 +641,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -629,6 +663,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -650,6 +685,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -671,6 +707,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -692,6 +729,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -713,6 +751,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -734,6 +773,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -755,6 +795,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5, y: 0.08333334}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -766,6 +807,7 @@ TextureImporter:
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -775,9 +817,32 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PlayerLandingSmoke_0: -7229943907019875098
+      PlayerLandingSmoke_1: -1458571353818666523
+      PlayerLandingSmoke_10: 1845380741678491707
+      PlayerLandingSmoke_11: 1198835728357623656
+      PlayerLandingSmoke_12: 7111170692857485417
+      PlayerLandingSmoke_13: 3510340885617734264
+      PlayerLandingSmoke_14: 8578751600168641332
+      PlayerLandingSmoke_15: 6459041524548060075
+      PlayerLandingSmoke_16: 1689662693334847064
+      PlayerLandingSmoke_17: -5234018871590056676
+      PlayerLandingSmoke_18: -8362685771058533872
+      PlayerLandingSmoke_19: 1480740845021050513
+      PlayerLandingSmoke_2: 6852620400868449888
+      PlayerLandingSmoke_20: 2145606438080633636
+      PlayerLandingSmoke_3: 6492742549375408826
+      PlayerLandingSmoke_4: -5978789465477954790
+      PlayerLandingSmoke_5: 3744786742563642864
+      PlayerLandingSmoke_6: -3729640443410364663
+      PlayerLandingSmoke_7: 1539367212681091885
+      PlayerLandingSmoke_8: -7409981611229631564
+      PlayerLandingSmoke_9: -880072736076283067
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

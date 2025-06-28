@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-namespace Root.Systems.Settings
+namespace Root.Settings
 {
     public class AudioSettings : MonoBehaviour
     {

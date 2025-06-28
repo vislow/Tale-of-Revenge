@@ -27,13 +27,13 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1660434256256098863}
   - {fileID: 907660468940835661}
   - {fileID: 907660470183561369}
   - {fileID: 907660470200708645}
   m_Father: {fileID: 1291224387784496297}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -93,10 +93,10 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1291224386553607068}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -145,9 +145,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1291224386553607068}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -226,15 +226,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -284,9 +286,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1291224386553607068}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -481,15 +483,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -552,9 +556,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1291224386553607068}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -581,7 +585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16567cf82b6b2f74989601fc522e890b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectList: []
+  objectList:
+  - {fileID: 11400000, guid: b8724147635cd1247961e50c12ff1d7e, type: 2}
 --- !u!114 &3659236958652973708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,13 +605,13 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7313543051148812352}
-          m_TargetAssemblyTypeName: Audio.AudioPlayer, Assembly-CSharp
+          m_TargetAssemblyTypeName: Root.Systems.Audio.AudioController, Assembly-CSharp
           m_MethodName: PlaySound
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 11400000, guid: b8724147635cd1247961e50c12ff1d7e,
               type: 2}
-            m_ObjectArgumentAssemblyTypeName: Audio.AudioObject, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: Root.Systems.Audio.AudioObject, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -617,13 +622,13 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7313543051148812352}
-          m_TargetAssemblyTypeName: Audio.AudioPlayer, Assembly-CSharp
+          m_TargetAssemblyTypeName: Root.Systems.Audio.AudioController, Assembly-CSharp
           m_MethodName: PlaySound
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 11400000, guid: cdb3857777a16814d88415524aca8697,
               type: 2}
-            m_ObjectArgumentAssemblyTypeName: Audio.AudioObject, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: Root.Systems.Audio.AudioObject, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -749,15 +754,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -820,9 +827,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1291224386553607068}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -849,7 +856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16567cf82b6b2f74989601fc522e890b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectList: []
+  objectList:
+  - {fileID: 11400000, guid: b8724147635cd1247961e50c12ff1d7e, type: 2}
 --- !u!114 &3659236958669071408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,13 +876,13 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7313543051166533372}
-          m_TargetAssemblyTypeName: Audio.AudioPlayer, Assembly-CSharp
+          m_TargetAssemblyTypeName: Root.Systems.Audio.AudioController, Assembly-CSharp
           m_MethodName: PlaySound
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 11400000, guid: b8724147635cd1247961e50c12ff1d7e,
               type: 2}
-            m_ObjectArgumentAssemblyTypeName: Audio.AudioObject, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: Root.Systems.Audio.AudioObject, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -885,13 +893,13 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7313543051166533372}
-          m_TargetAssemblyTypeName: Audio.AudioPlayer, Assembly-CSharp
+          m_TargetAssemblyTypeName: Root.Systems.Audio.AudioController, Assembly-CSharp
           m_MethodName: PlaySound
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 11400000, guid: cdb3857777a16814d88415524aca8697,
               type: 2}
-            m_ObjectArgumentAssemblyTypeName: Audio.AudioObject, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: Root.Systems.Audio.AudioObject, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1017,15 +1025,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

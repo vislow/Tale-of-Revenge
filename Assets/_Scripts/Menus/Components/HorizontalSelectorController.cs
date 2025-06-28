@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Root.Systems.Components
+namespace Root.Components
 {
     public class HorizontalSelectorController : MonoBehaviour, ISelectHandler, IDeselectHandler
     {

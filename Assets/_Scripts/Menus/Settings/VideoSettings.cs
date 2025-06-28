@@ -1,7 +1,7 @@
-using Root.Systems.Components;
+using Root.Components;
 using UnityEngine;
 
-namespace Root.Systems.Settings
+namespace Root.Settings
 {
     public class VideoSettings : MonoBehaviour
     {
@@ -62,7 +62,7 @@ namespace Root.Systems.Settings
 
             foreach (var res in resolutions)
             {
-                resolutionSelector.optionList.Add($"{res.width} x {res.height} @ {res.refreshRate}");
+                resolutionSelector.optionList.Add($"{res.width} x {res.height} @ {res.refreshRateRatio}");
             }
 
             resolutionSelector.CurrentIndex = resolutions.Length - 1;
@@ -72,7 +72,7 @@ namespace Root.Systems.Settings
         {
             // Set Resolution
             Resolution newResolution = resolutions[resolutionSelector.CurrentIndex];
-            Screen.SetResolution(newResolution.width, newResolution.height, Screen.fullScreenMode, newResolution.refreshRate);
+            Screen.SetResolution(newResolution.width, newResolution.height, Screen.fullScreenMode, newResolution.refreshRateRatio);
         }
 
         public void SetToDefaults()

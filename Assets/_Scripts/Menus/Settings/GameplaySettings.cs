@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Root.Systems.Settings
+namespace Root.Settings
 {
     public class GameplaySettings : MonoBehaviour
     {

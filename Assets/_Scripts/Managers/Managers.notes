@@ -1,0 +1,17 @@
+-= Menu and Pause Manager =-
+Moving game pausing to the GameManager and UIManager should not be that complicated.
+The PauseManager seems to reinvent a lot of the UIManager functionality
+and seems to implement the GameManager for most of its functionality anyways.
+
+==GameManager== 
+Handles all the low level game interaction. ie time/speed, game state, etc.
+if it affects the game as a whole, the GameManager should probably handle it.
+
+==MenuManager== 
+Handles anything related to menus ie pausing, quitting, etc.
+While it handles the menus as a whole, it does not handle the individual page settings
+Page settings should be made into their own scripts or be made into one master settings script
+
+==InputManager== 
+Anything input related. Player presses the pause button? 
+InputManager listens for that and tells the GameManager to pause the game.
