@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
-using Root.Input;
+using Root.Menus;
+using Root.Menus.Components;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +11,7 @@ namespace Root
     {
         [SerializeField] private MenuPage startMenu;
         [SerializeField] private MenuPage pauseMenu;
+        [SerializeField] private GameObject backgroundOverlay;
         [SerializeField] private List<MenuPage> menuPages = new List<MenuPage>();
 
         public MenuPage currentActivePage { get; private set; }
@@ -16,6 +19,27 @@ namespace Root
         private void Awake()
         {
             SwitchToInitalPage();
+        }
+
+        // Add and remove listeners for game state change
+        private void OnEnable() => GameManager.OnGameStateChanged += OnGameStateChanged;
+        private void OnDisable() => GameManager.OnGameStateChanged -= OnGameStateChanged;
+
+        // Disable all pages when initially loading into a gameplay scene
+        private void OnGameStateChanged(GameState gameState)
+        {
+            if (gameState == GameState.Gameplay)
+            {
+                DisableAllPages();
+            }
+            else if (gameState == GameState.Paused)
+            {
+                SwitchPage(pauseMenu);
+            }
+            else if (gameState == GameState.Title)
+            {
+                SwitchPage(startMenu);
+            }
         }
 
         public void SwitchPage(MenuPage targetMenu)
@@ -42,6 +66,7 @@ namespace Root
 
         private void EnablePage(MenuPage menuPage)
         {
+            backgroundOverlay.SetActive(true);
             menuPage.gameObject.SetActive(true);
             currentActivePage = menuPage;
 
@@ -51,9 +76,14 @@ namespace Root
         private void DisablePage(MenuPage menuPage)
         {
             menuPage.gameObject.SetActive(false);
+
+            if (NoPagesEnabled())
+            {
+                backgroundOverlay.SetActive(false);
+            }
         }
 
-        private void DisableAllPages()
+        public void DisableAllPages()
         {
             foreach (var page in menuPages)
             {
@@ -61,6 +91,18 @@ namespace Root
             }
         }
 
+        // Check if all pages are disabled, mainly for checking when to disable the background overlay
+        private bool NoPagesEnabled()
+        {
+            foreach (var page in menuPages)
+            {
+                if (page.gameObject.activeInHierarchy) return false;
+            }
+
+            return true;
+        }
+
+        // Sets the currently selected UI item (button, slider, etc.)
         private void SetSelectedObject()
         {
             EventSystem.current.SetSelectedGameObject(currentActivePage.firstSelectedObject);

@@ -15,7 +15,6 @@ namespace Root.Levels
         /// </Description>
         public static IEnumerator LoadProcess(int levelIndex = default, PassageHandle passageHandle = null)
         {
-
             TransitionManager transitionManager = TransitionManager.instance;
             transitionManager.FadeOut();
 
@@ -59,7 +58,7 @@ namespace Root.Levels
         {
             int sceneIndex = Utility.Utils.GetActiveSceneIndex();
 
-            GameState gameState = default;
+            GameState gameState;
 
             switch (sceneIndex)
             {

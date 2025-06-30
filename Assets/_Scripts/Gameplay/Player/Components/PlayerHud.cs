@@ -147,6 +147,7 @@ namespace Root.Player.Components
 
             void RepositionHeartBar()
             {
+                if (!playerHealth.isActiveAndEnabled) return;
                 float offset = heartList[heartList.Count - 1].localPosition.x / 2;
 
                 foreach (var child in heartList)

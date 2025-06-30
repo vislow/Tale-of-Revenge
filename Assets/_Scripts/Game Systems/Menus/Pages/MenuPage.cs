@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Root
+namespace Root.Menus
 {
     public class MenuPage : MonoBehaviour
     {

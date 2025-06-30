@@ -88,7 +88,11 @@ namespace Root.Player.Components
             }
         }
 
-        private void Move(float xSpeed) => rb.linearVelocity = new Vector2(xSpeed, rb.linearVelocity.y);
+        private void Move(float xSpeed)
+        {
+            if (rb.bodyType == RigidbodyType2D.Static) return;
+            rb.linearVelocity = new Vector2(xSpeed, rb.linearVelocity.y);
+        }
 
         private void ResetRunParticleTimer() => runParticleTimer = Random.Range(runParticleMinDelay, runParticleMaxDelay);
         #endregion

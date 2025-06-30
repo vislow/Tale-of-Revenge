@@ -1,9 +1,9 @@
 ﻿using Root.Levels;
 using UnityEngine;
 
-namespace Root
+namespace Root.Menus
 {
-    public class TitleScreen : MonoBehaviour
+    public class StartMenu : MonoBehaviour
     {
         public void StartGame()
         {

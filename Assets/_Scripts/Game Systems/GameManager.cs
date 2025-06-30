@@ -35,11 +35,25 @@ namespace Root
                 instance = this;
             }
             else
-            {
                 Destroy(this);
-            }
 
             SetInitialGameState();
+        }
+
+        public void ResumeGame()
+        {
+            if (gameState == GameState.Paused)
+            {
+                SetState(GameState.Gameplay);
+            }
+        }
+
+        public void PauseGame()
+        {
+            if (gameState == GameState.Gameplay)
+            {
+                SetState(GameState.Paused);
+            }
         }
 
         // Game freezing is utilized in game for
@@ -61,7 +75,7 @@ namespace Root
             OnGameStateChanged?.Invoke(newGameState);
 
             // Set games speed based on game state. If Paused, the game is frozen, otherwise
-            Time.timeScale = gameState == GameState.Gameplay ? 1f : PlayerPrefs.GetFloat(gameSpeed);
+            //Time.timeScale = gameState == GameState.Gameplay ? 1f : PlayerPrefs.GetFloat(gameSpeed);
         }
 
         private void SetInitialGameState()

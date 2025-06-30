@@ -29,10 +29,24 @@ namespace Root.Input
 
             input.Gameplay.Move.performed += context => inputDirection = context.ReadValue<Vector2>();
             input.Gameplay.Move.canceled += context => inputDirection = Vector2.zero;
+            input.UI.Pause.performed += context => OnPausePressed();
         }
 
         private void OnEnable() => input.Enable();
         private void OnDisable() => input.Disable();
+
+        private void OnPausePressed()
+        {
+            if (GameManager.gameState == GameState.Gameplay)
+            {
+
+                GameManager.instance.PauseGame();
+            }
+            else
+            {
+                GameManager.instance.ResumeGame();
+            }
+        }
         #endregion
 
         #region Helper Functions

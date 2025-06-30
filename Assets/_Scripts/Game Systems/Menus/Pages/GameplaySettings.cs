@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Root.Settings
+namespace Root.Menus
 {
     public class GameplaySettings : MonoBehaviour
     {

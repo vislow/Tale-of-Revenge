@@ -4,21 +4,22 @@ using Root.Input;
 using Root.Levels;
 using Root.Utility;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-namespace Root
+namespace Root.Menus
 {
     public class PauseMenu : MonoBehaviour
     {
+        [SerializeField] private MenuManager menuManager;
+
         public void ResumeGame()
         {
-
+            GameManager.instance.ResumeGame();
         }
 
         public void QuitToMainMenu()
         {
-            SaveHelper.GetCurrentSave().levelData.currentLevel = Utils.GetActiveSceneIndex();
-            SaveHelper.Save();
+            // SaveHelper.GetCurrentSave().levelData.currentLevel = Utils.GetActiveSceneIndex();
+            // SaveHelper.Save();
 
             LevelManager.instance.LoadLevel(0);
         }

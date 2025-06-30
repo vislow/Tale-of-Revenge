@@ -24,8 +24,8 @@ namespace Root.Player.Components
 
         public static event Action<bool> OnSpearUpdate;
 
-        private bool unlocked;
-        internal bool spearUnlocked
+        [SerializeField] private bool unlocked;
+        public bool spearUnlocked
         {
             get => unlocked;
             set

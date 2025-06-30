@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Root.Components
+namespace Root.Menus.Components
 {
     public class SliderController : MonoBehaviour
     {

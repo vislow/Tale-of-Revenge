@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Root.Components
+namespace Root.Menus.Components
 {
     public class HorizontalSelectorController : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
@@ -80,6 +80,9 @@ namespace Root.Components
 
             CurrentIndex += Mathf.RoundToInt(dir);
         }
+
+        public void MoveRight() => CurrentIndex++;
+        public void MoveLeft() => CurrentIndex--;
 
         private IEnumerator FlashArrow(Selectable selectable)
         {

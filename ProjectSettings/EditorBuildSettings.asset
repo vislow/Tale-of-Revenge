@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Management/LoadingScreen.unity
     guid: db421d5082b28d24b9d5cb09da01dc29
   - enabled: 1
+    path: Assets/Scenes/Gameplay/GameplayTesting.unity
+    guid: 67e3318a6a5e2e042b3f9759e9150eaf
+  - enabled: 1
     path: Assets/Scenes/Gameplay/Level0.unity
     guid: 2d58405beb88b4d49aaf77f4abb123f3
   - enabled: 1

@@ -30,12 +30,18 @@ namespace Root.Player.Components
 
         private IEnumerator ApplyKnockback(Vector2 direction, float force, float time)
         {
-            if (deathManager.dead) yield return null;
+            if (deathManager.dead || rb.bodyType == RigidbodyType2D.Static)
+            {
+                StopAllCoroutines();
+                yield return null;
+            }
 
             inKnockback = true;
 
             while (time > 0)
             {
+                if (rb.bodyType == RigidbodyType2D.Static) break;
+
                 time -= Time.deltaTime;
 
                 rb.linearVelocity = direction * force;

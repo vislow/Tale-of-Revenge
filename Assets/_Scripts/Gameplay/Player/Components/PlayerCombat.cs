@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using Root.Entities.Enemies;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Root.Entities.Enemies;
 
 namespace Root.Player.Components
 {
@@ -91,7 +91,6 @@ namespace Root.Player.Components
                 if (enemy.CompareTag("Enemy"))
                 {
                     EnemyHealthController enemyHealthController = enemy.GetComponent<EnemyHealthController>();
-
 
                     if (!hasAppliedSelfKnockback)
                     {

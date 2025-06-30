@@ -7,6 +7,7 @@ namespace Root.Player.Components
     public class PlayerHealth : PlayerComponent
     {
         [SerializeField] private int initialMaxHealth = 4;
+        [SerializeField] private int initialHealth = 3;
         [SerializeField] private float invincibilityTime = 0.3f;
         [Space]
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -38,6 +39,8 @@ namespace Root.Player.Components
             {
                 if (value == currentHealth) return;
 
+                // Dont allow the player health to be set above
+                // the max health or below zero
                 if (value > initialMaxHealth)
                 {
                     value = initialMaxHealth;
@@ -67,7 +70,7 @@ namespace Root.Player.Components
             PlayerDeathManager.OnDeathStageChanged += DeathEvents;
 
             MaxHealth = initialMaxHealth;
-            CurrentHealth = MaxHealth;
+            CurrentHealth = initialHealth;
         }
 
         private void OnDestroy() => PlayerDeathManager.OnDeathStageChanged -= DeathEvents;
